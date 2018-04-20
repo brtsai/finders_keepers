@@ -2,6 +2,9 @@
 
 ## Overview
 
+(Steven)
+Finders Keepers (name pending) is an app.
+
 ## Features
 
 ## Technologies
@@ -11,3 +14,5 @@
 Bryan was here, making the wireframes.
 
 ## Timeline
+
+(Steven)
