@@ -10,6 +10,6 @@ Nima was here, making the technologies
 
 ## Wireframes
 
-Bryan was here, making the wireframes
+Bryan was here, making the wireframes.
 
 ## Timeline
