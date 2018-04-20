@@ -8,6 +8,6 @@
 
 ## Wireframes
 
-Bryan was here, making the wireframes
+Bryan was here, making the wireframes.
 
 ## Timeline
