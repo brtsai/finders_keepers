@@ -10,7 +10,11 @@ see a Google map and live feed of posts within their area.
 
 ## Features
 
+  Yujie is updating features
+
 ## Technologies
+
+Nima was here, making the technologies
 
 ## Wireframes
 
