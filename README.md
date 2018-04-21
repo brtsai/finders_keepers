@@ -15,6 +15,9 @@ see a Google map and live feed of posts within their area.
   I have made a change
 
   I have made some new brnach changes
+  these are my branch changes
+  here are some more edits to my branch
+  
 ## Technologies
 
 Nima was here, making the technologies.
