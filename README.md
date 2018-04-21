@@ -13,6 +13,7 @@ see a Google map and live feed of posts within their area.
   Yujie is updating features
   
   I have made a change
+  these are my branch changes
 ## Technologies
 
 Nima was here, making the technologies.
