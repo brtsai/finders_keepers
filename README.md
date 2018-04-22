@@ -1,33 +1,38 @@
 # Finders Keepers
 
-## Overview
+## Background and Overview
 
 (Steven)
-Finders Keepers (name pending) is a MERN webapp that allows users to post free
+Finders Keepers (name pending) is a webapp that utilizes the MERN that allows users to post free
 giveaways for others to pick up. Users with an account can create a post of a picture of an
 item they wish to give away for free. Causal users, users without an account, will
 see a Google map and live feed of posts within their area.
 
-## Features
+## Functionality and MVP
 
-  Yujie is updating features
   
-  I have made a change
-
-  I have made some new brnach changes
-  these are my branch changes
-  here are some more edits to my branch
-  
-## Technologies
+## Technologies and Technical Challenges
 
 Nima was here, making the technologies.
 
 This is a test
 
+## Things Accomplished Over the Weekend
+
++ wireframes
+
+
 ## Wireframes
 
 Bryan was here, making the wireframes.
 
-## Timeline
+## Group Members and Work Breakdown
+
+### Nima Partovi
+### Steven Choi
+### Bryan Tsai
+### Yujie Zhu
 
 (Steven)
+
+### 
