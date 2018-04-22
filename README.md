@@ -16,9 +16,7 @@ see a Google map and live feed of posts within their area.
 
   + Users will be able to comment and upvote/downvote on Freebie listings.
 
-  + Users can select a pin on the map interface and indicate that they are going to pick it up.
-
-  + When a user selects a Freebie, it will show an estimated availability time based on the location of other users who have indicated that they will `Pick Up`.
+  + Users can select a pin on the map interface and indicate that they are going to pick it up with timestamp.
 
   + Identify items in pictures using google Vision API, to allow easy form prefilling when uploading a Freebie posting.
   
