@@ -13,9 +13,16 @@ see a Google map and live feed of posts within their area.
   
 ## Technologies and Technical Challenges
 
-Nima was here, making the technologies.
+MongoDB - Database
+Express.js - Routing
+React - Frontend Views
+Redux - Frontend State Management
+Node.js - Controllers
+Mongoose - MongoDB driver/ORM for Node.js
+Google Maps API
+Google Vision API
+Paper Clip / AWS - for image handling
 
-This is a test
 
 ## Things Accomplished Over the Weekend
 
