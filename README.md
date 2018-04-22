@@ -49,10 +49,10 @@ see a Google map and live feed of posts within their area.
 
 ### Challenges
 
-- Displaying listings in realtime on the google maps using the google maps api.
+- Displaying listings in realtime on the app's map using the google maps api.
 - Having cloud vision API to detect images and automatically categorize pictures.
 - Creating different google maps markers based on categories.
-- Learning and implemeting the MERN stack.
+- Learning and implementing the MERN stack.
 
 
 ## Things Accomplished Over the Weekend
