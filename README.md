@@ -38,10 +38,6 @@ see a Google map and live feed of posts within their area.
 + wireframes
 
 
-## Wireframes
-
-Bryan was here, making the wireframes.
-
 ## Group Members and Work Breakdown
 
 ### Nima Partovi
