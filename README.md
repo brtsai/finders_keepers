@@ -67,4 +67,65 @@ see a Google map and live feed of posts within their area.
 ### Bryan Tsai
 ### Yujie Zhu
 
-### 
+## Monday
+
+  + Backend
+     - User Auth
+     - MongoDB Listing Model
+     - **Nima, Steven**
+  + Main Display, Google Maps
+     - **Bryan**
+  + Navbar
+     - **Yu Jie**
+     
+## Tuesday
+
+  + Backend
+     - User Auth
+     - MongoDB Listing Model
+     - **Nima, Steven**
+  + Add Listing Form
+     - Paperclip
+     - Aws
+     - Styling
+     - Geocoding
+     - **Yu Jie, Bryan**
+  + Listing Feed
+     - **Yu Jie**
+  + User Profile
+     - **Steven, Nima**
+  + Pins
+     - **Bryan**
+     
+## Wednesday
+   
+   + Categories/Tags
+      - **Bryan, Steven, Nima**
+   + Show Listing
+      - **Yu Jie**
+   + Google Vision API
+      - **Yu Jie, Bryan**
+      
+## Thursday
+
+   + Styling
+      - **Bryan, Nima**
+   + Additional User Features Discussion/Planning
+      - **Yu Jie, Steven**
+   + Catchup Backlogged Work
+      - **Bryan, Nima, Yu Jie, Steven**
+      
+## Friday
+
+   + Quality Assurance/Bug Fixing/Bug Hunting
+      - **Bryan, Nima, Yu Jie, Steven**
+      
+## Saturday
+
+   + Full Deployment, Fix Deployment Bugs
+      - **Bryan, Nima, Yu Jie, Steven**
+   
+## Sunday
+
+   + Implement Demo Seeding
+      - **Bryan, Nima, Yu Jie, Steven**
