@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 node_modules
 package-lock.json
 bundle.js
@@ -5,3 +6,6 @@ bundle.js.map
 *.swp
 tmp/
 log/
+=======
+node_modules
+>>>>>>> 57144ebb95a5ab66e0cb7ad03e4594600786d751
