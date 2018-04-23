@@ -1,0 +1,24 @@
+##Voting Options: 1hr 5hrs 1day
+
+# Product Features
+
+## Map and UI
+
+  * Navbar with add a listing, and login/logout buttons
+
+  * Users will be able to login and sign up using google OAuth.
+
+  * Allow users to pin their Freebies at a location within the google maps interface, and doing so will subsequently update the Freebies side-feed to show their item at the top.
+
+  * Users can select a pin on the map interface and indicate that they are going to pick it up with timestamp.
+
+## User Profile
+  * Users will have a dashboard and profile that will show their giveaway score. This score will be an aggregate of up/down votes from other users who have picked up their Freebies.
+
+## Display Listing
+  * Users will be able to comment and upvote/downvote on Freebie listings.
+
+## Listings Form
+
+  * Identify items in pictures using google Vision API, to allow easy form prefilling when uploading a Freebie posting.
+  * Listers will be able post their Freebie with an image and pin it onto the map.
