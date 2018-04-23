@@ -22,3 +22,14 @@
 
   * Identify items in pictures using google Vision API, to allow easy form prefilling when uploading a Freebie posting.
   * Listers will be able post their Freebie with an image and pin it onto the map.
+
+# Developer Stories
+
+  * As a frontend developer, I would like mock responses for API calls while the backend is under development
+
+  * As a front/backend developer, I would like a defined format for passing/receiving data from the front/backend
+
+  * As a developer, I would like a reusable error banner
+  
+  * As a developer, I would like a backend route for the searching feature
+
