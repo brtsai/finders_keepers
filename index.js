@@ -1,5 +1,4 @@
 const express = require('express');
-<<<<<<< HEAD
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
@@ -24,13 +23,6 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 // middleware
 
-=======
-const app = express();
-
-app.get('/', (req,res) => {
-	res.send({ bye: "buddy"});
-});
->>>>>>> 57144ebb95a5ab66e0cb7ad03e4594600786d751
 
 // this is the port that heroku will listen on, if none exists, 5000 will take over
 const PORT = process.env.PORT || 5000;

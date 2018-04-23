@@ -8,25 +8,17 @@
     "npm": "5.0.3"
   },
   "scripts": {
-<<<<<<< HEAD
     "start": "node index.js",
     "dev": "nodemon index.js"
-=======
-    "start": "node index.js"
->>>>>>> 57144ebb95a5ab66e0cb7ad03e4594600786d751
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
     "mongoose": "^5.0.15",
     "nodemon": "^1.17.3",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
-=======
-    "express": "^4.16.3"
->>>>>>> 57144ebb95a5ab66e0cb7ad03e4594600786d751
   }
 }
