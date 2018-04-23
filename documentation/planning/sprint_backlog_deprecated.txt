@@ -1,0 +1,97 @@
+# Product Features/User Stories
+
+## Map and UI
+
+	* Google Map
+		2 hrs
+		Bryan, Steven
+
+	* Navbar with add a listing, and login/logout buttons
+		* Create React Component for the Navbar
+		* Style the Navbar
+		1 hr - Yujie
+
+	* Users will be able to login and sign up using google OAuth.
+		* Create React Component for google OAuth modal
+		* Style the OAuth modal
+		* Implement OAuth backend for current user
+		* Manage Redux State for current user
+		1/2 day - Nima
+
+	* Allow listing Freebies by dropping a pin on the map for the location, and then opening the add listing form
+		* Implement adding pins to the Google Map
+		* Implement geocoding of map lat/long to usable address
+		* Implement transition between the pin dropping, and opening + pre-filling the add listing form
+		1 Hr - Bryan
+
+## Add Listing Form
+
+	* Listers will be able post their Freebie with an image and pin it onto the map.
+		* Create React form component with hookins/support for paperclip and google cloud vision API
+		* Implement adding images using paperclip
+		* Style add listing form
+		* Manage Redux State for freshly added listing
+
+	* Identify items in pictures using google Vision API, to allow easy form prefilling when uploading a Freebie posting.
+		* Implement use of Google Cloud Vision API to categorise pictures
+		* prefill form details section with #categories for each classified category
+
+## Display Listing
+
+	* Displaying a user listing, picture, title, details
+		2 hrs - Yujie
+	
+	* Users will be able to comment and upvote/downvote on Freebie listings.
+		* Implement backend routes/controllers for updating up/down voting
+		* Implement backend routes/controllers for updating comments
+		* Create React Components for comment feed
+		* Create React Components for up/down voting
+		* Style React Components
+		* Manage Redux State for comments, upvotes/downvotes
+		
+
+	* Users can select a pin on the map interface and indicate that they are going to pick it up with timestamp.
+		* Implement backend routes/controllers for keeping track of who's coming to pick something up with timestamps
+		* Create/Update React Components for listing how many people marked on the way, and when
+		* Style Components
+		* Manage Redux state
+
+## User Profile
+
+	* Users will have a dashboard and profile that will show their giveaway score. This score will be an aggregate of up/down votes from other users who have picked up their Freebies.
+		* Create React Component for user dashboard
+		* Implement backend routes/controllers for aggregating previous listings for current user
+		* Implement backend routes/controllers for aggregating upvotes/downvotes for current user
+		* Style React Component for user dashboard
+		* Manage Redux State for current user
+
+# Developer Stories
+
+	* As a front/backend developer, I would like a defined format for passing/receiving data from the front/backend
+		* Agree on JSON formats for backend route responses
+		* Agree on form/http request param formats coming from frontend/user browser
+
+	* As a frontend developer, I would like mock responses for API calls while the backend is under development
+		* Implement mock responses coming from backend
+		* Implement mock http requests going to backend
+
+	* As a developer, I would like a reusable error banner
+		* Implement Factory Pattern error banner React container
+		* Style error banner
+
+	* As a developer, I would like periodic seeding of our app for demonstration purposes
+		* Decide on seed data generator seed data pool
+		* Create seed data generator
+		* Implement periodic seeding using generator
+
+# Timeline
+
+Monday
+
+Tuesday
+
+Wednesday
+
+Thursday
+
+Friday
