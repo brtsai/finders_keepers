@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/finders_keepers.jsx",
   output: {
-    path: path.resolve(__dirname, 'assets', 'javascripts'),
+    path: path.resolve(__dirname, 'public', 'javascripts'),
     filename: "bundle.js"
   },
   module: {
