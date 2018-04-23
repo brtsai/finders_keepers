@@ -57,6 +57,7 @@ see a Google map and live feed of posts within their area.
 
 ## Things Accomplished Over the Weekend
 
+- Establish/Standardize Git Workflow
 - wireframes
 - Planning (tasks, work breakdown, db models, technology solutions for implementing features)
 - Division of Labour
