@@ -80,7 +80,7 @@ see a Google map and live feed of posts within their area.
   + Main Display, Google Maps
      - **Bryan**
   + Navbar
-     - **Yu Jie**
+     - **Yujie**
      
 ## Tuesday
 
@@ -93,9 +93,9 @@ see a Google map and live feed of posts within their area.
      - Aws
      - Styling
      - Geocoding
-     - **Yu Jie, Bryan**
+     - **Yujie, Bryan**
   + Listing Feed
-     - **Yu Jie**
+     - **Yujie**
   + User Profile
      - **Steven, Nima**
   + Pins
@@ -106,30 +106,30 @@ see a Google map and live feed of posts within their area.
    + Categories/Tags
       - **Bryan, Steven, Nima**
    + Show Listing
-      - **Yu Jie**
+      - **Yujie**
    + Google Vision API
-      - **Yu Jie, Bryan**
+      - **Yujie, Bryan**
       
 ## Thursday
 
    + Styling
       - **Bryan, Nima**
    + Additional User Features Discussion/Planning
-      - **Yu Jie, Steven**
+      - **Yujie, Steven**
    + Catchup Backlogged Work
-      - **Bryan, Nima, Yu Jie, Steven**
+      - **Bryan, Nima, Yujie, Steven**
       
 ## Friday
 
    + Quality Assurance/Bug Fixing/Bug Hunting
-      - **Bryan, Nima, Yu Jie, Steven**
+      - **Bryan, Nima, Yujie, Steven**
       
 ## Saturday
 
    + Full Deployment, Fix Deployment Bugs
-      - **Bryan, Nima, Yu Jie, Steven**
+      - **Bryan, Nima, Yujie, Steven**
    
 ## Sunday
 
    + Implement Demo Seeding
-      - **Bryan, Nima, Yu Jie, Steven**
+      - **Bryan, Nima, Yujie, Steven**
