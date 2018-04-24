@@ -1,15 +1,32 @@
 nav.navbar-container {
-    position: absolute;
-    z-index: 5;
-    top: 60px;
-    background: white;
-    margin: 0 auto;
-    width: 90vw;
-    height: 50px;
-    left: 5vw;
-    background: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+  position: absolute;
+  z-index: 5;
+  top: 60px;
+  background: white;
+  margin: 0 auto;
+  width: 90vw;
+  height: 50px;
+  left: 5vw;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar-container button {
+  font-family: 'Arial';
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.auth-button {
+  height: 40px;
+  width: 140px;
+  color: white;
+  background: #4d90fe;
+}
+.auth-button:hover {
+  background: #3079ed;
+  cursor: pointer;
 }

@@ -27139,7 +27139,7 @@ var GoogleButton = function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				'li',
+				'div',
 				null,
 				this.renderContent()
 			);
