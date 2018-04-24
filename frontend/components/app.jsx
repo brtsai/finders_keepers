@@ -8,4 +8,12 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-import Navbar from 
+import Navbar from './navbar/navbar_container';
+
+const App = () => (
+  <div>
+    <Navbar />
+  </div>
+);
+
+export default App;
