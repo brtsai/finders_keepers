@@ -4,6 +4,10 @@ nav.navbar-container {
     top: 60px;
     background: white;
     margin: 0 auto;
-    width: 900px;
+    width: 90vw;
+    left: 5vw;
+    background: white;
     height: auto;
+    display: flex;
+    flex-direction: row;
 }

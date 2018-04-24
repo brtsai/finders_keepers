@@ -27045,11 +27045,21 @@ var Navbar = function (_React$Component) {
   }
 
   _createClass(Navbar, [{
+    key: 'addFreebie',
+    value: function addFreebie(e) {
+      e.preventDefault();
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'nav',
         { className: 'navbar-container' },
+        _react2.default.createElement(
+          'button',
+          { className: 'add-freebie-button', onClick: this.addFreebie },
+          '+ Add a Freebie'
+        ),
         _react2.default.createElement(_google_button_component2.default, { auth: this.props.auth })
       );
     }
