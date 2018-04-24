@@ -1,5 +1,5 @@
-import React from 'react';
-import { Provider } from 'react-redux';
+import React, { Component } from 'react';
+import { Provider, connect } from 'react-redux';
 import {
   Route,
   Redirect,
@@ -10,17 +10,22 @@ import {
 } from 'react-router-dom';
 
 import Navbar from './navbar/navbar_container';
+import * as actions from '../actions';
 
-const App = () => (
-  <div>
-    Hello World
+class App extends Component {
 
-    <BrowserRouter>
-    	<div>
-    		<Route path='/' component={Navbar} />
-    	</div>
-    </BrowserRouter>
-  </div>
-);
+	componentDidMount() {
+		this.props.fetchUser();
+	}
 
-export default App;
+	render() {
+		return(
+			<div>
+	    		Hello World
+			    <Navbar />
+		  	</div>
+		);
+	}
+};
+
+export default connect(null, actions)(App);

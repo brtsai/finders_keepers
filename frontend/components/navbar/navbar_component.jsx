@@ -1,23 +1,19 @@
 import React from 'react';
+import GoogleButton from './google_button_component';
+import { connect } from 'react-redux'
+
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  renderGoogleButton(){
-  	return(
-  		<a href="/auth/google">Sign In</a>
-  	);
-  }
-
   render() {
   	return(
-  	<div>
-  		{this.renderGoogleButton()}
-  	</div>
-  	)
+      <GoogleButton auth={this.props.auth} />
+  	);
   }
 }
+
 
 export default Navbar;
