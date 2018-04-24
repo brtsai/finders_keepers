@@ -7,11 +7,16 @@ class Navbar extends React.Component {
     super(props);
   }
 
+  addFreebie (e) {
+    e.preventDefault();
+  }
+
   render() {
   	return(
   		<nav className="navbar-container">
-      		<GoogleButton auth={this.props.auth} />
-      	</nav>
+        <button className="add-freebie-button" onClick={ this.addFreebie }>+ Add a Freebie</button>
+      	<GoogleButton auth={this.props.auth} />
+      </nav>
   	);
   }
 }
