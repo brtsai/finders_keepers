@@ -27116,13 +27116,21 @@ var GoogleButton = function (_React$Component) {
 					return _react2.default.createElement(
 						'a',
 						{ href: '/auth/google' },
-						'login with google'
+						_react2.default.createElement(
+							'button',
+							{ className: 'auth-button' },
+							'login with google'
+						)
 					);
 				default:
 					return _react2.default.createElement(
 						'a',
 						{ href: '/api/logout' },
-						'Log Out'
+						_react2.default.createElement(
+							'button',
+							{ className: 'auth-button' },
+							'Log Out'
+						)
 					);
 
 			}
