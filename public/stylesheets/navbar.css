@@ -4,6 +4,12 @@ nav.navbar-container {
     top: 60px;
     background: white;
     margin: 0 auto;
-    width: 900px;
-    height: auto;
+    width: 90vw;
+    height: 50px;
+    left: 5vw;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
