@@ -11,9 +11,9 @@ class GoogleButton extends React.Component {
 			case null:
 				return;
 			case false:
-				return <li><a href="/auth/google">login with google</a></li>
+				return <a href="/auth/google">login with google</a>;
 			default:
-				return <li><a href="/api/logout">Log Out</a></li>
+				return <a href="/api/logout">Log Out</a>;
 				
 		}
 	}
@@ -21,9 +21,9 @@ class GoogleButton extends React.Component {
 
 	render(){
 		return(
-			<div>
+			<li>
 				{this.renderContent()}
-			</div>
+			</li>
 		)
 	}
 }

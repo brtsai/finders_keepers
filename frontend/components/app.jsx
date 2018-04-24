@@ -10,16 +10,33 @@ import {
 } from 'react-router-dom';
 
 import Navbar from './navbar/navbar_container';
-
 import Map from './map/map';
+import { fetchUser } from '../actions';
 
-const App = () => (
-  <div className ="app">
-    <Map />
-    <Navbar />
-  </div>
-);
 
-import * as actions from '../actions';
+class App extends React.Component{
+  constructor(props){
+    super(props)
+  }
 
-export default connect(null, actions)(App);
+  componentDidMount(){
+    this.props.fetchUser()
+  }
+
+  render(){
+    return(
+      <div className ="app">
+        <Map />
+        <Navbar />
+      </div>
+    )
+  }
+}
+
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchUser: ()=> dispatch(fetchUser())
+});
+
+export default connect(null, mapDispatchToProps)(App);
+
