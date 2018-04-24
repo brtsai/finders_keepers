@@ -3462,7 +3462,18 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 /* 47 */,
 /* 48 */,
 /* 49 */,
-/* 50 */,
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var FETCH_USER = exports.FETCH_USER = 'fetch_user';
+
+/***/ }),
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22168,7 +22179,7 @@ var Root = function (_React$Component) {
         _reactRedux.Provider,
         { store: this.props.store },
         _react2.default.createElement(
-          _reactRouterDom.HashRouter,
+          _reactRouterDom.BrowserRouter,
           null,
           _react2.default.createElement(_app2.default, null)
         )
@@ -26720,88 +26731,13 @@ var withRouter = function withRouter(Component) {
 
 /***/ }),
 /* 112 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(13);
-
-var _reactRouterDom = __webpack_require__(20);
-
-var _navbar_container = __webpack_require__(113);
-
-var _navbar_container2 = _interopRequireDefault(_navbar_container);
-
-var _map = __webpack_require__(143);
-
-var _map2 = _interopRequireDefault(_map);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var App = function App() {
-  return _react2.default.createElement(
-    'div',
-    { className: 'app' },
-    _react2.default.createElement(_map2.default, null),
-    _react2.default.createElement(_navbar_container2.default, null)
-  );
-};
-
-exports.default = App;
-
-/***/ }),
-/* 113 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(13);
-
-var _navbar_component = __webpack_require__(114);
-
-var _navbar_component2 = _interopRequireDefault(_navbar_component);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    auth: state.auth
-
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {};
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_navbar_component2.default);
-
-/***/ }),
-/* 114 */
 /***/ (function(module, exports) {
 
-"use strict";
-throw new Error("Module build failed: SyntaxError: Unexpected token (12:4)\n\n\u001b[0m \u001b[90m 10 | \u001b[39m    \u001b[36mreturn\u001b[39m (\n \u001b[90m 11 | \u001b[39m    \t\u001b[33m<\u001b[39m\u001b[33mGoogleButton\u001b[39m \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 | \u001b[39m    ) \t\n \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 | \u001b[39m  }\n \u001b[90m 14 | \u001b[39m}\n \u001b[90m 15 | \u001b[39m\u001b[0m\n");
+throw new Error("Module build failed: SyntaxError: Unexpected token (13:1)\n\n\u001b[0m \u001b[90m 11 | \u001b[39m\n \u001b[90m 12 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mNavbar\u001b[39m from \u001b[32m'./navbar/navbar_container'\u001b[39m\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mMap\u001b[39m from \u001b[32m'./map/map'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 15 | \u001b[39m\n \u001b[90m 16 | \u001b[39m\u001b[36mconst\u001b[39m \u001b[33mApp\u001b[39m \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m (\u001b[0m\n");
 
 /***/ }),
+/* 113 */,
+/* 114 */,
 /* 115 */,
 /* 116 */,
 /* 117 */,
@@ -26910,10 +26846,15 @@ var _entities_reducer = __webpack_require__(140);
 
 var _entities_reducer2 = _interopRequireDefault(_entities_reducer);
 
+var _auth_reducer = __webpack_require__(142);
+
+var _auth_reducer2 = _interopRequireDefault(_auth_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-  entities: _entities_reducer2.default
+  entities: _entities_reducer2.default,
+  auth: _auth_reducer2.default
 });
 
 exports.default = rootReducer;
@@ -26963,74 +26904,29 @@ var listingsReducer = function listingsReducer() {
 exports.default = listingsReducer;
 
 /***/ }),
-/* 142 */,
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+exports.default = function () {
+	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	var action = arguments[1];
 
-var _react = __webpack_require__(0);
+	switch (action.type) {
+		case _types.FETCH_USER:
+			return action.payload || false;
+		default:
+			return state;
+	}
+};
 
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Map = function (_React$Component) {
-  _inherits(Map, _React$Component);
-
-  function Map() {
-    _classCallCheck(this, Map);
-
-    return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).apply(this, arguments));
-  }
-
-  _createClass(Map, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var latitude = parseFloat(37.7867);
-      var longitude = parseFloat(-122.4);
-      // set the map to show SF
-      var mapOptions = {
-        center: { lat: latitude, lng: longitude }, // this is SF
-        zoom: 13
-      };
-
-      // wrap the mapDOMNode in a Google Map
-      this.map = new google.maps.Map(this.mapNode, mapOptions);
-
-      var marker = new google.maps.Marker({
-        position: { lat: latitude, lng: longitude },
-        map: this.map
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement("div", { className: "google-map", ref: function ref(map) {
-          return _this2.mapNode = map;
-        } });
-    }
-  }]);
-
-  return Map;
-}(_react2.default.Component);
-
-exports.default = Map;
+var _types = __webpack_require__(50);
 
 /***/ })
 /******/ ]);
