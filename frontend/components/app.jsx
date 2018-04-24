@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 
 import Navbar from './navbar/navbar_container';
-<<<<<<< HEAD
+
 import Map from './map/map';
 
 const App = () => (
@@ -19,24 +19,7 @@ const App = () => (
     <Navbar />
   </div>
 );
-=======
+
 import * as actions from '../actions';
-
-class App extends Component {
->>>>>>> google_button
-
-	componentDidMount() {
-		this.props.fetchUser();
-	}
-
-	render() {
-		return(
-			<div>
-	    		Hello World
-			    <Navbar />
-		  	</div>
-		);
-	}
-};
 
 export default connect(null, actions)(App);
