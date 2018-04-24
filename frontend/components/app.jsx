@@ -5,7 +5,8 @@ import {
   Redirect,
   Switch,
   Link,
-  HashRouter
+  HashRouter,
+  BrowserRouter
 } from 'react-router-dom';
 
 import Navbar from './navbar/navbar_container';
@@ -13,7 +14,12 @@ import Navbar from './navbar/navbar_container';
 const App = () => (
   <div>
     Hello World
-    <Navbar />
+
+    <BrowserRouter>
+    	<div>
+    		<Route path='/' component={Navbar} />
+    	</div>
+    </BrowserRouter>
   </div>
 );
 
