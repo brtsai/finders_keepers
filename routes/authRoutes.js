@@ -1,4 +1,4 @@
-const passport = require('passport') // importing original passport npm module
+const passport = require('passport'); // importing original passport npm module
 
 
 
@@ -21,11 +21,11 @@ module.exports = (app) =>{
 
 	app.get('/api/logout', (req, res) => {
 		req.logout();
-		res.redirect("/")
+		res.redirect("/");
 	});
 
 	app.get('/api/current_user', (req, res)=>{
 		// res.send(req.session)
 		res.send(req.user);
 	});
-}
+};
