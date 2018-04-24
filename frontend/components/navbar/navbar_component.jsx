@@ -1,4 +1,5 @@
 import React from 'react';
+import GoogleButton from './google_button_component';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -6,7 +7,9 @@ class Navbar extends React.Component {
   }
 
   render() {
-    return <div className="navbar-component">navbar component</div>;  	
+    return (
+    	<GoogleButton 
+    ) 	
   }
 }
 
