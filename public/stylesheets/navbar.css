@@ -19,12 +19,32 @@ nav.navbar-container {
   font-family: 'Arial';
   font-weight: 700;
   font-size: 12px;
-}
-
-.auth-button {
   height: 40px;
   width: 140px;
   color: white;
+}
+
+.add-freebie-button {
+  background: #eb4d4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-freebie-button:hover {
+  background: #d63916;
+  cursor: pointer;
+}
+
+.add-freebie-plus {
+  font-size: 20px;
+  padding-right: 5px;
+}
+
+.add-freebie-text {
+}
+
+.auth-button {
+
   background: #4d90fe;
 }
 .auth-button:hover {

@@ -27058,7 +27058,17 @@ var Navbar = function (_React$Component) {
         _react2.default.createElement(
           'button',
           { className: 'add-freebie-button', onClick: this.addFreebie },
-          '+ Add a Freebie'
+          _react2.default.createElement(
+            'span',
+            { className: 'add-freebie-plus' },
+            '+'
+          ),
+          ' ',
+          _react2.default.createElement(
+            'span',
+            { className: 'add-freebie-text' },
+            'Add a Freebie'
+          )
         ),
         _react2.default.createElement(_google_button_component2.default, { auth: this.props.auth })
       );
