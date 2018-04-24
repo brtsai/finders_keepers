@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "webpack": "webpack --watch"
+    "webpack": "webpack --watch",
   },
   "author": "",
   "license": "ISC",

@@ -5,8 +5,14 @@ class Navbar extends React.Component {
     super(props);
   }
 
-  render() {
+  renderGoogleSignIn () {
+  	return (
+  	  	<a href="/auth/google">Sign In</a>
+  	);
+  }
 
+  render() {
+  	renderGoogleSignIn();
   }
 }
 
