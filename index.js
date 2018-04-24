@@ -11,6 +11,7 @@ mongoose.connect(keys.mongoURI);
 const app = express();
 
 app.use(express.static('public'));
+app.use(express.static( 'public/stylesheets'));
 
 app.use(
 	cookieSession({
