@@ -5,9 +5,11 @@ nav.navbar-container {
     background: white;
     margin: 0 auto;
     width: 90vw;
+    height: 50px;
     left: 5vw;
     background: white;
-    height: auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
