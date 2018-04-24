@@ -26873,6 +26873,10 @@ var _navbar_container = __webpack_require__(111);
 
 var _navbar_container2 = _interopRequireDefault(_navbar_container);
 
+var _map = __webpack_require__(113);
+
+var _map2 = _interopRequireDefault(_map);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
@@ -26880,7 +26884,8 @@ var App = function App() {
     'div',
     null,
     'Hello World',
-    _react2.default.createElement(_navbar_container2.default, null)
+    _react2.default.createElement(_navbar_container2.default, null),
+    _react2.default.createElement(_map2.default, null)
   );
 };
 
@@ -26968,6 +26973,79 @@ var Navbar = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Navbar;
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Map = function (_React$Component) {
+  _inherits(Map, _React$Component);
+
+  function Map() {
+    _classCallCheck(this, Map);
+
+    return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).apply(this, arguments));
+  }
+
+  _createClass(Map, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var latitude = parseFloat(37.7867);
+      var longitude = parseFloat(-122.4);
+      // set the map to show SF
+      var mapOptions = {
+        center: { lat: latitude, lng: longitude }, // this is SF
+        zoom: 13
+      };
+
+      // wrap the mapDOMNode in a Google Map
+      this.map = new google.maps.Map(this.mapNode, mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: { lat: latitude, lng: longitude },
+        map: this.map
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        "div",
+        { className: "google-map-container" },
+        _react2.default.createElement("div", { className: "google-map", ref: function ref(map) {
+            return _this2.mapNode = map;
+          } })
+      );
+    }
+  }]);
+
+  return Map;
+}(_react2.default.Component);
+
+exports.default = Map;
 
 /***/ })
 /******/ ]);
