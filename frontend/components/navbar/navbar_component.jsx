@@ -9,7 +9,6 @@ class Navbar extends React.Component {
 
 	renderUserIcon(auth) {
 		if (auth) {
-			console.log('In renderUserIcon!');
 			console.log(auth);
 
 			return <UserIcon auth={auth} />;
@@ -29,6 +28,7 @@ class Navbar extends React.Component {
 					<span className="add-freebie-plus">+</span>{' '}
 					<span className="add-freebie-text">Add a Freebie</span>
 				</button>
+				{this.renderUserIcon(this.props.auth)}
 				<GoogleButton auth={this.props.auth} />
 			</nav>
 		);
