@@ -21,10 +21,10 @@ class GoogleButton extends React.Component {
 
 	render(){
 		return(
-			<li>
+      <div>
 				{this.renderContent()}
-			</li>
-		)
+      </div>
+		);
 	}
 }
 
