@@ -27590,13 +27590,41 @@ var GoogleButton = function (_React$Component) {
 	}
 
 	_createClass(GoogleButton, [{
+		key: 'renderContent',
+		value: function renderContent() {
+			switch (this.props.auth) {
+				case null:
+					return;
+				case false:
+					return _react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: '/auth/google' },
+							'login with google'
+						)
+					);
+				default:
+					return _react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement(
+							'a',
+							{ href: '/api/logout' },
+							'Log Out'
+						)
+					);
+
+			}
+		}
+	}, {
 		key: 'render',
 		value: function render() {
-			console.log(this.props);
 			return _react2.default.createElement(
-				'a',
-				{ href: '/auth/google' },
-				'Sign In'
+				'div',
+				null,
+				this.renderContent()
 			);
 		}
 	}]);

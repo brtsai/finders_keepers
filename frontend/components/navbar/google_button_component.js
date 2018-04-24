@@ -6,13 +6,25 @@ class GoogleButton extends React.Component {
 		super(props);
 	}
 
+	renderContent(){
+		switch(this.props.auth){
+			case null:
+				return;
+			case false:
+				return <li><a href="/auth/google">login with google</a></li>
+			default:
+				return <li><a href="/api/logout">Log Out</a></li>
+				
+		}
+	}
+
 
 	render(){
-		console.log(this.props)
 		return(
-  			<a href="/auth/google">Sign In</a>
+			<div>
+				{this.renderContent()}
+			</div>
 		)
-
 	}
 }
 
