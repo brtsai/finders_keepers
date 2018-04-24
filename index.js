@@ -1,4 +1,5 @@
 const express = require('express');
+const namespace = require('express-namespace');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
@@ -23,6 +24,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// routes
+
+require('./routes/routes')(app);
 require('./routes/authRoutes')(app);
 // middleware
 
