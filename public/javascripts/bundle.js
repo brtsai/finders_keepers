@@ -26742,10 +26742,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var App = function App() {
   return _react2.default.createElement(
     'div',
-    null,
-    'Hello World',
-    _react2.default.createElement(_navbar_container2.default, null),
-    _react2.default.createElement(_map2.default, null)
+    { className: 'app' },
+    _react2.default.createElement(_map2.default, null),
+    _react2.default.createElement(_navbar_container2.default, null)
   );
 };
 
@@ -26892,13 +26891,9 @@ var Map = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      return _react2.default.createElement(
-        "div",
-        { className: "google-map-container" },
-        _react2.default.createElement("div", { className: "google-map", ref: function ref(map) {
-            return _this2.mapNode = map;
-          } })
-      );
+      return _react2.default.createElement("div", { className: "google-map", ref: function ref(map) {
+          return _this2.mapNode = map;
+        } });
     }
   }]);
 

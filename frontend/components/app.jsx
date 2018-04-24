@@ -12,10 +12,9 @@ import Navbar from './navbar/navbar_container';
 import Map from './map/map';
 
 const App = () => (
-  <div>
-    Hello World
-    <Navbar />
+  <div className ="app">
     <Map />
+    <Navbar />
   </div>
 );
 
