@@ -4,7 +4,7 @@ import { Route, Redirect, Switch, Link, BrowserRouter } from 'react-router-dom';
 
 import Navbar from './navbar/navbar_container';
 import Map from './map/map';
-import { fetchUser } from '../actions';
+import { fetchUser } from '../actions/user_api_util';
 
 class App extends React.Component {
 	constructor(props) {

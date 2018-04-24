@@ -27,7 +27,6 @@ app.use(passport.session());
 // routes
 
 require('./routes/routes')(app);
-require('./routes/authRoutes')(app);
 // middleware
 
 
