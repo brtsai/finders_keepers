@@ -26818,12 +26818,12 @@ var Navbar = function (_React$Component) {
   }
 
   _createClass(Navbar, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
-        'navbar component'
+        "div",
+        { className: "navbar-component" },
+        "navbar component"
       );
     }
   }]);
