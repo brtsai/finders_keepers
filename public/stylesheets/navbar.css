@@ -12,6 +12,7 @@ nav.navbar-container {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  box-shadow: 0px 2px 2px 0px #C7C7C7;
 }
 
 .navbar-container button {
