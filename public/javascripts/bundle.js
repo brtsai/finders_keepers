@@ -27527,7 +27527,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -27540,6 +27540,10 @@ var _google_button_component = __webpack_require__(115);
 
 var _google_button_component2 = _interopRequireDefault(_google_button_component);
 
+var _user_icon_component = __webpack_require__(144);
+
+var _user_icon_component2 = _interopRequireDefault(_user_icon_component);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27549,26 +27553,39 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Navbar = function (_React$Component) {
-  _inherits(Navbar, _React$Component);
+	_inherits(Navbar, _React$Component);
 
-  function Navbar(props) {
-    _classCallCheck(this, Navbar);
+	function Navbar(props) {
+		_classCallCheck(this, Navbar);
 
-    return _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
-  }
+		return _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
+	}
 
-  _createClass(Navbar, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'nav',
-        { className: 'navbar-container' },
-        _react2.default.createElement(_google_button_component2.default, { auth: this.props.auth })
-      );
-    }
-  }]);
+	_createClass(Navbar, [{
+		key: 'renderUserIcon',
+		value: function renderUserIcon(auth) {
+			if (auth) {
+				console.log('In renderUserIcon!');
+				console.log(auth);
 
-  return Navbar;
+				return _react2.default.createElement(_user_icon_component2.default, { auth: auth });
+			}
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var auth = this.props.auth;
+
+			return _react2.default.createElement(
+				'nav',
+				{ className: 'navbar-container' },
+				this.renderUserIcon(auth),
+				_react2.default.createElement(_google_button_component2.default, { auth: auth })
+			);
+		}
+	}]);
+
+	return Navbar;
 }(_react2.default.Component);
 
 exports.default = Navbar;
@@ -27627,7 +27644,6 @@ var GoogleButton = function (_React$Component) {
 						{ href: '/api/logout' },
 						'Log Out'
 					);
-
 			}
 		}
 	}, {
@@ -28803,6 +28819,75 @@ exports.default = function () {
 };
 
 var _types = __webpack_require__(50);
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserIcon = function (_React$Component) {
+	_inherits(UserIcon, _React$Component);
+
+	function UserIcon() {
+		_classCallCheck(this, UserIcon);
+
+		return _possibleConstructorReturn(this, (UserIcon.__proto__ || Object.getPrototypeOf(UserIcon)).apply(this, arguments));
+	}
+
+	_createClass(UserIcon, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'ul',
+				null,
+				_react2.default.createElement(
+					'a',
+					null,
+					this.props.auth._id
+				),
+				_react2.default.createElement(
+					'a',
+					null,
+					this.props.auth.googleId
+				),
+				_react2.default.createElement(
+					'a',
+					null,
+					this.props.auth.__v
+				),
+				_react2.default.createElement(
+					'a',
+					null,
+					Object.values(this.props.auth)
+				)
+			);
+		}
+	}]);
+
+	return UserIcon;
+}(_react2.default.Component);
+
+exports.default = UserIcon;
 
 /***/ })
 /******/ ]);
