@@ -27572,15 +27572,34 @@ var Navbar = function (_React$Component) {
 			}
 		}
 	}, {
+		key: 'addFreebie',
+		value: function addFreebie(e) {
+			e.preventDefault();
+		}
+	}, {
 		key: 'render',
 		value: function render() {
-			var auth = this.props.auth;
-
 			return _react2.default.createElement(
 				'nav',
 				{ className: 'navbar-container' },
-				this.renderUserIcon(auth),
-				_react2.default.createElement(_google_button_component2.default, { auth: auth })
+				_react2.default.createElement(
+					'button',
+					{
+						className: 'add-freebie-button',
+						onClick: this.addFreebie },
+					_react2.default.createElement(
+						'span',
+						{ className: 'add-freebie-plus' },
+						'+'
+					),
+					' ',
+					_react2.default.createElement(
+						'span',
+						{ className: 'add-freebie-text' },
+						'Add a Freebie'
+					)
+				),
+				_react2.default.createElement(_google_button_component2.default, { auth: this.props.auth })
 			);
 		}
 	}]);
@@ -27636,13 +27655,21 @@ var GoogleButton = function (_React$Component) {
 					return _react2.default.createElement(
 						'a',
 						{ href: '/auth/google' },
-						'login with google'
+						_react2.default.createElement(
+							'button',
+							{ className: 'auth-button' },
+							'login with google'
+						)
 					);
 				default:
 					return _react2.default.createElement(
 						'a',
 						{ href: '/api/logout' },
-						'Log Out'
+						_react2.default.createElement(
+							'button',
+							{ className: 'auth-button' },
+							'Log Out'
+						)
 					);
 			}
 		}
@@ -27650,7 +27677,7 @@ var GoogleButton = function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				'li',
+				'div',
 				null,
 				this.renderContent()
 			);

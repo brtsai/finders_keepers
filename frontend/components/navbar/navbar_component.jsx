@@ -16,13 +16,20 @@ class Navbar extends React.Component {
 		}
 	}
 
-	render() {
-		const auth = this.props.auth;
+	addFreebie(e) {
+		e.preventDefault();
+	}
 
+	render() {
 		return (
 			<nav className="navbar-container">
-				{this.renderUserIcon(auth)}
-				<GoogleButton auth={auth} />
+				<button
+					className="add-freebie-button"
+					onClick={this.addFreebie}>
+					<span className="add-freebie-plus">+</span>{' '}
+					<span className="add-freebie-text">Add a Freebie</span>
+				</button>
+				<GoogleButton auth={this.props.auth} />
 			</nav>
 		);
 	}
