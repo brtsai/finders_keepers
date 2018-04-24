@@ -9,7 +9,9 @@ class Navbar extends React.Component {
 
   render() {
   	return(
-      <GoogleButton auth={this.props.auth} />
+  		<nav className="navbar-container">
+      		<GoogleButton auth={this.props.auth} />
+      	</nav>
   	);
   }
 }

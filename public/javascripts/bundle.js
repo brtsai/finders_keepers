@@ -27560,7 +27560,11 @@ var Navbar = function (_React$Component) {
   _createClass(Navbar, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_google_button_component2.default, { auth: this.props.auth });
+      return _react2.default.createElement(
+        'nav',
+        { className: 'navbar-container' },
+        _react2.default.createElement(_google_button_component2.default, { auth: this.props.auth })
+      );
     }
   }]);
 
@@ -27613,23 +27617,15 @@ var GoogleButton = function (_React$Component) {
 					return;
 				case false:
 					return _react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: '/auth/google' },
-							'login with google'
-						)
+						'a',
+						{ href: '/auth/google' },
+						'login with google'
 					);
 				default:
 					return _react2.default.createElement(
-						'li',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ href: '/api/logout' },
-							'Log Out'
-						)
+						'a',
+						{ href: '/api/logout' },
+						'Log Out'
 					);
 
 			}
@@ -27638,7 +27634,7 @@ var GoogleButton = function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				'div',
+				'li',
 				null,
 				this.renderContent()
 			);
