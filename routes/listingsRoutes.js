@@ -50,7 +50,7 @@ module.exports = (app) => {
       const newListing = new Listing(buildListingJSON(req.body.listing));
       console.log(buildListingJSON(req.body.listing));
       newListing.save(err => console.log(err));
-      res.send("created a listing");
+      res.send(newListing);
   	}
   );
 
