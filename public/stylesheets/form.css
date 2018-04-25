@@ -1,0 +1,17 @@
+.form-container {
+    position: absolute;
+    top: 67px;
+    background: white;
+    border: 1px solid #ccc;
+    left: 0px;
+    
+	display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-container * {
+	display: flex;
+    flex-direction: column;
+    text-align: left;
+}
