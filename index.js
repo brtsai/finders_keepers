@@ -25,8 +25,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// routes
+//expose db to router
+app.use(function (req, res, next) {
+  req.db = db;
+  next();
+});
 
+// routes
 require('./routes/routes')(app);
 // middleware
 

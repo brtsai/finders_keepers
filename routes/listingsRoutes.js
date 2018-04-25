@@ -9,7 +9,8 @@ module.exports = (app) => {
   app.get(
   	'/listings',
   	(req, res) => {
-  		res.send("this is all the listings");
+  		console.log(req.db);
+      res.send("this is all the listings");
   	}
   );
 
