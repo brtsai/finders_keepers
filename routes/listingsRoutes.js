@@ -18,6 +18,7 @@ const buildListingJSON = (listing) => {
     { tags: parseTagsFromDescription(listing.description) },
     { description: parseDescriptionFromDescription(listing.description) }
   );
+  
   return json;
 }
 
@@ -47,8 +48,10 @@ module.exports = (app) => {
   app.post(
   	'/listings',
   	(req, res) => {
-      const newListing = new Listing(buildListingJSON(req.body.listing));
-      console.log(buildListingJSON(req.body.listing));
+      console.log(req.body);
+
+      const newListing = new Listing(buildListingJSON(req.body));
+      console.log(buildListingJSON(req.body));
       newListing.save(err => console.log(err));
       res.send("created a listing");
   	}

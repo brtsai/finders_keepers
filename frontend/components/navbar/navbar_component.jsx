@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleButton from './google_button_component';
 import UserIcon from './user_icon_component';
-import AddFreebieForm from '../forms/add_freebie_form';
+import AddFreebieFormContainer from '../forms/add_freebie_form_container';
 
 class Navbar extends React.Component {
 	constructor(props) {
@@ -16,8 +16,6 @@ class Navbar extends React.Component {
 
 	renderUserIcon(auth) {
 		if (auth) {
-			console.log(auth);
-
 			return <UserIcon auth={auth} />;
 		}
 	}
@@ -27,7 +25,7 @@ class Navbar extends React.Component {
 			return null
 		}
 		return (
-			<AddFreebieForm />
+			<AddFreebieFormContainer />
 		)		
 	}
 
