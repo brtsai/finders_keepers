@@ -1,3 +1,16 @@
+const mongoose = require('mongoose');
+
+const parseTagsFromDescription = (description) => {
+  return description.match(/#\w+/g);
+}
+
+const parseDescriptionFromDescription = (description) => {
+  const words = description.split(' ');
+  const nonTags = words.filter(word => !(word.includes('#')));
+  return nonTags.join(' ');
+}
+
+
 module.exports = (app) => {
   app.get(
     '/listings/new',
@@ -24,9 +37,11 @@ module.exports = (app) => {
   app.post(
   	'/listings',
   	(req, res) => {
-  		console.log(Object.keys(req));
       console.log(req.body);
-  		res.send("created a listing");
+      const description = parseDescriptionFromDescription(req.body.listing.description);
+      const tags = parseTagsFromDescription(req.body.listing.description);
+      console.log(mongoose.model('listings'));
+      res.send("created a listing");
   	}
   );
 
@@ -34,6 +49,7 @@ module.exports = (app) => {
   	'listings/:id',
   	(req, res) => {
       console.log(req.params);
+
   		res.send("deleted the listing");
   	}
   );
@@ -44,6 +60,4 @@ module.exports = (app) => {
   		res.send("update the file");
   	}
   );
-
-
 };

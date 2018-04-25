@@ -4,13 +4,15 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
-require('./models/User');
+require('./models/user');
+require('./models/listing');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
 var db = mongoose.connection;
 
 const app = express();
+const bodyParser = require('body-parser');
 
 app.use(express.static('public'));
 app.use(express.static( 'public/stylesheets'));
@@ -24,6 +26,10 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //expose db to router
 app.use(function (req, res, next) {

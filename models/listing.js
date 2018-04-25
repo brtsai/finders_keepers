@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const listingSchema = new Schema({
-    userId: Number { type: Schema.Types.ObjectId, ref: 'users' },
+    userId: { type: Schema.Types.ObjectId, ref: 'users' },
     address: String,
     latitude: Number,
     longitude: Number,
@@ -14,4 +14,4 @@ const listingSchema = new Schema({
     timestamps: { createdAt: 'created_at' }
 });
 
-mongoose.model('listings', listingSchema);
+const ListingModel = mongoose.model('listings', listingSchema);
