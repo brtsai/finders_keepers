@@ -5,7 +5,8 @@ import auth from './auth_reducer';
 
 const rootReducer = combineReducers({
   entities,
-  auth
+  auth,
+  errors
 });
 
 export default rootReducer;
