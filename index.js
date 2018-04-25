@@ -7,10 +7,15 @@ const keys = require('./config/keys');
 require('./models/User');
 require('./services/passport');
 
+const bodyParser = require('body-parser');
+const busboy = require('connect-busboy');
+const busboyBodyParser = require('busboy-body-parser');
+
 mongoose.connect(keys.mongoURI);
 
 const app = express();
 
+// Google Oauth
 app.use(express.static('public'));
 app.use(express.static( 'public/stylesheets'));
 
@@ -23,6 +28,12 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Image upload
+app.use(busboy());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(busboyBodyParser());
 
 // routes
 
