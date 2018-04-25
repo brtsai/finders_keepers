@@ -2,8 +2,8 @@ const AWS = require('aws-sdk');
 const Busboy = require('busboy');
 
 const BUCKET_NAME = 'finderskeepers';
-const IAM_USER_KEY = 'AKIAIN3IOEICKU3BHPFQ';
-const IAM_USER_SECRET = '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';
+const IAM_USER_KEY = '';
+const IAM_USER_SECRET = '';
 
 function uploadToS3(file) {
   let s3bucket = new AWS.S3({
