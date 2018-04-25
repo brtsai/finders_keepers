@@ -3,13 +3,13 @@ const Listing = mongoose.model('listings');
 
 const parseTagsFromDescription = (description) => {
   return description.match(/#\w+/g);
-}
+};
 
 const parseDescriptionFromDescription = (description) => {
   const words = description.split(' ');
   const nonTags = words.filter(word => !(word.includes('#')));
   return nonTags.join(' ');
-}
+};
 
 const buildListingJSON = (listing) => {
   const json = Object.assign(
@@ -19,7 +19,7 @@ const buildListingJSON = (listing) => {
     { description: parseDescriptionFromDescription(listing.description) }
   );
   return json;
-}
+};
 
 module.exports = (app) => {
   app.get(
@@ -57,16 +57,23 @@ module.exports = (app) => {
   app.delete(
   	'listings/:id',
   	(req, res) => {
-      console.log(req.params);
-
-  		res.send("deleted the listing");
+			const listing = Listing.findOneAndRemove({_id: req.params.id}, 
+				function(err, doc) {
+					res.send(doc);
+				} );
   	}
   );
 
   app.patch(
   	'listings/:id',
   	(req, res) => {
-  		res.send("update the file");
+			const listing = Listing.findOneAndUpdate({ _id: req.params.id }, 
+				req.body, 
+				{ new: true }, 
+				function (err, doc) {
+					console.log(err);
+        	res.send(doc);
+      });
   	}
   );
 };
