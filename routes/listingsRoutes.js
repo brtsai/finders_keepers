@@ -23,24 +23,24 @@ const buildListingJSON = (listing) => {
 
 module.exports = (app) => {
   app.get(
-    '/listings/new',
-    (req, res) => {
-      res.send('hello world');
-    }
-  );
-
-  app.get(
   	'/listings',
   	(req, res) => {
-  		console.log(req.db);
-      res.send("this is all the listings");
+      const query = Listing.find({});
+      query.limit(5).exec(function(err, doc) {
+        res.send(doc);
+      });
+
   	}
   );
 
   app.get(
   	'/listings/:id',
   	(req, res) => {
-  		res.send("this is one listing");
+  		console.log(req.params);
+      const listing = Listing.findOne({ _id: req.params.id }, function (err, doc) {
+        res.send(doc);
+      });
+
   	}
   );
 
