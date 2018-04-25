@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Listing = mongoose.model('listings');
 
 const parseTagsFromDescription = (description) => {
   return description.match(/#\w+/g);
@@ -10,6 +11,15 @@ const parseDescriptionFromDescription = (description) => {
   return nonTags.join(' ');
 }
 
+const buildListingJSON = (listing) => {
+  const json = Object.assign(
+    {}, 
+    listing, 
+    { tags: parseTagsFromDescription(listing.description) },
+    { description: parseDescriptionFromDescription(listing.description) }
+  );
+  return json;
+}
 
 module.exports = (app) => {
   app.get(
@@ -37,10 +47,9 @@ module.exports = (app) => {
   app.post(
   	'/listings',
   	(req, res) => {
-      console.log(req.body);
-      const description = parseDescriptionFromDescription(req.body.listing.description);
-      const tags = parseTagsFromDescription(req.body.listing.description);
-      console.log(mongoose.model('listings'));
+      const newListing = new Listing(buildListingJSON(req.body.listing));
+      console.log(buildListingJSON(req.body.listing));
+      newListing.save(err => console.log(err));
       res.send("created a listing");
   	}
   );

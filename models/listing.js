@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const listingSchema = new Schema({
-    userId: { type: Schema.Types.ObjectId, ref: 'users' },
+    userId: Number,
     address: String,
     latitude: Number,
     longitude: Number,
