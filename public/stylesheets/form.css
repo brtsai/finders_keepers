@@ -1,17 +1,29 @@
-.form-container {
-    position: absolute;
-    top: 67px;
-    background: white;
-    border: 1px solid #ccc;
-    left: 0px;
-    
+.form-container {    
 	display: flex;
     flex-direction: column;
     text-align: left;
+    padding: 10px 30px;
 }
 
 .form-container * {
 	display: flex;
     flex-direction: column;
     text-align: left;
+}
+
+
+.form-wrapper{
+    position: absolute;
+    top: 67px;
+    background: white;
+    border: 1px solid #ccc;
+    left: 0px;
+    width: 340px;
+    height:420px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.form-container label {
+    text-align: center;
 }

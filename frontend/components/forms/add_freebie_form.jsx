@@ -32,17 +32,18 @@ class AddFreebieForm extends React.Component {
 		console.log(this.props)
 
 		return(
-			<div>
+			<div className="form-wrapper">
+				<h1 className="form-header">Add Listing</h1>
 				<form className="form-container" onSubmit={this.listingHandler}>
-					<label>Title
+					<label className="form-label title">Title
 						<input onChange={this.update("title")} type="text"/>
 					</label>
 
-					<label>Description
+					<label className="form-label description">Description
 						<textarea onChange={this.update("description")} />
 					</label>
 
-				    <label>Address
+				    <label className="form-label address">Address
 				    	<input onChange={this.update("address")} className="address-input" type="text" />
 				    </label>
 
