@@ -9,7 +9,8 @@ module.exports = (app) => {
   app.get(
   	'/listings',
   	(req, res) => {
-  		res.send("this is all the listings");
+  		console.log(req.db);
+      res.send("this is all the listings");
   	}
   );
 
@@ -23,7 +24,8 @@ module.exports = (app) => {
   app.post(
   	'/listings',
   	(req, res) => {
-  		console.log(req);
+  		console.log(Object.keys(req));
+      console.log(req.body);
   		res.send("created a listing");
   	}
   );
@@ -31,6 +33,7 @@ module.exports = (app) => {
   app.delete(
   	'listings/:id',
   	(req, res) => {
+      console.log(req.params);
   		res.send("deleted the listing");
   	}
   );
