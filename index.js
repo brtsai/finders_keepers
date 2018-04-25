@@ -13,7 +13,6 @@ const busboy = require('connect-busboy');
 const busboyBodyParser = require('busboy-body-parser');
 
 mongoose.connect(keys.mongoURI);
-var db = mongoose.connection;
 
 const app = express();
 
@@ -36,12 +35,6 @@ app.use(busboy());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(busboyBodyParser());
-
-//expose db to router
-app.use(function (req, res, next) {
-  req.db = db;
-  next();
-});
 
 // routes
 require('./routes/routes')(app);
