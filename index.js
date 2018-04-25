@@ -8,6 +8,7 @@ require('./models/User');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
+var db = mongoose.connection;
 
 const app = express();
 
