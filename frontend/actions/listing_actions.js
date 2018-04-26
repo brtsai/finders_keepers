@@ -1,4 +1,4 @@
-import { RECEIVE_LISTINGS, RECEIVE_LISTING, REMOVE_LISTING } from "./types";
+import { RECEIVE_LISTINGS, RECEIVE_LISTING, REMOVE_LISTING, RECEIVE_LISTING_ERRORS } from "./types";
 import * as ListingApiUtil from "../util/listing_api_util";
 
 const receiveListings = listings => dispatch => ({
@@ -16,14 +16,21 @@ const removeListing = listing => dispatch => ({
 	listing
 });
 
+const receiveListingErrors = errors => dispatch => ({
+  type: RECEIVE_LISTING_ERRORS,
+  errors
+});
+
 export const fetchListings = () => dispatch =>
-	ListingApiUtil.fetchListings().then(listings =>
-		dispatch(receiveListings(listings))
+	ListingApiUtil.fetchListings().then(
+  listings => dispatch(receiveListings(listings)),
+  errors => dispatch(receiveListingErrors(errors))
 	);
 
 export const createListing = formListing => dispatch =>
-	ListingApiUtil.createListing(formListing).then(listing =>
-		dispatch(receiveListing(listing))
+	ListingApiUtil.createListing(formListing).then(
+  listing => dispatch(receiveListing(listing)),
+  errors => dispatch(receiveListingErrors(errors))
 	);
 
 export const deleteListing = listingId => dispatch =>
