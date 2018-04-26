@@ -6,8 +6,7 @@ import { uploadImage } from '../../util/image_api_util';
 
 
 const mapStateToProps = state => ({
-
-
+	userId: state.auth._id 
 });
 
 const mapDispatchToProps = dispatch => ({

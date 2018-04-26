@@ -12,6 +12,7 @@ class AddFreebieForm extends React.Component {
 		super(props);
 
 		this.state = {
+				userId: this.props.userId,
 		    address: null,
 		    latitude: 37.7989666,
 		    longitude: -122.4035405,
