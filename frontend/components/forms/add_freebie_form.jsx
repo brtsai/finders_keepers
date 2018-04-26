@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { geocode } from '../../util/geocoding_api_util';
 
 class AddFreebieForm extends React.Component {
 	constructor(props){
@@ -25,12 +25,24 @@ class AddFreebieForm extends React.Component {
 
 	listingHandler(e) {
 		e.preventDefault();
-		this.props.createListing(this.state);
+    geocode(this.state.address).then(res => {
+      if (res.data.results.length > 0) {
+        const result = res.data.results[0];
+        this.setState({ 
+          address: result.formatted_address,
+          latitude: result.geometry.location.lat,
+          longitude: result.geometry.location.lng
+        }, () => {
+		      this.props.createListing(this.state);
+        });
+      } else {
+        //handle unable to geocode
+      }
+    });
+
 	}
 
 	render(){
-		console.log(this.props)
-
 		return(
 			<div className="form-wrapper">
 				<h1 className="form-header">Add Listing</h1>

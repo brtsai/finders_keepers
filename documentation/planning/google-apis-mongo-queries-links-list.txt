@@ -1,6 +1,6 @@
 https://developers.google.com/maps/documentation/geocoding/intro
 
-https://maps.googleapis.com/maps/api/geocode/xml?address=Front%20%26%20Broadway%2C%20San%20Francisco&key=AIzaSyADVVFN-sWPtq7Lqp7nvs_mUYm1nL1Nj1o
+https://maps.googleapis.com/maps/api/geocode/json?address=Front%20%26%20Broadway%2C%20San%20Francisco&key=AIzaSyADVVFN-sWPtq7Lqp7nvs_mUYm1nL1Nj1o
 
 https://www.urlencoder.org/
 
