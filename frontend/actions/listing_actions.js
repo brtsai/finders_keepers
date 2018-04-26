@@ -3,7 +3,7 @@ import {
   RECEIVE_LISTING,
   REMOVE_LISTING
 } from "./types";
-import * as ListingApiUtil from './listing_api_util';
+import * as ListingApiUtil from '../util/listing_api_util';
 
 const receiveListings = (listings) => dispatch => ({
       type: RECEIVE_LISTINGS,
