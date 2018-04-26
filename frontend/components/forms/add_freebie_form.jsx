@@ -33,7 +33,14 @@ class AddFreebieForm extends React.Component {
           latitude: result.geometry.location.lat,
           longitude: result.geometry.location.lng
         }, () => {
-		      this.props.createListing(this.state);
+		      this.props.createListing(this.state).then(
+            success => { 
+              this.props.close();
+            },
+            failure => {
+              // handle create listing failure
+            }
+          );
         });
       } else {
         //handle unable to geocode
