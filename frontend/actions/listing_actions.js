@@ -30,8 +30,12 @@ export const fetchListings = () => dispatch =>
 export const createListing = formListing => dispatch =>
 	ListingApiUtil.createListing(formListing).then(
     listing => dispatch(receiveListing(listing)),
-    errors => dispatch(receiveListingErrors(errors))
+    errors => {
+      console.log('failed');
+      dispatch(receiveListingErrors(errors))
+    }
 	);
+
 
 export const deleteListing = listingId => dispatch =>
 	ListingApiUtil.deleteListing(listingId).then(listing =>

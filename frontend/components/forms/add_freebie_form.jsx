@@ -53,7 +53,7 @@ class AddFreebieForm extends React.Component {
 								success => {
                   console.log(success);
 									that.props.close();
-								}).catch(
+								},
 								failure => {
 									// handle create listing failure
                   console.log('failed to create a listing');

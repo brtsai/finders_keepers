@@ -49727,7 +49727,7 @@ var AddFreebieForm = function (_React$Component) {
 							that.props.createListing(that.state).then(function (success) {
 								console.log(success);
 								that.props.close();
-							}).catch(function (failure) {
+							}, function (failure) {
 								// handle create listing failure
 								console.log('failed to create a listing');
 							});
@@ -84384,7 +84384,8 @@ var createListing = exports.createListing = function createListing(formListing) 
 		return ListingApiUtil.createListing(formListing).then(function (listing) {
 			return dispatch(receiveListing(listing));
 		}, function (errors) {
-			return dispatch(receiveListingErrors(errors));
+			console.log('failed');
+			dispatch(receiveListingErrors(errors));
 		});
 	};
 };
