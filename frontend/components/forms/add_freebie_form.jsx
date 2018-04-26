@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-import React from 'react';
-import { geocode } from '../../util/geocoding_api_util';
-import cloudinary from 'cloudinary';
-
-=======
 import React from "react";
 import { geocode } from "../../util/geocoding_api_util";
 import cloudinary from "cloudinary";
->>>>>>> e004210c39c187cc479a714aeb144b6a5afb678e
+
 cloudinary.config({
 	cloud_name: "djbrisg12",
 	api_key: "189584942645919",
