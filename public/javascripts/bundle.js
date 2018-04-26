@@ -11248,9 +11248,6 @@ var RECEIVE_LISTINGS = exports.RECEIVE_LISTINGS = "fetch_listings";
 var RECEIVE_LISTING = exports.RECEIVE_LISTING = "fetch_listing";
 var REMOVE_LISTING = exports.REMOVE_LISTING = "remove_listing";
 
-// uploadimage
-var UPLOAD_IMAGE = exports.UPLOAD_IMAGE = "upload_image";
-
 /***/ }),
 /* 56 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16530,8 +16527,6 @@ var _add_freebie_form2 = _interopRequireDefault(_add_freebie_form);
 
 var _listing_actions = __webpack_require__(536);
 
-var _image_api_util = __webpack_require__(538);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -16544,9 +16539,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	return {
 		createListing: function createListing(listing) {
 			return dispatch((0, _listing_actions.createListing)(listing));
-		},
-		uploadImage: function uploadImage(fileData) {
-			return dispatch((0, _image_api_util.uploadImage)(fileData));
 		}
 	};
 };
@@ -84434,42 +84426,7 @@ var deleteListing = exports.deleteListing = function deleteListing(listingId) {
 };
 
 /***/ }),
-/* 538 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.uploadImage = undefined;
-
-var _axios = __webpack_require__(60);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _types = __webpack_require__(55);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var uploadImage = exports.uploadImage = function uploadImage(fileData) {
-	console.log("File Data: " + fileData);
-	return function (dispatch) {
-		console.log("Inside dispatch");
-
-		_axios2.default.post("/api/upload", fileData).then(function (res) {
-			console.log("response" + res);
-
-			return dispatch({
-				type: _types.UPLOAD_IMAGE,
-				payload: res.data
-			});
-		});
-	};
-};
-
-/***/ }),
+/* 538 */,
 /* 539 */
 /***/ (function(module, exports, __webpack_require__) {
 
