@@ -16,6 +16,7 @@ class App extends React.Component {
 
 	componentDidMount() {
 		this.props.fetchUser();
+		
 	}
 
 	render() {
@@ -30,7 +31,7 @@ class App extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-	fetchUser: () => dispatch(fetchUser())
+	fetchUser: () => dispatch(fetchUser()),
 });
 
 export default connect(null, mapDispatchToProps)(App);

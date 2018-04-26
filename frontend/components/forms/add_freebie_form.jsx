@@ -5,7 +5,7 @@ import cloudinary from "cloudinary";
 cloudinary.config({
 	cloud_name: "djbrisg12",
 	api_key: "189584942645919",
-	api_secret: "smX1q9fiqSNQEgMvkFsSd2Tkbw8"
+	api_secret: "smX1q9fiqSNQEgMvkFsSd2Tkbw8",
 });
 
 class AddFreebieForm extends React.Component {
@@ -17,9 +17,9 @@ class AddFreebieForm extends React.Component {
 			address: null,
 			latitude: 37.7989666,
 			longitude: -122.4035405,
-			imageUrl: "",
+			imageUrl: null,
 			title: null,
-			description: null
+			description: null,
 		};
 
 		this.listingHandler = this.listingHandler.bind(this);
@@ -45,16 +45,18 @@ class AddFreebieForm extends React.Component {
 						{
 							address: result.formatted_address,
 							latitude: result.geometry.location.lat,
-							longitude: result.geometry.location.lng
+							longitude: result.geometry.location.lng,
 						},
 						() => {
 							console.log(that.state);
 							that.props.createListing(that.state).then(
 								success => {
+                  console.log(success);
 									that.props.close();
 								},
 								failure => {
 									// handle create listing failure
+                  console.log('failed to create a listing');
 								}
 							);
 						}
@@ -83,8 +85,25 @@ class AddFreebieForm extends React.Component {
 		}
 	}
 
+	renderImagePreview(){
+		if(!this.state.imageUrl){
+			return (
+				<div className="image-form-input">
+					<h1><i class="fas fa-plus"></i> Add Image</h1>
+					<input type="file" accept="image/*" onChange={this.imageHandler} />
+				</div>
+				)
+		}else{
+			return(
+			<div className="image-form-input">
+				<img className="img-preview" src={this.state.imageUrl} />
+				<input style={{display: 'none'}} type="file" accept="image/*" onChange={this.imageHandler} />
+			</div>
+			)
+		}
+	}
+
 	render() {
-		console.log(this.props);
 		return (
 			<div className="form-wrapper">
 				<h1 className="form-header">Add Listing</h1>
@@ -110,10 +129,10 @@ class AddFreebieForm extends React.Component {
 
 					<label>
 						Upload Image
-						<input type="file" accept="image/*" onChange={this.imageHandler} />
+							{this.renderImagePreview()}
 					</label>
 
-					<img className="img-preview" src={this.state.imageUrl} />
+					
 
 					<div className="form-submit-close-buttons">
 						<button className="form-submit-button">Submit</button>

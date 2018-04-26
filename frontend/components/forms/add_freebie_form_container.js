@@ -5,12 +5,12 @@ import { createListing } from "../../actions/listing_actions";
 import { uploadImage } from "../../util/image_api_util";
 
 const mapStateToProps = state => ({
-	userId: state.auth._id
+	userId: state.auth._id,
 });
 
 const mapDispatchToProps = dispatch => ({
 	createListing: listing => dispatch(createListing(listing)),
-	uploadImage: fileData => dispatch(uploadImage(fileData))
+	uploadImage: fileData => dispatch(uploadImage(fileData)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddFreebieForm);

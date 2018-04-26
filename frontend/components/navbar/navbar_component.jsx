@@ -8,7 +8,7 @@ class Navbar extends React.Component {
 		super(props);
 
 		this.state = {
-			showingAddFreebieModal: false
+			showingAddFreebieModal: false,
 		};
 
 		this.openAddFreebieForm = this.openAddFreebieForm.bind(this);

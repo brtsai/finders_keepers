@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import listings from "./listings_errors_reducer";
 
 const errorsReducer = combineReducers({
-	listings
+	listings,
 });
 
 export default errorsReducer;
