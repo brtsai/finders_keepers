@@ -1,6 +1,7 @@
 import React from 'react';
 import { geocode } from '../../util/geocoding_api_util';
 import cloudinary from 'cloudinary';
+
 cloudinary.config({
 	cloud_name: 'djbrisg12',
 	api_key: '189584942645919',

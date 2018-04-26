@@ -5,40 +5,7 @@ const os = require('os');
 const path = require('path');
 const cloudinary = require('cloudinary');
 const keys = require('../config/keys');
-// cloudinary.config(keys.cloudinaryKey);
 
-
-// const BUCKET_NAME = 'finderskeepers';
-// const IAM_USER_KEY = '';
-// const IAM_USER_SECRET = '';
-
-// function uploadToS3(file) {
-//   let s3bucket = new AWS.S3({
-//     accessKeyId: IAM_USER_KEY,
-//     secretAccessKey: IAM_USER_SECRET,
-//     Bucket: BUCKET_NAME,
-//   });
-
-//   s3bucket.createBucket(function() {
-//     const params = {
-//       Bucket: BUCKET_NAME,
-//       Key: file.name,
-//       Body: file.data,
-//     };
-
-//     s3bucket.upload(
-//       params,
-//       (err, data) => {
-//         if (err) {
-//           console.log('error in callback');
-//           console.log(err);
-//         } else {
-//           console.log('success');
-//           console.log(data);
-//         }
-//       });
-//   });
-// }
 
 module.exports = (app) => {
   // Upload image
