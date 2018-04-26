@@ -9,12 +9,15 @@ class AddFreebieForm extends React.Component {
 		super(props);
 
 		this.state = {
+			selectedFile: null,
+			newListing: {
 		    address: null,
 		    latitude: 37.7989666,
 		    longitude: -122.4035405,
-		    imageUrl: "https://media.blueapron.com/recipes/1566/square_newsletter_images/20160303-2047-4-0783/2P_022416_7_Falafel_20-_205135_SQ_hi_res.jpg",
+				imageUrl: "https://media.blueapron.com/recipes/1566/square_newsletter_images/20160303-2047-4-0783/2P_022416_7_Falafel_20-_205135_SQ_hi_res.jpg",
 		    title: null,
 		    description: null,
+			}
 		};
 
 		this.listingHandler = this.listingHandler.bind(this);
@@ -36,7 +39,7 @@ class AddFreebieForm extends React.Component {
           latitude: result.geometry.location.lat,
           longitude: result.geometry.location.lng
         }, () => {
-		      this.props.createListing(this.state).then(
+		      this.props.createListing(this.state.newListing).then(
             success => { 
               this.props.close();
             },
@@ -52,8 +55,8 @@ class AddFreebieForm extends React.Component {
 
 	}
 
-	imageHandler(e) {
-		console.log(e.target.files);
+	imageHandler = event => {
+		this.setState({ selectedFile: event.target.files[0] });
 	}
 
 	render(){
