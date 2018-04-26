@@ -66,7 +66,10 @@ class AddFreebieForm extends React.Component {
 				    	<input onChange={this.update("address")} className="address-input" type="text" />
 				    </label>
 
-				    <button className="form-submit-button">Submit</button>
+				    <div className="form-submit-close-buttons">
+              <button className="form-submit-button">Submit</button>
+              <button className="form-close-button" onClick={ this.props.close } >Cancel</button>
+            </div>
 				</form>
 			</div>
 		)
