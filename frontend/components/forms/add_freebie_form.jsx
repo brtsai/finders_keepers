@@ -51,10 +51,12 @@ class AddFreebieForm extends React.Component {
 							console.log(that.state);
 							that.props.createListing(that.state).then(
 								success => {
+                  console.log(success);
 									that.props.close();
 								},
 								failure => {
 									// handle create listing failure
+                  console.log('failed to create a listing');
 								}
 							);
 						}
@@ -102,7 +104,6 @@ class AddFreebieForm extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<div className="form-wrapper">
 				<h1 className="form-header">Add Listing</h1>
