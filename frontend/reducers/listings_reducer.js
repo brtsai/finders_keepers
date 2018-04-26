@@ -8,7 +8,7 @@ import {
 
 const listingsReducer = (state = {}, action) => {
   switch(action.type){
-  	case RECEIVE_LISTING:
+  	case RECEIVE_LISTINGS:
   		return action.listings;
   	case RECEIVE_LISTING:
   		return merge({}, state, {[action.listing.id]: action.listing});
@@ -17,8 +17,8 @@ const listingsReducer = (state = {}, action) => {
   		delete newState[action.listing.id];
   		return newState;
   	default:
-  		return state
+  		return state;
   }
-}
+};
 
 export default listingsReducer;

@@ -1,5 +1,8 @@
 import React from 'react';
 import { geocode } from '../../util/geocoding_api_util';
+// import cloudinary from 'cloudinary';
+// const keys = require('../../../config/keys');
+// cloudinary.config(keys.cloudinaryKey);
 
 class AddFreebieForm extends React.Component {
 	constructor(props){
@@ -12,15 +15,15 @@ class AddFreebieForm extends React.Component {
 		    imageUrl: "https://media.blueapron.com/recipes/1566/square_newsletter_images/20160303-2047-4-0783/2P_022416_7_Falafel_20-_205135_SQ_hi_res.jpg",
 		    title: null,
 		    description: null,
-		}
+		};
 
-		this.listingHandler = this.listingHandler.bind(this)
+		this.listingHandler = this.listingHandler.bind(this);
 	}
 
 	update(field){
 		return (e) =>{
-			this.setState({[field]: e.target.value})
-		}
+			this.setState({[field]: e.target.value});
+		};
 	}
 
 	listingHandler(e) {
@@ -49,6 +52,10 @@ class AddFreebieForm extends React.Component {
 
 	}
 
+	imageHandler(e) {
+		console.log(e.target.files);
+	}
+
 	render(){
 		return(
 			<div className="form-wrapper">
@@ -62,9 +69,15 @@ class AddFreebieForm extends React.Component {
 						<textarea rows="7" onChange={this.update("description")} />
 					</label>
 
-				    <label className="form-label address">Address
-				    	<input onChange={this.update("address")} className="address-input" type="text" />
-				    </label>
+					<label className="form-label address">Address
+						<input onChange={this.update("address")} className="address-input" type="text" />
+					</label>
+
+					<label>Upload Image
+						<input type="file" accept="image/*" onChange={this.imageHandler}/>
+					</label>
+
+					<img className="img-preview" src={this.state.imageUrl}/>
 
 				    <div className="form-submit-close-buttons">
               <button className="form-submit-button">Submit</button>
@@ -72,9 +85,9 @@ class AddFreebieForm extends React.Component {
             </div>
 				</form>
 			</div>
-		)
+		);
 	}
 }
 
 
-export default AddFreebieForm
+export default AddFreebieForm;

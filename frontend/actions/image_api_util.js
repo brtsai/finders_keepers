@@ -1,5 +1,5 @@
 const cloudinary = require('cloudinary');
-const keys = require('../../config/keys');
+
 import axios from 'axios';
 import { UPLOAD_IMAGE } from './types';
 
@@ -11,6 +11,3 @@ export const uploadImage = () => {
     }));
   };
 };
-
-cloudinary.config(keys.cloudinaryKey);
-
