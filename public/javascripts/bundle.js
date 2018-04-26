@@ -49775,7 +49775,12 @@ var AddFreebieForm = function (_React$Component) {
 					"div",
 					{ className: "image-form-input" },
 					_react2.default.createElement("img", { className: "img-preview", src: this.state.imageUrl }),
-					_react2.default.createElement("input", { style: { display: 'none' }, type: "file", accept: "image/*", onChange: this.imageHandler })
+					_react2.default.createElement("input", {
+						style: { display: "none" },
+						type: "file",
+						accept: "image/*",
+						onChange: this.imageHandler
+					})
 				);
 			}
 		}

@@ -83,21 +83,28 @@ class AddFreebieForm extends React.Component {
 		}
 	}
 
-	renderImagePreview(){
-		if(!this.state.imageUrl){
+	renderImagePreview() {
+		if (!this.state.imageUrl) {
 			return (
 				<div className="image-form-input">
-					<h1><i class="fas fa-plus"></i> Add Image</h1>
+					<h1>
+						<i class="fas fa-plus" /> Add Image
+					</h1>
 					<input type="file" accept="image/*" onChange={this.imageHandler} />
 				</div>
-				)
-		}else{
-			return(
-			<div className="image-form-input">
-				<img className="img-preview" src={this.state.imageUrl} />
-				<input style={{display: 'none'}} type="file" accept="image/*" onChange={this.imageHandler} />
-			</div>
-			)
+			);
+		} else {
+			return (
+				<div className="image-form-input">
+					<img className="img-preview" src={this.state.imageUrl} />
+					<input
+						style={{ display: "none" }}
+						type="file"
+						accept="image/*"
+						onChange={this.imageHandler}
+					/>
+				</div>
+			);
 		}
 	}
 
@@ -128,10 +135,8 @@ class AddFreebieForm extends React.Component {
 
 					<label>
 						Upload Image
-							{this.renderImagePreview()}
+						{this.renderImagePreview()}
 					</label>
-
-					
 
 					<div className="form-submit-close-buttons">
 						<button className="form-submit-button">Submit</button>
