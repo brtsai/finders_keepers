@@ -40,14 +40,14 @@ class AddFreebieForm extends React.Component {
 					</label>
 
 					<label className="form-label description">Description
-						<textarea onChange={this.update("description")} />
+						<textarea rows="7" onChange={this.update("description")} />
 					</label>
 
 				    <label className="form-label address">Address
 				    	<input onChange={this.update("address")} className="address-input" type="text" />
 				    </label>
 
-				    <input type="submit" value="submit" />
+				    <button className="form-submit-button">Submit</button>
 				</form>
 			</div>
 		)

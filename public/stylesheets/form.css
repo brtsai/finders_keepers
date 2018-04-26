@@ -22,8 +22,39 @@
     height:420px;
     text-align: center;
     padding-top: 20px;
+    font-family: Arial;
+    box-shadow: 0px 2px 2px 0px #C7C7C7;
 }
 
 .form-container label {
     text-align: center;
+    color: #eb4d4b;
+    font-size: 15px;
+}
+
+h1.form-header {
+    font-size: 30px;
+    color: #eb4d4b;
+}
+
+.form-label textarea {
+    resize: none;
+    border: 2px solid #eb4d4b;
+    width:100%;
+}
+
+button.form-submit-button {
+    background: #eb4d4b;
+    cursor:pointer;
+}
+
+button.form-submit-button:hover {
+    background: #d63916;
+    cursor: pointer;
+}
+
+form.form-container input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #eb4d4b;
 }
