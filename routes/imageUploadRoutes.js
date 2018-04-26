@@ -5,7 +5,7 @@ const os = require('os');
 const path = require('path');
 const cloudinary = require('cloudinary');
 const keys = require('../config/keys');
-cloudinary.config(keys.cloudinaryKey);
+// cloudinary.config(keys.cloudinaryKey);
 
 
 // const BUCKET_NAME = 'finderskeepers';

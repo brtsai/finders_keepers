@@ -1,22 +1,24 @@
 import React from 'react';
 import { geocode } from '../../util/geocoding_api_util';
-
+import cloudinary from 'cloudinary';
+cloudinary.config({
+	cloud_name: 'djbrisg12',
+	api_key: '189584942645919',
+	api_secret: 'smX1q9fiqSNQEgMvkFsSd2Tkbw8'
+});
 
 class AddFreebieForm extends React.Component {
 	constructor(props){
 		super(props);
 
 		this.state = {
-			selectedFile: null,
-			newListing: {
 		    address: null,
 		    latitude: 37.7989666,
 		    longitude: -122.4035405,
 				imageUrl: "",
 		    title: null,
 		    description: null,
-			}
-		};
+			};
 
 		this.listingHandler = this.listingHandler.bind(this);
 		this.imageHandler = this.imageHandler.bind(this);
@@ -30,41 +32,49 @@ class AddFreebieForm extends React.Component {
 
 	listingHandler(e) {
 		e.preventDefault();
-		const fd = new FormData();
+		let that = this;
+		cloudinary.v2.uploader.upload(this.state.imageUrl, function(error, rez){
 
-		fd.append('image', this.state.selectedfile, this.state.selectedFile.name);
-		const data = this.props.uploadImage(fd);
-		console.log(data);
+			that.setState({imageUrl: rez.url});
+			
+			geocode(that.state.address).then(res => {
+				if (res.data.results.length > 0) {
+					let result = res.data.results[0];
+					that.setState({ 
+						address: result.formatted_address,
+						latitude: result.geometry.location.lat,
+						longitude: result.geometry.location.lng
+					}, () => {
+						console.log(that.state);
+						that.props.createListing(that.state).then(
+							success => { 
+								that.props.close();
+							},
+							failure => {
+								// handle create listing failure
+							}
+						);
+					});
+				} else {
+					//handle unable to geocode
+				}
+			});
+		});
+		
 
-    geocode(this.state.address).then(res => {
-      if (res.data.results.length > 0) {
-        const result = res.data.results[0];
-        this.setState({ 
-          address: result.formatted_address,
-          latitude: result.geometry.location.lat,
-          longitude: result.geometry.location.lng
-        }, () => {
-		      // this.props.createListing(this.state.newListing).then(
-          //   success => { 
-          //     this.props.close();
-          //   },
-          //   failure => {
-          //     // handle create listing failure
-          //   }
-          // );
-        });
-      } else {
-        //handle unable to geocode
-      }
-    });
 
+
+		// const fd = new FormData();
+		// fd.append('image', this.state.selectedfile, this.state.selectedFile.name);
+		// const data = this.props.uploadImage(fd);
+		// console.log(data);
 	}
 
 	imageHandler(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({selectedFile: file, newListing: {imageUrl: fileReader.result}});
+      this.setState({imageUrl: fileReader.result});
     };
 
     if(file) {
@@ -72,9 +82,6 @@ class AddFreebieForm extends React.Component {
     }
   }
 
-	// imageHandler(event) {
-	// 	this.setState({ selectedFile: event.target.files[0] });
-	// }
 
 	render(){
 		console.log(this.props);
@@ -98,7 +105,7 @@ class AddFreebieForm extends React.Component {
 						<input type="file" accept="image/*" onChange={this.imageHandler}/>
 					</label>
 
-					<img className="img-preview" src={this.state.newListing.imageUrl}/>
+					<img className="img-preview" src={this.state.imageUrl}/>
 
 				    <div className="form-submit-close-buttons">
               <button className="form-submit-button">Submit</button>
