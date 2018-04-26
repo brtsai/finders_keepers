@@ -5,7 +5,7 @@ module.exports = {
 	entry: "./frontend/finders_keepers.jsx",
 	output: {
 		path: path.resolve(__dirname, "public", "javascripts"),
-		filename: "bundle.js"
+		filename: "bundle.js",
 	},
 	module: {
 		loaders: [
@@ -14,16 +14,16 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: "babel-loader",
 				query: {
-					presets: ["env", "react"]
-				}
-			}
-		]
+					presets: ["env", "react"],
+				},
+			},
+		],
 	},
 	devtool: "source-map",
 	resolve: {
-		extensions: [".js", ".jsx", "*"]
+		extensions: [".js", ".jsx", "*"],
 	},
 	node: {
-		fs: "empty"
-	}
+		fs: "empty",
+	},
 };

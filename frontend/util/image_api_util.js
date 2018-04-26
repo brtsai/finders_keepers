@@ -11,7 +11,7 @@ export const uploadImage = fileData => {
 
 			return dispatch({
 				type: UPLOAD_IMAGE,
-				payload: res.data
+				payload: res.data,
 			});
 		});
 	};

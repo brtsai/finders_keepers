@@ -5,7 +5,7 @@ import cloudinary from "cloudinary";
 cloudinary.config({
 	cloud_name: "djbrisg12",
 	api_key: "189584942645919",
-	api_secret: "smX1q9fiqSNQEgMvkFsSd2Tkbw8"
+	api_secret: "smX1q9fiqSNQEgMvkFsSd2Tkbw8",
 });
 
 class AddFreebieForm extends React.Component {
@@ -19,7 +19,7 @@ class AddFreebieForm extends React.Component {
 			longitude: -122.4035405,
 			imageUrl: null,
 			title: null,
-			description: null
+			description: null,
 		};
 
 		this.listingHandler = this.listingHandler.bind(this);
@@ -45,7 +45,7 @@ class AddFreebieForm extends React.Component {
 						{
 							address: result.formatted_address,
 							latitude: result.geometry.location.lat,
-							longitude: result.geometry.location.lng
+							longitude: result.geometry.location.lng,
 						},
 						() => {
 							console.log(that.state);
