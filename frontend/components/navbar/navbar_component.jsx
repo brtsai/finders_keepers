@@ -8,10 +8,11 @@ class Navbar extends React.Component {
 		super(props);
 
 		this.state = {
-			modal: false
-		}
+			showingAddFreebieModal: false
+		};
 
-		this.addFreebie = this.addFreebie.bind(this)
+		this.openAddFreebieForm = this.openAddFreebieForm.bind(this);
+		this.closeAddFreebieForm = this.closeAddFreebieForm.bind(this);
 	}
 
 	renderUserIcon(auth) {
@@ -21,27 +22,28 @@ class Navbar extends React.Component {
 	}
 
 	renderModal(){
-		if (this.state.modal === false){
+		if (this.state.showingAddFreebieModal === false){
 			return null
 		}
 		return (
-			<AddFreebieFormContainer />
+			<AddFreebieFormContainer close={ this.closeAddFreebieForm } />
 		)		
 	}
 
-
-
-	addFreebie(e) {
-		console.log("click handler add freebie")
-		this.setState({ modal: true })
+	openAddFreebieForm(e) {
+		this.setState({ showingAddFreebieModal: true })
 	}
+
+  closeAddFreebieForm(e) {
+		this.setState({ showingAddFreebieModal: false })
+  }
 
 	render() {
 		return (
 			<nav className="navbar-container">
 				<button
 					className="add-freebie-button"
-					onClick={this.addFreebie}>
+					onClick={this.openAddFreebieForm}>
 					<span className="add-freebie-plus">+</span>
 					<span className="add-freebie-text">Add a Freebie</span>
 				</button>
