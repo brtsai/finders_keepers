@@ -49687,7 +49687,7 @@ var AddFreebieForm = function (_React$Component) {
 			address: null,
 			latitude: 37.7989666,
 			longitude: -122.4035405,
-			imageUrl: "",
+			imageUrl: null,
 			title: null,
 			description: null
 		};
@@ -49756,6 +49756,30 @@ var AddFreebieForm = function (_React$Component) {
 			}
 		}
 	}, {
+		key: "renderImagePreview",
+		value: function renderImagePreview() {
+			if (!this.state.imageUrl) {
+				return _react2.default.createElement(
+					"div",
+					{ className: "image-form-input" },
+					_react2.default.createElement(
+						"h1",
+						null,
+						_react2.default.createElement("i", { "class": "fas fa-plus" }),
+						" Add Image"
+					),
+					_react2.default.createElement("input", { type: "file", accept: "image/*", onChange: this.imageHandler })
+				);
+			} else {
+				return _react2.default.createElement(
+					"div",
+					{ className: "image-form-input" },
+					_react2.default.createElement("img", { className: "img-preview", src: this.state.imageUrl }),
+					_react2.default.createElement("input", { style: { display: 'none' }, type: "file", accept: "image/*", onChange: this.imageHandler })
+				);
+			}
+		}
+	}, {
 		key: "render",
 		value: function render() {
 			console.log(this.props);
@@ -49796,9 +49820,8 @@ var AddFreebieForm = function (_React$Component) {
 						"label",
 						null,
 						"Upload Image",
-						_react2.default.createElement("input", { type: "file", accept: "image/*", onChange: this.imageHandler })
+						this.renderImagePreview()
 					),
-					_react2.default.createElement("img", { className: "img-preview", src: this.state.imageUrl }),
 					_react2.default.createElement(
 						"div",
 						{ className: "form-submit-close-buttons" },
