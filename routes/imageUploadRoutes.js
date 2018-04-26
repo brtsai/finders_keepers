@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-const AWS = require('aws-sdk');
-const Busboy = require('busboy');
-const cors = require('cors')({origin: true});
-const os = require('os');
-const path = require('path');
-const cloudinary = require('cloudinary');
-const keys = require('../config/keys');
-
-
-module.exports = (app) => {
-  // Upload image
-  console.log("Connected!");
-  
-    app.post(
-      '/upload',
-      (req, res) => {
-        console.log("Really connected!");
-        
-        cors(req, res, () => {
-          console.log("Really really connected!");
-=======
 const AWS = require("aws-sdk");
 const Busboy = require("busboy");
 const cors = require("cors")({ origin: true });
@@ -74,7 +52,6 @@ module.exports = app => {
 			const busboy = new Busboy({ headers: req.headers });
 
 			let uploadData = null;
->>>>>>> e004210c39c187cc479a714aeb144b6a5afb678e
 
 			busboy.on("file", (fieldname, file, filename, encoding, mimetype) => {
 				const filepath = path.join(os.tmpdir(), filename);
