@@ -27,7 +27,7 @@ module.exports = (app) => {
   	'/listings',
   	(req, res) => {
       const query = Listing.find({});
-      query.limit(5).exec(function(err, doc) {
+      query.exec(function(err, doc) {
         res.send(doc);
       });
 
