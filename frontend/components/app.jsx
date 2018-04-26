@@ -28,7 +28,7 @@ class App extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-	fetchUser: () => dispatch(fetchUser())
+	fetchUser: () => dispatch(fetchUser()),
 });
 
 export default connect(null, mapDispatchToProps)(App);

@@ -3,17 +3,17 @@ import * as ListingApiUtil from "../util/listing_api_util";
 
 const receiveListings = listings => dispatch => ({
 	type: RECEIVE_LISTINGS,
-	listings
+	listings,
 });
 
 const receiveListing = listing => dispatch => ({
 	type: RECEIVE_LISTING,
-	listing
+	listing,
 });
 
 const removeListing = listing => dispatch => ({
 	type: REMOVE_LISTING,
-	listing
+	listing,
 });
 
 export const fetchListings = () => dispatch =>

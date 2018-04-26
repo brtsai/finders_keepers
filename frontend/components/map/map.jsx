@@ -7,7 +7,7 @@ class Map extends React.Component {
 		// set the map to show SF
 		const mapOptions = {
 			center: { lat: latitude, lng: longitude }, // this is SF
-			zoom: 13
+			zoom: 13,
 		};
 
 		// wrap the mapDOMNode in a Google Map
@@ -15,7 +15,7 @@ class Map extends React.Component {
 
 		const marker = new google.maps.Marker({
 			position: { lat: latitude, lng: longitude },
-			map: this.map
+			map: this.map,
 		});
 	}
 

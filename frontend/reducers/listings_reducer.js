@@ -3,7 +3,7 @@ import merge from "lodash/merge";
 import {
 	RECEIVE_LISTINGS,
 	RECEIVE_LISTING,
-	REMOVE_LISTING
+	REMOVE_LISTING,
 } from "../actions/types";
 
 const listingsReducer = (state = {}, action) => {

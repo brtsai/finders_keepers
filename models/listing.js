@@ -10,10 +10,10 @@ const listingSchema = new Schema(
 		imageUrl: String,
 		title: String,
 		description: String,
-		tags: [String]
+		tags: [String],
 	},
 	{
-		timestamps: { createdAt: "created_at" }
+		timestamps: { createdAt: "created_at" },
 	}
 );
 
