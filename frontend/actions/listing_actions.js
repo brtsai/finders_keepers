@@ -23,14 +23,14 @@ const receiveListingErrors = errors => dispatch => ({
 
 export const fetchListings = () => dispatch =>
 	ListingApiUtil.fetchListings().then(
-  listings => dispatch(receiveListings(listings)),
-  errors => dispatch(receiveListingErrors(errors))
+    listings => dispatch(receiveListings(listings)),
+    errors => dispatch(receiveListingErrors(errors))
 	);
 
 export const createListing = formListing => dispatch =>
 	ListingApiUtil.createListing(formListing).then(
-  listing => dispatch(receiveListing(listing)),
-  errors => dispatch(receiveListingErrors(errors))
+    listing => dispatch(receiveListing(listing)),
+    errors => dispatch(receiveListingErrors(errors))
 	);
 
 export const deleteListing = listingId => dispatch =>

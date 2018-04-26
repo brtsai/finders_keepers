@@ -11247,6 +11247,7 @@ var FETCH_USER = exports.FETCH_USER = "fetch_user";
 var RECEIVE_LISTINGS = exports.RECEIVE_LISTINGS = "fetch_listings";
 var RECEIVE_LISTING = exports.RECEIVE_LISTING = "fetch_listing";
 var REMOVE_LISTING = exports.REMOVE_LISTING = "remove_listing";
+var RECEIVE_LISTING_ERRORS = exports.RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS';
 
 // uploadimage
 var UPLOAD_IMAGE = exports.UPLOAD_IMAGE = "upload_image";
@@ -49724,9 +49725,11 @@ var AddFreebieForm = function (_React$Component) {
 						}, function () {
 							console.log(that.state);
 							that.props.createListing(that.state).then(function (success) {
+								console.log(success);
 								that.props.close();
-							}, function (failure) {
+							}).catch(function (failure) {
 								// handle create listing failure
+								console.log('failed to create a listing');
 							});
 						});
 					} else {
@@ -49758,7 +49761,6 @@ var AddFreebieForm = function (_React$Component) {
 	}, {
 		key: "render",
 		value: function render() {
-			console.log(this.props);
 			return _react2.default.createElement(
 				"div",
 				{ className: "form-wrapper" },
@@ -84358,10 +84360,21 @@ var removeListing = function removeListing(listing) {
 	};
 };
 
+var receiveListingErrors = function receiveListingErrors(errors) {
+	return function (dispatch) {
+		return {
+			type: _types.RECEIVE_LISTING_ERRORS,
+			errors: errors
+		};
+	};
+};
+
 var fetchListings = exports.fetchListings = function fetchListings() {
 	return function (dispatch) {
 		return ListingApiUtil.fetchListings().then(function (listings) {
 			return dispatch(receiveListings(listings));
+		}, function (errors) {
+			return dispatch(receiveListingErrors(errors));
 		});
 	};
 };
@@ -84370,6 +84383,8 @@ var createListing = exports.createListing = function createListing(formListing) 
 	return function (dispatch) {
 		return ListingApiUtil.createListing(formListing).then(function (listing) {
 			return dispatch(receiveListing(listing));
+		}, function (errors) {
+			return dispatch(receiveListingErrors(errors));
 		});
 	};
 };
@@ -84970,13 +84985,14 @@ exports.default = errorsReducer;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 var listingsErrorsReducer = function listingsErrorsReducer() {
-	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	var action = arguments[1];
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
 
-	return state;
+  console.log(action);
+  return state;
 };
 
 exports.default = listingsErrorsReducer;
