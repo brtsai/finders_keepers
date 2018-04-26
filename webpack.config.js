@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/finders_keepers.jsx",
   output: {
-    path: path.resolve(__dirname, 'public', 'javascripts'),
+    path: path.resolve(__dirname, "public", "javascripts"),
     filename: "bundle.js"
   },
   module: {
@@ -12,18 +12,18 @@ module.exports = {
       {
         test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         query: {
-          presets: ['env', 'react']
+          presets: ["env", "react"]
         }
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   resolve: {
     extensions: [".js", ".jsx", "*"]
   },
   node: {
     fs: "empty"
-  } 
+  }
 };

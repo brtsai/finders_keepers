@@ -1,5 +1,5 @@
 // User Types
-export const FETCH_USER = 'fetch_user';
+export const FETCH_USER = "fetch_user";
 
 // Listing Types
 export const RECEIVE_LISTINGS = "fetch_listings";
