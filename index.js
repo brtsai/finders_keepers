@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
+const cloudinary = require('cloudinary');
 require('./models/user');
 require('./models/listing');
 require('./services/passport');
@@ -31,6 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Image upload
+
 app.use(busboy());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
