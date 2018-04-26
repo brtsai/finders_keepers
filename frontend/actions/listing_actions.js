@@ -1,22 +1,22 @@
 import { RECEIVE_LISTINGS, RECEIVE_LISTING, REMOVE_LISTING, RECEIVE_LISTING_ERRORS } from "./types";
 import * as ListingApiUtil from "../util/listing_api_util";
 
-const receiveListings = listings => dispatch => ({
+const receiveListings = listings => ({
 	type: RECEIVE_LISTINGS,
 	listings,
 });
 
-const receiveListing = listing => dispatch => ({
+const receiveListing = listing => ({
 	type: RECEIVE_LISTING,
 	listing,
 });
 
-const removeListing = listing => dispatch => ({
+const removeListing = listing => ({
 	type: REMOVE_LISTING,
 	listing,
 });
 
-const receiveListingErrors = errors => dispatch => ({
+const receiveListingErrors = errors => ({
   type: RECEIVE_LISTING_ERRORS,
   errors
 });
