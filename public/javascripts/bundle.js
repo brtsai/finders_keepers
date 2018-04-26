@@ -11247,6 +11247,7 @@ var FETCH_USER = exports.FETCH_USER = "fetch_user";
 var RECEIVE_LISTINGS = exports.RECEIVE_LISTINGS = "fetch_listings";
 var RECEIVE_LISTING = exports.RECEIVE_LISTING = "fetch_listing";
 var REMOVE_LISTING = exports.REMOVE_LISTING = "remove_listing";
+var RECEIVE_LISTING_ERRORS = exports.RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS';
 
 /***/ }),
 /* 56 */
@@ -26259,9 +26260,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //Components
 //React
 document.addEventListener("DOMContentLoaded", function () {
+
 	var root = document.getElementById("root");
 	var store = (0, _store2.default)({});
 	_reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
+
+	window.getState = store.getState;
 });
 
 /***/ }),
@@ -49715,9 +49719,11 @@ var AddFreebieForm = function (_React$Component) {
 							longitude: result.geometry.location.lng
 						}, function () {
 							that.props.createListing(that.state).then(function (success) {
+								console.log(success);
 								that.props.close();
 							}, function (failure) {
 								// handle create listing failure
+								console.log('failed to create a listing');
 							});
 						});
 					} else {
@@ -84345,29 +84351,30 @@ var ListingApiUtil = _interopRequireWildcard(_listing_api_util);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var receiveListings = function receiveListings(listings) {
-	return function (dispatch) {
-		return {
-			type: _types.RECEIVE_LISTINGS,
-			listings: listings
-		};
+	return {
+		type: _types.RECEIVE_LISTINGS,
+		listings: listings
 	};
 };
 
 var receiveListing = function receiveListing(listing) {
-	return function (dispatch) {
-		return {
-			type: _types.RECEIVE_LISTING,
-			listing: listing
-		};
+	return {
+		type: _types.RECEIVE_LISTING,
+		listing: listing
 	};
 };
 
 var removeListing = function removeListing(listing) {
-	return function (dispatch) {
-		return {
-			type: _types.REMOVE_LISTING,
-			listing: listing
-		};
+	return {
+		type: _types.REMOVE_LISTING,
+		listing: listing
+	};
+};
+
+var receiveListingErrors = function receiveListingErrors(errors) {
+	return {
+		type: _types.RECEIVE_LISTING_ERRORS,
+		errors: errors
 	};
 };
 
@@ -84375,6 +84382,8 @@ var fetchListings = exports.fetchListings = function fetchListings() {
 	return function (dispatch) {
 		return ListingApiUtil.fetchListings().then(function (listings) {
 			return dispatch(receiveListings(listings));
+		}, function (errors) {
+			return dispatch(receiveListingErrors(errors));
 		});
 	};
 };
@@ -84383,6 +84392,9 @@ var createListing = exports.createListing = function createListing(formListing) 
 	return function (dispatch) {
 		return ListingApiUtil.createListing(formListing).then(function (listing) {
 			return dispatch(receiveListing(listing));
+		}, function (errors) {
+			console.log('failed');
+			dispatch(receiveListingErrors(errors));
 		});
 	};
 };
@@ -84948,13 +84960,14 @@ exports.default = errorsReducer;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 var listingsErrorsReducer = function listingsErrorsReducer() {
-	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	var action = arguments[1];
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
 
-	return state;
+  console.log(action);
+  return state;
 };
 
 exports.default = listingsErrorsReducer;
