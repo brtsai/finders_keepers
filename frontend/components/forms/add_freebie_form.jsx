@@ -1,70 +1,75 @@
+<<<<<<< HEAD
 import React from 'react';
 import { geocode } from '../../util/geocoding_api_util';
 import cloudinary from 'cloudinary';
 
+=======
+import React from "react";
+import { geocode } from "../../util/geocoding_api_util";
+import cloudinary from "cloudinary";
+>>>>>>> e004210c39c187cc479a714aeb144b6a5afb678e
 cloudinary.config({
-	cloud_name: 'djbrisg12',
-	api_key: '189584942645919',
-	api_secret: 'smX1q9fiqSNQEgMvkFsSd2Tkbw8'
+	cloud_name: "djbrisg12",
+	api_key: "189584942645919",
+	api_secret: "smX1q9fiqSNQEgMvkFsSd2Tkbw8"
 });
 
 class AddFreebieForm extends React.Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
 
 		this.state = {
-				userId: this.props.userId,
-		    address: null,
-		    latitude: 37.7989666,
-		    longitude: -122.4035405,
-				imageUrl: "",
-		    title: null,
-		    description: null,
-			};
+			userId: this.props.userId,
+			address: null,
+			latitude: 37.7989666,
+			longitude: -122.4035405,
+			imageUrl: "",
+			title: null,
+			description: null
+		};
 
 		this.listingHandler = this.listingHandler.bind(this);
 		this.imageHandler = this.imageHandler.bind(this);
 	}
 
-	update(field){
-		return (e) =>{
-			this.setState({[field]: e.target.value});
+	update(field) {
+		return e => {
+			this.setState({ [field]: e.target.value });
 		};
 	}
 
 	listingHandler(e) {
 		e.preventDefault();
 		let that = this;
-		cloudinary.v2.uploader.upload(this.state.imageUrl, function(error, rez){
+		cloudinary.v2.uploader.upload(this.state.imageUrl, function(error, rez) {
+			that.setState({ imageUrl: rez.url });
 
-			that.setState({imageUrl: rez.url});
-			
 			geocode(that.state.address).then(res => {
 				if (res.data.results.length > 0) {
 					let result = res.data.results[0];
-					that.setState({ 
-						address: result.formatted_address,
-						latitude: result.geometry.location.lat,
-						longitude: result.geometry.location.lng
-					}, () => {
-						console.log(that.state);
-						that.props.createListing(that.state).then(
-							success => { 
-								that.props.close();
-							},
-							failure => {
-								// handle create listing failure
-							}
-						);
-					});
+					that.setState(
+						{
+							address: result.formatted_address,
+							latitude: result.geometry.location.lat,
+							longitude: result.geometry.location.lng
+						},
+						() => {
+							console.log(that.state);
+							that.props.createListing(that.state).then(
+								success => {
+									that.props.close();
+								},
+								failure => {
+									// handle create listing failure
+								}
+							);
+						}
+					);
 				} else {
 					//handle unable to geocode
 				}
 			});
 		});
-		
-
-
 
 		// const fd = new FormData();
 		// fd.append('image', this.state.selectedfile, this.state.selectedFile.name);
@@ -73,51 +78,59 @@ class AddFreebieForm extends React.Component {
 	}
 
 	imageHandler(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({imageUrl: fileReader.result});
-    };
+		const file = e.currentTarget.files[0];
+		const fileReader = new FileReader();
+		fileReader.onloadend = () => {
+			this.setState({ imageUrl: fileReader.result });
+		};
 
-    if(file) {
-      fileReader.readAsDataURL(file);
-    }
-  }
+		if (file) {
+			fileReader.readAsDataURL(file);
+		}
+	}
 
-
-	render(){
+	render() {
 		console.log(this.props);
-		return(
+		return (
 			<div className="form-wrapper">
 				<h1 className="form-header">Add Listing</h1>
 				<form className="form-container" onSubmit={this.listingHandler}>
-					<label className="form-label title">Title
-						<input onChange={this.update("title")} type="text"/>
+					<label className="form-label title">
+						Title
+						<input onChange={this.update("title")} type="text" />
 					</label>
 
-					<label className="form-label description">Description
+					<label className="form-label description">
+						Description
 						<textarea rows="7" onChange={this.update("description")} />
 					</label>
 
-					<label className="form-label address">Address
-						<input onChange={this.update("address")} className="address-input" type="text" />
+					<label className="form-label address">
+						Address
+						<input
+							onChange={this.update("address")}
+							className="address-input"
+							type="text"
+						/>
 					</label>
 
-					<label>Upload Image
-						<input type="file" accept="image/*" onChange={this.imageHandler}/>
+					<label>
+						Upload Image
+						<input type="file" accept="image/*" onChange={this.imageHandler} />
 					</label>
 
-					<img className="img-preview" src={this.state.imageUrl}/>
+					<img className="img-preview" src={this.state.imageUrl} />
 
-				    <div className="form-submit-close-buttons">
-              <button className="form-submit-button">Submit</button>
-              <button className="form-close-button" onClick={ this.props.close } >Cancel</button>
-            </div>
+					<div className="form-submit-close-buttons">
+						<button className="form-submit-button">Submit</button>
+						<button className="form-close-button" onClick={this.props.close}>
+							Cancel
+						</button>
+					</div>
 				</form>
 			</div>
 		);
 	}
 }
-
 
 export default AddFreebieForm;

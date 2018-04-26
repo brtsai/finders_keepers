@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 class GoogleButton extends React.Component {
 	constructor(props) {
@@ -13,9 +13,7 @@ class GoogleButton extends React.Component {
 			case false:
 				return (
 					<a href="/auth/google">
-						<button className="auth-button">
-							login with google
-						</button>
+						<button className="auth-button">login with google</button>
 					</a>
 				);
 			default:

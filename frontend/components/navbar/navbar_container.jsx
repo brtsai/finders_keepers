@@ -1,17 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import NavbarComponent from './navbar_component';
+import React from "react";
+import { connect } from "react-redux";
+import NavbarComponent from "./navbar_component";
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 	auth: state.auth
-
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({});
 
-});
-
-export default connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(NavbarComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarComponent);

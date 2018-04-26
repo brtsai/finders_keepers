@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Provider, connect } from 'react-redux';
-import { Route, Redirect, Switch, Link, BrowserRouter } from 'react-router-dom';
-import { ProtectedRoute } from './util/route_util';
-import AddFreebieFormContainer from './forms/add_freebie_form_container';
+import React, { Component } from "react";
+import { Provider, connect } from "react-redux";
+import { Route, Redirect, Switch, Link, BrowserRouter } from "react-router-dom";
+import { ProtectedRoute } from "./util/route_util";
+import AddFreebieFormContainer from "./forms/add_freebie_form_container";
 
-import Navbar from './navbar/navbar_container';
-import Map from './map/map';
-import { fetchUser } from '../util/user_api_util';
+import Navbar from "./navbar/navbar_container";
+import Map from "./map/map";
+import { fetchUser } from "../util/user_api_util";
 
 class App extends React.Component {
 	constructor(props) {
@@ -27,8 +27,8 @@ class App extends React.Component {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => ({
-	fetchUser: () => dispatch(fetchUser()),
+const mapDispatchToProps = dispatch => ({
+	fetchUser: () => dispatch(fetchUser())
 });
 
 export default connect(null, mapDispatchToProps)(App);

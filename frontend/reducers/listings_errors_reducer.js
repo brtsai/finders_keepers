@@ -1,5 +1,5 @@
 const listingsErrorsReducer = (state = {}, action) => {
-  return state;
+	return state;
 };
 
 export default listingsErrorsReducer;

@@ -1,7 +1,7 @@
-import React from 'react';
-import GoogleButton from './google_button_component';
-import UserIcon from './user_icon_component';
-import AddFreebieFormContainer from '../forms/add_freebie_form_container';
+import React from "react";
+import GoogleButton from "./google_button_component";
+import UserIcon from "./user_icon_component";
+import AddFreebieFormContainer from "../forms/add_freebie_form_container";
 
 class Navbar extends React.Component {
 	constructor(props) {
@@ -21,29 +21,28 @@ class Navbar extends React.Component {
 		}
 	}
 
-	renderModal(){
-		if (this.state.showingAddFreebieModal === false){
-			return null
+	renderModal() {
+		if (this.state.showingAddFreebieModal === false) {
+			return null;
 		}
-		return (
-			<AddFreebieFormContainer close={ this.closeAddFreebieForm } />
-		)		
+		return <AddFreebieFormContainer close={this.closeAddFreebieForm} />;
 	}
 
 	openAddFreebieForm(e) {
-		this.setState({ showingAddFreebieModal: true })
+		this.setState({ showingAddFreebieModal: true });
 	}
 
-  closeAddFreebieForm(e) {
-		this.setState({ showingAddFreebieModal: false })
-  }
+	closeAddFreebieForm(e) {
+		this.setState({ showingAddFreebieModal: false });
+	}
 
 	render() {
 		return (
 			<nav className="navbar-container">
 				<button
 					className="add-freebie-button"
-					onClick={this.openAddFreebieForm}>
+					onClick={this.openAddFreebieForm}
+				>
 					<span className="add-freebie-plus">+</span>
 					<span className="add-freebie-text">Add a Freebie</span>
 				</button>
