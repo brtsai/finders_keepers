@@ -49722,7 +49722,6 @@ var AddFreebieForm = function (_React$Component) {
 							latitude: result.geometry.location.lat,
 							longitude: result.geometry.location.lng
 						}, function () {
-							console.log(that.state);
 							that.props.createListing(that.state).then(function (success) {
 								that.props.close();
 							}, function (failure) {
@@ -49734,11 +49733,6 @@ var AddFreebieForm = function (_React$Component) {
 					}
 				});
 			});
-
-			// const fd = new FormData();
-			// fd.append('image', this.state.selectedfile, this.state.selectedFile.name);
-			// const data = this.props.uploadImage(fd);
-			// console.log(data);
 		}
 	}, {
 		key: "imageHandler",
@@ -49765,7 +49759,7 @@ var AddFreebieForm = function (_React$Component) {
 					_react2.default.createElement(
 						"h1",
 						null,
-						_react2.default.createElement("i", { "class": "fas fa-plus" }),
+						_react2.default.createElement("i", { className: "fas fa-plus" }),
 						" Add Image"
 					),
 					_react2.default.createElement("input", { type: "file", accept: "image/*", onChange: this.imageHandler })
@@ -49787,7 +49781,6 @@ var AddFreebieForm = function (_React$Component) {
 	}, {
 		key: "render",
 		value: function render() {
-			console.log(this.props);
 			return _react2.default.createElement(
 				"div",
 				{ className: "form-wrapper" },

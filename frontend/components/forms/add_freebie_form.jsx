@@ -48,7 +48,6 @@ class AddFreebieForm extends React.Component {
 							longitude: result.geometry.location.lng,
 						},
 						() => {
-							console.log(that.state);
 							that.props.createListing(that.state).then(
 								success => {
 									that.props.close();
@@ -64,11 +63,6 @@ class AddFreebieForm extends React.Component {
 				}
 			});
 		});
-
-		// const fd = new FormData();
-		// fd.append('image', this.state.selectedfile, this.state.selectedFile.name);
-		// const data = this.props.uploadImage(fd);
-		// console.log(data);
 	}
 
 	imageHandler(e) {
@@ -88,7 +82,7 @@ class AddFreebieForm extends React.Component {
 			return (
 				<div className="image-form-input">
 					<h1>
-						<i class="fas fa-plus" /> Add Image
+						<i className="fas fa-plus" /> Add Image
 					</h1>
 					<input type="file" accept="image/*" onChange={this.imageHandler} />
 				</div>
@@ -109,7 +103,6 @@ class AddFreebieForm extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<div className="form-wrapper">
 				<h1 className="form-header">Add Listing</h1>
