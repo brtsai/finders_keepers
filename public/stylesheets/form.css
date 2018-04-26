@@ -58,3 +58,18 @@ form.form-container input {
     padding: 10px;
     border: 2px solid #eb4d4b;
 }
+
+.form-submit-close-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar-container button.form-close-button {
+  color: #E8E8E8;
+  background: none;
+  border: none;
+}
+.navbar-container button.form-close-button:hover {
+  color: #eb4d4b;
+}
