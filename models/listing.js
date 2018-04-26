@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const listingSchema = new Schema(
@@ -10,11 +10,11 @@ const listingSchema = new Schema(
 		imageUrl: String,
 		title: String,
 		description: String,
-		tags: [String],
+		tags: [String]
 	},
 	{
-		timestamps: { createdAt: 'created_at' },
+		timestamps: { createdAt: "created_at" }
 	}
 );
 
-const ListingModel = mongoose.model('listings', listingSchema);
+const ListingModel = mongoose.model("listings", listingSchema);

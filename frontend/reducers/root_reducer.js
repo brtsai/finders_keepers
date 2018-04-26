@@ -4,9 +4,9 @@ import entities from "./entities_reducer";
 import auth from "./auth_reducer";
 
 const rootReducer = combineReducers({
-  entities,
-  auth
-  // errors
+	entities,
+	auth
+	// errors
 });
 
 export default rootReducer;

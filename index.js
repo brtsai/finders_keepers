@@ -21,10 +21,10 @@ app.use(express.static("public"));
 app.use(express.static("public/stylesheets"));
 
 app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60 * 1000,
+		keys: [keys.cookieKey]
+	})
 );
 
 app.use(passport.initialize());

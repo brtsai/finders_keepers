@@ -1,10 +1,10 @@
-import React from 'react';
-import { geocode } from '../../util/geocoding_api_util';
-import cloudinary from 'cloudinary';
+import React from "react";
+import { geocode } from "../../util/geocoding_api_util";
+import cloudinary from "cloudinary";
 cloudinary.config({
-	cloud_name: 'djbrisg12',
-	api_key: '189584942645919',
-	api_secret: 'smX1q9fiqSNQEgMvkFsSd2Tkbw8',
+	cloud_name: "djbrisg12",
+	api_key: "189584942645919",
+	api_secret: "smX1q9fiqSNQEgMvkFsSd2Tkbw8"
 });
 
 class AddFreebieForm extends React.Component {
@@ -16,9 +16,9 @@ class AddFreebieForm extends React.Component {
 			address: null,
 			latitude: 37.7989666,
 			longitude: -122.4035405,
-			imageUrl: '',
+			imageUrl: "",
 			title: null,
-			description: null,
+			description: null
 		};
 
 		this.listingHandler = this.listingHandler.bind(this);
@@ -26,7 +26,7 @@ class AddFreebieForm extends React.Component {
 	}
 
 	update(field) {
-		return (e) => {
+		return e => {
 			this.setState({ [field]: e.target.value });
 		};
 	}
@@ -34,28 +34,25 @@ class AddFreebieForm extends React.Component {
 	listingHandler(e) {
 		e.preventDefault();
 		let that = this;
-		cloudinary.v2.uploader.upload(this.state.imageUrl, function(
-			error,
-			rez
-		) {
+		cloudinary.v2.uploader.upload(this.state.imageUrl, function(error, rez) {
 			that.setState({ imageUrl: rez.url });
 
-			geocode(that.state.address).then((res) => {
+			geocode(that.state.address).then(res => {
 				if (res.data.results.length > 0) {
 					let result = res.data.results[0];
 					that.setState(
 						{
 							address: result.formatted_address,
 							latitude: result.geometry.location.lat,
-							longitude: result.geometry.location.lng,
+							longitude: result.geometry.location.lng
 						},
 						() => {
 							console.log(that.state);
 							that.props.createListing(that.state).then(
-								(success) => {
+								success => {
 									that.props.close();
 								},
-								(failure) => {
+								failure => {
 									// handle create listing failure
 								}
 							);
@@ -93,21 +90,18 @@ class AddFreebieForm extends React.Component {
 				<form className="form-container" onSubmit={this.listingHandler}>
 					<label className="form-label title">
 						Title
-						<input onChange={this.update('title')} type="text" />
+						<input onChange={this.update("title")} type="text" />
 					</label>
 
 					<label className="form-label description">
 						Description
-						<textarea
-							rows="7"
-							onChange={this.update('description')}
-						/>
+						<textarea rows="7" onChange={this.update("description")} />
 					</label>
 
 					<label className="form-label address">
 						Address
 						<input
-							onChange={this.update('address')}
+							onChange={this.update("address")}
 							className="address-input"
 							type="text"
 						/>
@@ -115,20 +109,14 @@ class AddFreebieForm extends React.Component {
 
 					<label>
 						Upload Image
-						<input
-							type="file"
-							accept="image/*"
-							onChange={this.imageHandler}
-						/>
+						<input type="file" accept="image/*" onChange={this.imageHandler} />
 					</label>
 
 					<img className="img-preview" src={this.state.imageUrl} />
 
 					<div className="form-submit-close-buttons">
 						<button className="form-submit-button">Submit</button>
-						<button
-							className="form-close-button"
-							onClick={this.props.close}>
+						<button className="form-close-button" onClick={this.props.close}>
 							Cancel
 						</button>
 					</div>
