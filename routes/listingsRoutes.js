@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 const Listing = mongoose.model("listings");
 
 const parseTagsFromDescription = description => {
+  if (description === null) return null;
 	return description.match(/#\w+/g);
 };
 
 const parseDescriptionFromDescription = description => {
+  if (description === null) return null;
 	const words = description.split(" ");
 	const nonTags = words.filter(word => !word.includes("#"));
 	return nonTags.join(" ");
@@ -38,12 +40,17 @@ module.exports = app => {
 	});
 
 	app.post("/listings", (req, res) => {
-		console.log(req.body);
-
 		const newListing = new Listing(buildListingJSON(req.body));
-		console.log(buildListingJSON(req.body));
-		newListing.save(err => console.log(err));
-		res.send(newListing);
+		newListing.save(err => {
+      if (err) {
+        // failure
+        res.status(400).send(err.message);
+      } else { 
+        // success
+		    res.send(newListing);
+      }
+    });
+
 	});
 
 	app.delete("listings/:id", (req, res) => {

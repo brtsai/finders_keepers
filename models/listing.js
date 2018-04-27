@@ -8,7 +8,10 @@ const listingSchema = new Schema(
 		latitude: Number,
 		longitude: Number,
 		imageUrl: String,
-		title: String,
+		title: { 
+      type: String,
+      required: true
+    },
 		description: String,
 		tags: [String],
 	},
