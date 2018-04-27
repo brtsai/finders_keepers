@@ -36,44 +36,44 @@ class AddFreebieForm extends React.Component {
 		e.preventDefault();
 		let that = this;
 		cloudinary.v2.uploader.upload(this.state.imageUrl, function(error, rez) {
-      if (error !== undefined ) {
-        that.props.forwardErrors([error.message]);
-      } else {
-        that.setState({ imageUrl: rez.url });
-        if (that.state.address !== null) {
-          geocode(that.state.address).then(res => {
-            if (res.data.results.length > 0) {
-              let result = res.data.results[0];
-              that.setState(
-                {
-                  address: result.formatted_address,
-                  latitude: result.geometry.location.lat,
-                  longitude: result.geometry.location.lng,
-                },
-                () => {
-                  that.props.createListing(that.state).then(
-                    success => {
-                      console.log(success);
-                      that.props.close();
-                    },
-                    failure => {
-                      // handle create listing failure
-                      console.log('failed to create a listing');
-                    }
-                  );
-                }
-              );
-            } else {
-              //handle unable to geocode
-              console.log('unable to geocode');
-              that.props.forwardErrors(['Invalid location']);
-            }
-          });
-        } else {
-          console.log(that.state.address);
-          that.props.forwardErrors(["Location can't be empty"]);
-        }
-      }
+			if (error !== undefined) {
+				that.props.forwardErrors([error.message]);
+			} else {
+				that.setState({ imageUrl: rez.url });
+				if (that.state.address !== null) {
+					geocode(that.state.address).then(res => {
+						if (res.data.results.length > 0) {
+							let result = res.data.results[0];
+							that.setState(
+								{
+									address: result.formatted_address,
+									latitude: result.geometry.location.lat,
+									longitude: result.geometry.location.lng,
+								},
+								() => {
+									that.props.createListing(that.state).then(
+										success => {
+											console.log(success);
+											that.props.close();
+										},
+										failure => {
+											// handle create listing failure
+											console.log("failed to create a listing");
+										}
+									);
+								}
+							);
+						} else {
+							//handle unable to geocode
+							console.log("unable to geocode");
+							that.props.forwardErrors(["Invalid location"]);
+						}
+					});
+				} else {
+					console.log(that.state.address);
+					that.props.forwardErrors(["Location can't be empty"]);
+				}
+			}
 		});
 	}
 

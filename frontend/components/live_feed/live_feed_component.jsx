@@ -15,7 +15,7 @@ class LiveFeed extends React.Component {
 		console.log(this.props.listings);
 		return (
 			<div>
-				<Slide top cascade>
+				<Slide right cascade>
 					<div className="feed-index">
 						{this.props.listings
 							.map(listing => (

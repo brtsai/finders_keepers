@@ -49826,13 +49826,13 @@ var AddFreebieForm = function (_React$Component) {
 										that.props.close();
 									}, function (failure) {
 										// handle create listing failure
-										console.log('failed to create a listing');
+										console.log("failed to create a listing");
 									});
 								});
 							} else {
 								//handle unable to geocode
-								console.log('unable to geocode');
-								that.props.forwardErrors(['Invalid location']);
+								console.log("unable to geocode");
+								that.props.forwardErrors(["Invalid location"]);
 							}
 						});
 					} else {
@@ -84950,7 +84950,7 @@ var LiveFeed = function (_React$Component) {
 				null,
 				_react2.default.createElement(
 					_Slide2.default,
-					{ top: true, cascade: true },
+					{ right: true, cascade: true },
 					_react2.default.createElement(
 						"div",
 						{ className: "feed-index" },
