@@ -23,7 +23,7 @@ const receiveListingErrors = errors => ({
 
 export const fetchListings = () => dispatch =>
 	ListingApiUtil.fetchListings().then(
-    listings => dispatch(receiveListings(listings)),
+    res => dispatch(receiveListings(res.data)),
     errors => dispatch(receiveListingErrors(errors))
 	);
 

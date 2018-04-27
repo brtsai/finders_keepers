@@ -11,11 +11,12 @@ class LiveFeed extends React.Component {
   }
 
   render() {
+    console.log(this.props.listings);
     return (
-      <div>
+      <div className="feed-index">
         { 
           this.props.listings.map(listing => (
-            <ListingIndexItem key={lisitng.id} listing={listing} />
+            <ListingIndexItem key={listing._id} listing={listing} />
           ))
         }
       </div>

@@ -13127,6 +13127,14 @@ var freeProcess = moduleExports && freeGlobal.process;
 /** Used to access faster Node.js helpers. */
 var nodeUtil = (function() {
   try {
+    // Use `util.types` for Node.js 10+.
+    var types = freeModule && freeModule.require && freeModule.require('util').types;
+
+    if (types) {
+      return types;
+    }
+
+    // Legacy `process.binding('util')` for Node.js < 10.
     return freeProcess && freeProcess.binding && freeProcess.binding('util');
   } catch (e) {}
 }());
@@ -26282,8 +26290,8 @@ var receiveListingErrors = function receiveListingErrors(errors) {
 
 var fetchListings = exports.fetchListings = function fetchListings() {
 	return function (dispatch) {
-		return ListingApiUtil.fetchListings().then(function (listings) {
-			return dispatch(receiveListings(listings));
+		return ListingApiUtil.fetchListings().then(function (res) {
+			return dispatch(receiveListings(res.data));
 		}, function (errors) {
 			return dispatch(receiveListingErrors(errors));
 		});
@@ -50847,7 +50855,7 @@ module.exports = function spread(callback) {
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.5';
+  var VERSION = '4.17.10';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -51271,6 +51279,14 @@ module.exports = function spread(callback) {
   /** Used to access faster Node.js helpers. */
   var nodeUtil = (function() {
     try {
+      // Use `util.types` for Node.js 10+.
+      var types = freeModule && freeModule.require && freeModule.require('util').types;
+
+      if (types) {
+        return types;
+      }
+
+      // Legacy `process.binding('util')` for Node.js < 10.
       return freeProcess && freeProcess.binding && freeProcess.binding('util');
     } catch (e) {}
   }());
@@ -84941,11 +84957,12 @@ var LiveFeed = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log(this.props.listings);
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'feed-index' },
         this.props.listings.map(function (listing) {
-          return _react2.default.createElement(_listing_index_item2.default, { key: lisitng.id, listing: listing });
+          return _react2.default.createElement(_listing_index_item2.default, { key: listing._id, listing: listing });
         })
       );
     }
@@ -84978,8 +84995,23 @@ var ListingIndexItem = function ListingIndexItem(_ref) {
 
   return _react2.default.createElement(
     "div",
-    null,
-    _react2.default.createElement("img", { src: "listing.imageUrl", alt: "" })
+    { className: "feed-index-wrapper" },
+    _react2.default.createElement(
+      "div",
+      { className: "feed-index-item" },
+      _react2.default.createElement("img", { className: "feed-img", src: listing.imageUrl, alt: "" }),
+      _react2.default.createElement(
+        "h1",
+        { className: "feed-title" },
+        listing.title
+      ),
+      _react2.default.createElement(
+        "p",
+        { className: "feed-date" },
+        new Date(listing.created_at).toDateString()
+      )
+    ),
+    _react2.default.createElement("div", { className: "feed-line" })
   );
 };
 
@@ -85184,13 +85216,19 @@ var listingsReducer = function listingsReducer() {
 	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	var action = arguments[1];
 
+	Object.freeze(state);
+	var newState = void 0;
 	switch (action.type) {
 		case _types.RECEIVE_LISTINGS:
-			return action.listings;
+			newState = {};
+			action.listings.forEach(function (listing) {
+				newState[listing._id] = listing;
+			});
+			return newState;
 		case _types.RECEIVE_LISTING:
 			return (0, _merge3.default)({}, state, _defineProperty({}, action.listing.id, action.listing));
 		case _types.REMOVE_LISTING:
-			var newState = (0, _merge3.default)({}, state);
+			newState = (0, _merge3.default)({}, state);
 			delete newState[action.listing.id];
 			return newState;
 		default:
