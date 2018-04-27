@@ -29,7 +29,14 @@
 	color: #eb4d4b;
 	font-size: 15px;
 	text-align: left;
-	max-height: 500px;
+}
+
+form.form-container input {
+	width: 100%;
+	padding: 10px;
+	border: 2px solid #eb4d4b;
+	border-radius: 4px;
+	margin: 7px 0 5px 0;
 }
 
 h1.form-header {
@@ -41,24 +48,21 @@ h1.form-header {
 	resize: none;
 	border: 2px solid #eb4d4b;
 	width: 100%;
+	padding: 10px;
 	border-radius: 4px;
+	margin: 7px 0 5px 0;
 }
 
 button.form-submit-button {
 	background: #eb4d4b;
 	cursor: pointer;
+	border-radius: 4px;
+	text-align: center;
 }
 
 button.form-submit-button:hover {
 	background: #d63916;
 	cursor: pointer;
-}
-
-form.form-container input {
-	width: 100%;
-	padding: 10px;
-	border: 2px solid #eb4d4b;
-	border-radius: 4px;
 }
 
 .form-submit-close-buttons {
@@ -67,23 +71,42 @@ form.form-container input {
 	justify-content: space-between;
 }
 
+.form-submit-close-buttons * {
+	display: block;
+	margin: 5px;
+	padding: 12px;
+	padding-left: 44px;
+}
+
 .navbar-container button.form-close-button {
-	color: #e8e8e8;
+	color: #b8b8b8;
 	background: none;
-	border: none;
+	border: 1px solid light gray;
+	border-radius: 4px;
+	text-align: center;
 }
 .navbar-container button.form-close-button:hover {
 	color: #eb4d4b;
 }
 
-.image-form-input input {
-	opacity: 0;
-}
-
 .image-form-input {
 	border: 2px solid;
 	border-radius: 4px;
-	overflow-y: scroll;
+	overflow-y: hidden;
+	max-height: 275px;
+	margin: 7px 0 5px 0;
+}
+
+.image-form-input,
+.image-form-input:hover,
+.image-form-input *,
+.image-form-input *:hover {
+	cursor: pointer;
+}
+
+.image-form-input input {
+	opacity: 0;
+	padding: 0;
 }
 
 .image-form-input h1 {
@@ -91,8 +114,9 @@ form.form-container input {
 	display: flex;
 	flex-direction: row;
 	position: absolute;
-	bottom: 63px;
+	bottom: 85px;
 	left: 109px;
+	align-items: center;
 }
 
 i.fas.fa-plus {
