@@ -1,53 +1,53 @@
 nav.navbar-container {
-  position: absolute;
-  z-index: 5;
-  top: 60px;
-  background: white;
-  margin: 0 auto;
-  width: 90vw;
-  height: 50px;
-  left: 5vw;
-  background: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  box-shadow: 0px 2px 2px 0px #C7C7C7;
+	position: absolute;
+	z-index: 5;
+	top: 60px;
+	background: white;
+	margin: 0 auto;
+	width: 90vw;
+	height: 50px;
+	left: 5vw;
+	background: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	box-shadow: 0px 2px 2px 0px #c7c7c7;
 }
 
 .navbar-container button {
-  font-family: 'Arial';
-  font-weight: 700;
-  font-size: 12px;
-  height: 40px;
-  width: 140px;
-  color: white;
+	font-family: "Arial";
+	font-weight: 700;
+	font-size: 12px;
+	height: 40px;
+	width: 140px;
+	color: white;
+	border-radius: 4px;
 }
 
 .add-freebie-button {
-  background: #eb4d4b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	background: #eb4d4b;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .add-freebie-button:hover {
-  background: #d63916;
-  cursor: pointer;
+	background: #d63916;
+	cursor: pointer;
 }
 
 .add-freebie-plus {
-  font-size: 20px;
-  padding-right: 5px;
+	font-size: 20px;
+	padding-right: 5px;
 }
 
 .add-freebie-text {
 }
 
 .auth-button {
-
-  background: #4d90fe;
+	background: #4d90fe;
 }
 .auth-button:hover {
-  background: #3079ed;
-  cursor: pointer;
+	background: #3079ed;
+	cursor: pointer;
 }
