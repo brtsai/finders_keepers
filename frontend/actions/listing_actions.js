@@ -31,8 +31,7 @@ export const createListing = formListing => dispatch =>
 	ListingApiUtil.createListing(formListing).then(
     listing => dispatch(receiveListing(listing)),
     errors => {
-      console.log('failed');
-      dispatch(receiveListingErrors(errors));
+      dispatch(receiveListingErrors(errors.response.data));
     }
 	);
 
