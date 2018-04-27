@@ -92,14 +92,14 @@ class AddFreebieForm extends React.Component {
 					<h1><i class="fas fa-plus"></i> Add Image</h1>
 					<input type="file" accept="image/*" onChange={this.imageHandler} />
 				</div>
-				)
+				);
 		}else{
 			return(
 			<div className="image-form-input">
 				<img className="img-preview" src={this.state.imageUrl} />
 				<input style={{display: 'none'}} type="file" accept="image/*" onChange={this.imageHandler} />
 			</div>
-			)
+			);
 		}
 	}
 
