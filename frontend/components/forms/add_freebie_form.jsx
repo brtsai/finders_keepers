@@ -48,15 +48,12 @@ class AddFreebieForm extends React.Component {
 							longitude: result.geometry.location.lng,
 						},
 						() => {
-							console.log(that.state);
 							that.props.createListing(that.state).then(
 								success => {
-                  console.log(success);
 									that.props.close();
 								},
 								failure => {
 									// handle create listing failure
-                  console.log('failed to create a listing');
 								}
 							);
 						}
@@ -66,11 +63,6 @@ class AddFreebieForm extends React.Component {
 				}
 			});
 		});
-
-		// const fd = new FormData();
-		// fd.append('image', this.state.selectedfile, this.state.selectedFile.name);
-		// const data = this.props.uploadImage(fd);
-		// console.log(data);
 	}
 
 	imageHandler(e) {
@@ -85,21 +77,28 @@ class AddFreebieForm extends React.Component {
 		}
 	}
 
-	renderImagePreview(){
-		if(!this.state.imageUrl){
+	renderImagePreview() {
+		if (!this.state.imageUrl) {
 			return (
 				<div className="image-form-input">
-					<h1><i class="fas fa-plus"></i> Add Image</h1>
+					<h1>
+						<i className="fas fa-plus" /> Add Image
+					</h1>
 					<input type="file" accept="image/*" onChange={this.imageHandler} />
 				</div>
-				)
-		}else{
-			return(
-			<div className="image-form-input">
-				<img className="img-preview" src={this.state.imageUrl} />
-				<input style={{display: 'none'}} type="file" accept="image/*" onChange={this.imageHandler} />
-			</div>
-			)
+			);
+		} else {
+			return (
+				<div className="image-form-input">
+					<img className="img-preview" src={this.state.imageUrl} />
+					<input
+						style={{ display: "none" }}
+						type="file"
+						accept="image/*"
+						onChange={this.imageHandler}
+					/>
+				</div>
+			);
 		}
 	}
 
@@ -129,10 +128,8 @@ class AddFreebieForm extends React.Component {
 
 					<label>
 						Upload Image
-							{this.renderImagePreview()}
+						{this.renderImagePreview()}
 					</label>
-
-					
 
 					<div className="form-submit-close-buttons">
 						<button className="form-submit-button">Submit</button>
