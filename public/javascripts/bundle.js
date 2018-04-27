@@ -84607,15 +84607,7 @@ var Navbar = function (_React$Component) {
 						"Add a Freebie"
 					)
 				),
-				_react2.default.createElement(
-					"div",
-					null,
-					_react2.default.createElement(
-						_Fade2.default,
-						{ left: true, when: this.state.showingAddFreebieModal },
-						this.renderModal()
-					)
-				),
+				this.renderModal(),
 				this.renderUserIcon(this.props.auth),
 				_react2.default.createElement(_google_button_component2.default, { auth: this.props.auth })
 			);

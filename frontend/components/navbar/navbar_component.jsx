@@ -48,11 +48,9 @@ class Navbar extends React.Component {
 					<span className="add-freebie-plus">+</span>
 					<span className="add-freebie-text">Add a Freebie</span>
 				</button>
-				<div>
-					<Fade left when={this.state.showingAddFreebieModal}>
-						{this.renderModal()}
-					</Fade>
-				</div>
+
+				{this.renderModal()}
+
 				{this.renderUserIcon(this.props.auth)}
 				<GoogleButton auth={this.props.auth} />
 			</nav>

@@ -12,11 +12,11 @@
 }
 
 .form-wrapper {
-	position: relative;
-	top: 270px;
+	position: absolute;
+	top: 66px;
+	left: 0;
 	background: white;
 	border: 1px solid #ccc;
-	left: -265px;
 	width: 340px;
 	text-align: center;
 	padding-top: 20px;
