@@ -12,16 +12,15 @@ class Map extends React.Component {
     console.log(this.props.listings);
 		// wrap the mapDOMNode in a Google Map
 		this.map = new google.maps.Map(this.mapNode, mapOptions);
-		const marker = new google.maps.Marker({
-			position: { lat: latitude, lng: longitude },
-			map: this.map,
-		});
+    this.state = ({
+      markers: {}
+    });
 	}
 
-  createNewMarker (lat, lng) {
+  createNewMarker (lat, lng, map) {
     return new google.maps.Marker({
       position: { lat, lng },
-      map: null
+      map: map
     });
   }
 
@@ -29,6 +28,13 @@ class Map extends React.Component {
     if (listing === null) return;
     console.log('adding listing to map');
     console.log(listing);
+    console.log('add listing creating marker');
+    const marker = this.createNewMarker(listing.latitude, listing.longitude, this.map);
+    this.setState({
+      markers: {
+        [listing._id]: marker
+      }
+    });
   }
 
   componentWillReceiveProps(nextProps) {
