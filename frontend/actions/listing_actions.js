@@ -16,7 +16,7 @@ const removeListing = listing => ({
 	listing,
 });
 
-const receiveListingErrors = errors => ({
+export const receiveListingErrors = errors => ({
   type: RECEIVE_LISTING_ERRORS,
   errors
 });

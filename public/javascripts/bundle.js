@@ -11247,7 +11247,7 @@ var FETCH_USER = exports.FETCH_USER = "fetch_user";
 var RECEIVE_LISTINGS = exports.RECEIVE_LISTINGS = "fetch_listings";
 var RECEIVE_LISTING = exports.RECEIVE_LISTING = "fetch_listing";
 var REMOVE_LISTING = exports.REMOVE_LISTING = "remove_listing";
-var RECEIVE_LISTING_ERRORS = exports.RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS';
+var RECEIVE_LISTING_ERRORS = exports.RECEIVE_LISTING_ERRORS = "RECEIVE_LISTING_ERRORS";
 
 /***/ }),
 /* 56 */
@@ -16540,6 +16540,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	return {
 		createListing: function createListing(listing) {
 			return dispatch((0, _listing_actions.createListing)(listing));
+		},
+		forwardErrors: function forwardErrors(errors) {
+			return dispatch((0, _listing_actions.receiveListingErrors)(errors));
 		}
 	};
 };
@@ -49708,28 +49711,38 @@ var AddFreebieForm = function (_React$Component) {
 			e.preventDefault();
 			var that = this;
 			_cloudinary2.default.v2.uploader.upload(this.state.imageUrl, function (error, rez) {
-				that.setState({ imageUrl: rez.url });
-
-				(0, _geocoding_api_util.geocode)(that.state.address).then(function (res) {
-					if (res.data.results.length > 0) {
-						var result = res.data.results[0];
-						that.setState({
-							address: result.formatted_address,
-							latitude: result.geometry.location.lat,
-							longitude: result.geometry.location.lng
-						}, function () {
-							that.props.createListing(that.state).then(function (success) {
-								console.log(success);
-								that.props.close();
-							}, function (failure) {
-								// handle create listing failure
-								console.log('failed to create a listing');
-							});
+				if (error !== undefined) {
+					that.props.forwardErrors([error.message]);
+				} else {
+					that.setState({ imageUrl: rez.url });
+					if (that.state.address !== null) {
+						(0, _geocoding_api_util.geocode)(that.state.address).then(function (res) {
+							if (res.data.results.length > 0) {
+								var result = res.data.results[0];
+								that.setState({
+									address: result.formatted_address,
+									latitude: result.geometry.location.lat,
+									longitude: result.geometry.location.lng
+								}, function () {
+									that.props.createListing(that.state).then(function (success) {
+										console.log(success);
+										that.props.close();
+									}, function (failure) {
+										// handle create listing failure
+										console.log('failed to create a listing');
+									});
+								});
+							} else {
+								//handle unable to geocode
+								console.log('unable to geocode');
+								that.props.forwardErrors(['Invalid location']);
+							}
 						});
 					} else {
-						//handle unable to geocode
+						console.log(that.state.address);
+						that.props.forwardErrors(["Location can't be empty"]);
 					}
-				});
+				}
 			});
 		}
 	}, {
@@ -72224,7 +72237,7 @@ module.exports.makeKey = makeKey
 /* 370 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[["elliptic@6.4.0","/Users/stevenchoi/MyAppAcademyProjects/finders_keepers"]],"_from":"elliptic@6.4.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"elliptic@6.4.0","name":"elliptic","escapedName":"elliptic","rawSpec":"6.4.0","saveSpec":null,"fetchSpec":"6.4.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_spec":"6.4.0","_where":"/Users/stevenchoi/MyAppAcademyProjects/finders_keepers","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"}
+module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"/Users/kwlau/Documents/AppAcademy/finders_keepers/node_modules/browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"}
 
 /***/ }),
 /* 371 */
@@ -82682,7 +82695,7 @@ module.exports = toPlainObject;
 /* 521 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[["cloudinary@1.11.0","/Users/stevenchoi/MyAppAcademyProjects/finders_keepers"]],"_from":"cloudinary@1.11.0","_id":"cloudinary@1.11.0","_inBundle":false,"_integrity":"sha512-U5j9aWaYrSteboC7KcFZhvWy734d60CrrEUHVMpCtKhEWxpxXyVSe4Ag1BnRaVVq0YOvlJpXe6Qt6hAcb+h1lg==","_location":"/cloudinary","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"cloudinary@1.11.0","name":"cloudinary","escapedName":"cloudinary","rawSpec":"1.11.0","saveSpec":null,"fetchSpec":"1.11.0"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/cloudinary/-/cloudinary-1.11.0.tgz","_spec":"1.11.0","_where":"/Users/stevenchoi/MyAppAcademyProjects/finders_keepers","author":{"name":"Cloudinary","email":"info@cloudinary.com"},"browserify":{"transform":["coffeeify"]},"bugs":{"url":"https://github.com/cloudinary/cloudinary_npm/issues"},"dependencies":{"lodash":"^4.17.4","q":"^1.5.1"},"description":"Cloudinary NPM for node.js integration","devDependencies":{"coffee-script":"^1.11.0","dotenv":"4.x","expect.js":"0.3.x","jsdom":"^9.12.0","jsdom-global":"2.1.1","mocha":"^5.0.0","sinon":"^4.2.1"},"engines":{"node":">=0.6"},"homepage":"http://cloudinary.com","license":"MIT","main":"cloudinary.js","name":"cloudinary","optionalDependencies":{},"repository":{"type":"git","url":"git+https://github.com/cloudinary/cloudinary_npm.git"},"scripts":{"compile":"coffee --no-header --map -o lib -c src","compileTests":"coffee --no-header --map -o test_lib -c test","prepublish":"npm run compile","pretest":"npm run compile","test":"mocha -R spec --recursive test/","watch":"coffee --watch --map -o lib -c src"},"version":"1.11.0"}
+module.exports = {"_from":"cloudinary@^1.11.0","_id":"cloudinary@1.11.0","_inBundle":false,"_integrity":"sha512-U5j9aWaYrSteboC7KcFZhvWy734d60CrrEUHVMpCtKhEWxpxXyVSe4Ag1BnRaVVq0YOvlJpXe6Qt6hAcb+h1lg==","_location":"/cloudinary","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"cloudinary@^1.11.0","name":"cloudinary","escapedName":"cloudinary","rawSpec":"^1.11.0","saveSpec":null,"fetchSpec":"^1.11.0"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/cloudinary/-/cloudinary-1.11.0.tgz","_shasum":"3f6b21961d17859f271738f452427d9899591ff1","_spec":"cloudinary@^1.11.0","_where":"/Users/kwlau/Documents/AppAcademy/finders_keepers","author":{"name":"Cloudinary","email":"info@cloudinary.com"},"browserify":{"transform":["coffeeify"]},"bugs":{"url":"https://github.com/cloudinary/cloudinary_npm/issues"},"bundleDependencies":false,"dependencies":{"lodash":"^4.17.4","q":"^1.5.1"},"deprecated":false,"description":"Cloudinary NPM for node.js integration","devDependencies":{"coffee-script":"^1.11.0","dotenv":"4.x","expect.js":"0.3.x","jsdom":"^9.12.0","jsdom-global":"2.1.1","mocha":"^5.0.0","sinon":"^4.2.1"},"engines":{"node":">=0.6"},"homepage":"http://cloudinary.com","license":"MIT","main":"cloudinary.js","name":"cloudinary","optionalDependencies":{},"repository":{"type":"git","url":"git+https://github.com/cloudinary/cloudinary_npm.git"},"scripts":{"compile":"coffee --no-header --map -o lib -c src","compileTests":"coffee --no-header --map -o test_lib -c test","prepublish":"npm run compile","pretest":"npm run compile","test":"mocha -R spec --recursive test/","watch":"coffee --watch --map -o lib -c src"},"version":"1.11.0"}
 
 /***/ }),
 /* 522 */
@@ -84340,7 +84353,7 @@ var substr = 'ab'.substr(-1) === 'b'
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.deleteListing = exports.createListing = exports.fetchListings = undefined;
+exports.deleteListing = exports.createListing = exports.fetchListings = exports.receiveListingErrors = undefined;
 
 var _types = __webpack_require__(55);
 
@@ -84371,7 +84384,7 @@ var removeListing = function removeListing(listing) {
 	};
 };
 
-var receiveListingErrors = function receiveListingErrors(errors) {
+var receiveListingErrors = exports.receiveListingErrors = function receiveListingErrors(errors) {
 	return {
 		type: _types.RECEIVE_LISTING_ERRORS,
 		errors: errors
@@ -84921,8 +84934,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var rootReducer = (0, _redux.combineReducers)({
 	entities: _entities_reducer2.default,
-	auth: _auth_reducer2.default
-	// errors
+	auth: _auth_reducer2.default,
+	errors: _errors_reducer2.default
 });
 
 exports.default = rootReducer;
@@ -84962,12 +84975,21 @@ exports.default = errorsReducer;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _types = __webpack_require__(55);
+
 var listingsErrorsReducer = function listingsErrorsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments[1];
 
   console.log(action);
-  return state;
+  switch (action.type) {
+    case _types.RECEIVE_LISTING_ERRORS:
+      return action.errors;
+
+    default:
+      return state;
+  }
 };
 
 exports.default = listingsErrorsReducer;
