@@ -26,9 +26,7 @@ class App extends React.Component {
 				<Map />
 				<Navbar />
 
-				<Slide right>
-					<LiveFeed />
-				</Slide>
+				<LiveFeed />
 			</div>
 		);
 	}
