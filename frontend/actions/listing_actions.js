@@ -26,6 +26,10 @@ export const receiveListingErrors = errors => ({
 	errors,
 });
 
+export const clearListingErrors = () => dispatch => (
+  dispatch(receiveListingErrors([]))
+);
+
 export const fetchListings = () => dispatch =>
 	ListingApiUtil.fetchListings().then(
 		res => dispatch(receiveListings(res.data)),
