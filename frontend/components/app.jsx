@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Provider, connect } from "react-redux";
 import { Route, Redirect, Switch, Link, BrowserRouter } from "react-router-dom";
+import Slide from "react-reveal/Slide";
+
 import { ProtectedRoute } from "./util/route_util";
 import AddFreebieFormContainer from "./forms/add_freebie_form_container";
 
@@ -16,7 +18,6 @@ class App extends React.Component {
 
 	componentDidMount() {
 		this.props.fetchUser();
-		
 	}
 
 	render() {
@@ -24,7 +25,10 @@ class App extends React.Component {
 			<div className="app">
 				<Map />
 				<Navbar />
-				<LiveFeed />
+
+				<Slide right>
+					<LiveFeed />
+				</Slide>
 			</div>
 		);
 	}
