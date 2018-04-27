@@ -12,7 +12,6 @@ class Map extends React.Component {
     console.log(this.props.listings);
 		// wrap the mapDOMNode in a Google Map
 		this.map = new google.maps.Map(this.mapNode, mapOptions);
-    
 		const marker = new google.maps.Marker({
 			position: { lat: latitude, lng: longitude },
 			map: this.map,
@@ -35,6 +34,11 @@ class Map extends React.Component {
   componentWillReceiveProps(nextProps) {
     console.log('receiving new props');
     console.log(nextProps);
+
+    console.log(Object.values(nextProps.listings));
+    Object.values(nextProps.listings).forEach(listing => {
+      this.addListingToMap(listing);
+    });
   }
 
 	render() {
