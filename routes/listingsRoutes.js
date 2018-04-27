@@ -33,7 +33,6 @@ module.exports = app => {
 	});
 
 	app.get("/listings/:id", (req, res) => {
-		console.log(req.params);
 		const listing = Listing.findOne({ _id: req.params.id }, function(err, doc) {
 			res.send(doc);
 		});
@@ -42,14 +41,14 @@ module.exports = app => {
 	app.post("/listings", (req, res) => {
 		const newListing = new Listing(buildListingJSON(req.body));
 		newListing.save(err => {
-			if (err) {
-				// failure
-				res.status(400).send(err.message);
-			} else {
-				// success
-				res.send(newListing);
-			}
-		});
+      if (err) {
+        // failure
+        res.status(400).send([err.message]);
+      } else { 
+        // success
+		    res.send(newListing);
+      }
+    });
 	});
 
 	app.delete("listings/:id", (req, res) => {
@@ -67,7 +66,6 @@ module.exports = app => {
 			req.body,
 			{ new: true },
 			function(err, doc) {
-				console.log(err);
 				res.send(doc);
 			}
 		);

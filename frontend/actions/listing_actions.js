@@ -34,11 +34,11 @@ export const fetchListings = () => dispatch =>
 
 export const createListing = formListing => dispatch =>
 	ListingApiUtil.createListing(formListing).then(
-		listing => dispatch(receiveListing(listing)),
-		errors => {
-			console.log("failed");
-			dispatch(receiveListingErrors(errors));
-		}
+    listing => dispatch(receiveListing(listing)),
+    errors => {
+      dispatch(receiveListingErrors(errors.response.data));
+      return this.reject('listing error occured');
+    }
 	);
 
 export const deleteListing = listingId => dispatch =>
