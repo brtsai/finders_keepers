@@ -1,6 +1,8 @@
 import React from "react";
-import { geocode } from "../../util/geocoding_api_util";
 import cloudinary from "cloudinary";
+
+import { geocode } from "../../util/geocoding_api_util";
+import ListingsErrorBanner from "./listings_errors_container";
 
 cloudinary.config({
 	cloud_name: "djbrisg12",
@@ -53,7 +55,7 @@ class AddFreebieForm extends React.Component {
 								() => {
 									that.props.createListing(that.state).then(
 										success => {
-                      // create listing success
+											// create listing success
 											that.props.close();
 										},
 										failure => {
@@ -113,40 +115,43 @@ class AddFreebieForm extends React.Component {
 
 	render() {
 		return (
-			<div className="form-wrapper">
-				<h1 className="form-header">Add Listing</h1>
-				<form className="form-container" onSubmit={this.listingHandler}>
-					<label className="form-label title">
-						Title
-						<input onChange={this.update("title")} type="text" />
-					</label>
+			<div className="errors-and-form-wrapper">
+				<ListingsErrorBanner />
+				<div className="form-wrapper">
+					<h1 className="form-header">Add Listing</h1>
+					<form className="form-container" onSubmit={this.listingHandler}>
+						<label className="form-label title">
+							Title
+							<input onChange={this.update("title")} type="text" />
+						</label>
 
-					<label className="form-label description">
-						Description
-						<textarea rows="7" onChange={this.update("description")} />
-					</label>
+						<label className="form-label description">
+							Description
+							<textarea rows="7" onChange={this.update("description")} />
+						</label>
 
-					<label className="form-label address">
-						Address
-						<input
-							onChange={this.update("address")}
-							className="address-input"
-							type="text"
-						/>
-					</label>
+						<label className="form-label address">
+							Address
+							<input
+								onChange={this.update("address")}
+								className="address-input"
+								type="text"
+							/>
+						</label>
 
-					<label>
-						Upload Image
-						{this.renderImagePreview()}
-					</label>
+						<label>
+							Upload Image
+							{this.renderImagePreview()}
+						</label>
 
-					<div className="form-submit-close-buttons">
-						<button className="form-submit-button">Submit</button>
-						<button className="form-close-button" onClick={this.props.close}>
-							Cancel
-						</button>
-					</div>
-				</form>
+						<div className="form-submit-close-buttons">
+							<button className="form-submit-button">Submit</button>
+							<button className="form-close-button" onClick={this.props.close}>
+								Cancel
+							</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		);
 	}

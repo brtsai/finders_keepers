@@ -10,9 +10,10 @@
 	"scripts": {
 		"postinstall": "webpack",
 		"start": "node index.js",
-		"dev": "nodemon index.js",
+		"dev": "nodemon index.js & webpack --watch",
 		"webpack": "webpack --watch",
-		"pretty": "prettier-scripts-write --use-tabs --trailing-comma es5 --targets '**/*.js' && prettier-scripts-write --use-tabs --trailing-comma es5 --targets '**/*.jsx'"
+		"pretty":
+			"prettier-scripts-write --use-tabs --trailing-comma es5 --targets '**/*.js' && prettier-scripts-write --use-tabs --trailing-comma es5 --targets '**/*.jsx'"
 	},
 	"author": "",
 	"license": "ISC",

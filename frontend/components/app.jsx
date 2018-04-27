@@ -6,7 +6,7 @@ import { ProtectedRoute } from "./util/route_util";
 import AddFreebieFormContainer from "./forms/add_freebie_form_container";
 
 import Navbar from "./navbar/navbar_container";
-import Map from "./map/map";
+import MapContainer from "./map/map_container";
 import { fetchUser } from "../util/user_api_util";
 import LiveFeed from "./live_feed/live_feed_container";
 
@@ -22,7 +22,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<Map />
+				<MapContainer />
 				<LiveFeed />
 				<Navbar />
 			</div>

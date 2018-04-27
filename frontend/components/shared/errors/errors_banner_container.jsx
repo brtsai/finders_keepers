@@ -4,7 +4,7 @@ import ErrorsBanner from "./errors_banner";
 
 const mapStateToPropsWithErrorType = errorType => {
 	return state => ({
-		errors: state.error[errorType],
+		errors: state.errors[errorType],
 	});
 };
 
