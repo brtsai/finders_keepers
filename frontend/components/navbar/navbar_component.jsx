@@ -22,7 +22,7 @@ class Navbar extends React.Component {
 
 	renderModal() {
 		if (this.state.showingAddFreebieModal === false) {
-			return <div className="form-wrapper" />;
+			return <div className="errors-and-form-wrapper" />;
 		}
 
 		return <AddFreebieFormContainer close={this.closeAddFreebieForm} />;
