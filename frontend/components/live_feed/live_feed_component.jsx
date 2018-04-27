@@ -12,7 +12,6 @@ class LiveFeed extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.listings);
 		return (
 			<div>
 				<Slide right cascade>
