@@ -11,8 +11,6 @@ class LiveFeed extends React.Component {
 		this.props.fetchListings();
 	}
 
-	
-
 	render() {
 		return (
 			<div>
@@ -20,7 +18,9 @@ class LiveFeed extends React.Component {
 					<div className="feed-index">
 						{this.props.listings
 							.map(listing => (
-								<ListingIndexItem key={listing._id} listing={listing}/>
+								<ListingIndexItem 
+								key={listing._id} 
+								listing={listing} />
 							))
 							.reverse()}
 					</div>
