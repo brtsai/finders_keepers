@@ -85325,16 +85325,25 @@ var _merge = __webpack_require__(212);
 
 var _merge2 = _interopRequireDefault(_merge);
 
+var _types = __webpack_require__(55);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var UIReducer = function UIReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { currentListing: null };
   var action = arguments[1];
 
   Object.freeze(state);
   var newState = void 0;
   switch (action.type) {
-
+    case _types.SET_CURRENT_LISTING:
+      newState.merge({}, state);
+      newState.currentListing = action.listingId;
+      return newState;
+    case _types.CLEAR_CURRENT_LISTING:
+      newState.merge({}, state);
+      newState.currentListing = null;
+      return newState;
     default:
       return state;
   }
