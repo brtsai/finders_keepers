@@ -1,4 +1,4 @@
-import { RECEIVE_LISTING_ERRORS } from '../actions/types'
+import { RECEIVE_LISTING_ERRORS } from '../actions/types';
 
 const listingsErrorsReducer = (state = {}, action) => {
   console.log(action);
