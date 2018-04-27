@@ -32,6 +32,7 @@ export const createListing = formListing => dispatch =>
     listing => dispatch(receiveListing(listing)),
     errors => {
       dispatch(receiveListingErrors(errors.response.data));
+      return this.reject('listing error occured');
     }
 	);
 
