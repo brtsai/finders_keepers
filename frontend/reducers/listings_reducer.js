@@ -7,16 +7,22 @@ import {
 } from "../actions/types";
 
 const listingsReducer = (state = {}, action) => {
+	Object.freeze(state);
+	let newState;
 	switch (action.type) {
 		case RECEIVE_LISTINGS:
-			return action.listings;
+			newState = {};
+			action.listings.forEach(listing => {
+				newState[listing._id] = listing;
+			});
+			return newState;
 		case RECEIVE_LISTING:
 			return merge({}, state, { [action.listing.id]: action.listing });
 		case REMOVE_LISTING:
-			let newState = merge({}, state);
+			newState = merge({}, state);
 			delete newState[action.listing.id];
 			return newState;
-		default:
+		default: 
 			return state;
 	}
 };

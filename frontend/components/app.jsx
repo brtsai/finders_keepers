@@ -7,6 +7,7 @@ import AddFreebieFormContainer from "./forms/add_freebie_form_container";
 import Navbar from "./navbar/navbar_container";
 import Map from "./map/map";
 import { fetchUser } from "../util/user_api_util";
+import LiveFeed from "./live_feed/live_feed_container";
 
 class App extends React.Component {
 	constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component {
 			<div className="app">
 				<Map />
 				<Navbar />
+				<LiveFeed />
 			</div>
 		);
 	}
