@@ -22,7 +22,7 @@ const listingsReducer = (state = {}, action) => {
 			newState = merge({}, state);
 			delete newState[action.listing.id];
 			return newState;
-		default: 
+		default:
 			return state;
 	}
 };
