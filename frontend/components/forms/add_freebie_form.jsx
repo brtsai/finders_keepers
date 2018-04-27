@@ -53,24 +53,21 @@ class AddFreebieForm extends React.Component {
 								() => {
 									that.props.createListing(that.state).then(
 										success => {
-											console.log(success);
+                      // create listing success
 											that.props.close();
 										},
 										failure => {
 											// handle create listing failure
-											console.log("failed to create a listing");
 										}
 									);
 								}
 							);
 						} else {
 							//handle unable to geocode
-							console.log("unable to geocode");
 							that.props.forwardErrors(["Invalid location"]);
 						}
 					});
 				} else {
-					console.log(that.state.address);
 					that.props.forwardErrors(["Location can't be empty"]);
 				}
 			}
