@@ -9,7 +9,6 @@ class Map extends React.Component {
 			center: { lat: latitude, lng: longitude }, // this is SF
 			zoom: 13,
 		};
-    console.log(this.props.listings);
 		// wrap the mapDOMNode in a Google Map
 		this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.state = ({
@@ -26,9 +25,6 @@ class Map extends React.Component {
 
   addListingToMap (listing) {
     if (listing === null) return;
-    console.log('adding listing to map');
-    console.log(listing);
-    console.log('add listing creating marker');
     const marker = this.createNewMarker(listing.latitude, listing.longitude, this.map);
     this.setState({
       markers: {
@@ -38,10 +34,6 @@ class Map extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('receiving new props');
-    console.log(nextProps);
-
-    console.log(Object.values(nextProps.listings));
     Object.values(nextProps.listings).forEach(listing => {
       this.addListingToMap(listing);
     });
