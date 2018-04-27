@@ -26252,7 +26252,11 @@ return Q;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+<<<<<<< HEAD
 exports.deleteListing = exports.createListing = exports.fetchListings = exports.clearListingErrors = exports.receiveListingErrors = undefined;
+=======
+exports.deleteListing = exports.createListing = exports.fetchListings = exports.receiveListingErrors = undefined;
+>>>>>>> listing_show
 
 var _types = __webpack_require__(55);
 
@@ -26290,12 +26294,15 @@ var receiveListingErrors = exports.receiveListingErrors = function receiveListin
 	};
 };
 
+<<<<<<< HEAD
 var clearListingErrors = exports.clearListingErrors = function clearListingErrors() {
 	return function (dispatch) {
 		return dispatch(receiveListingErrors([]));
 	};
 };
 
+=======
+>>>>>>> listing_show
 var fetchListings = exports.fetchListings = function fetchListings() {
 	return function (dispatch) {
 		return ListingApiUtil.fetchListings().then(function (res) {
@@ -26311,8 +26318,13 @@ var createListing = exports.createListing = function createListing(formListing) 
 		return ListingApiUtil.createListing(formListing).then(function (listing) {
 			return dispatch(receiveListing(listing));
 		}, function (errors) {
+<<<<<<< HEAD
 			dispatch(receiveListingErrors(errors.response.data));
 			return undefined.reject('listing error occured');
+=======
+			console.log("failed");
+			dispatch(receiveListingErrors(errors));
+>>>>>>> listing_show
 		});
 	};
 };
@@ -49826,18 +49838,34 @@ var AddFreebieForm = function (_React$Component) {
 									longitude: result.geometry.location.lng
 								}, function () {
 									that.props.createListing(that.state).then(function (success) {
+<<<<<<< HEAD
 										// create listing success
 										that.props.close();
 									}, function (failure) {
 										// handle create listing failure
+=======
+										console.log(success);
+										that.props.close();
+									}, function (failure) {
+										// handle create listing failure
+										console.log("failed to create a listing");
+>>>>>>> listing_show
 									});
 								});
 							} else {
 								//handle unable to geocode
+<<<<<<< HEAD
+=======
+								console.log("unable to geocode");
+>>>>>>> listing_show
 								that.props.forwardErrors(["Invalid location"]);
 							}
 						});
 					} else {
+<<<<<<< HEAD
+=======
+						console.log(that.state.address);
+>>>>>>> listing_show
 						that.props.forwardErrors(["Location can't be empty"]);
 					}
 				}
@@ -84972,6 +85000,10 @@ var LiveFeed = function (_React$Component) {
 	}, {
 		key: "render",
 		value: function render() {
+<<<<<<< HEAD
+=======
+			console.log(this.props.listings);
+>>>>>>> listing_show
 			return _react2.default.createElement(
 				"div",
 				null,
