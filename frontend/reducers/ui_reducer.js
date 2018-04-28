@@ -7,11 +7,11 @@ const UIReducer = (state = {currentListing: null}, action) => {
   let newState;
   switch(action.type){
     case SET_CURRENT_LISTING:
-      newState.merge({}, state);
+      newState = merge({}, state);
       newState.currentListing = action.listingId;
       return newState;
     case CLEAR_CURRENT_LISTING:
-      newState.merge({}, state);
+      newState = merge({}, state);
       newState.currentListing = null;
       return newState;
     default: 
