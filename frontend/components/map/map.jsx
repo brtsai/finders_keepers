@@ -17,27 +17,30 @@ class Map extends React.Component {
 		};
 	}
 
-	createNewMarker(lat, lng, map, imageUrl, marker) {
+	createNewMarker(lat, lng, map, marker) {
 
 		const categoryMarkers = {
-			"food": "https://image.freepik.com/free-icon/restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle_318-61086.jpg",
-			"survival": "http://www.netanimations.net/Animated-jumping-red-exclamation-point-picture.gif",
-			"furniture": "http://www.netanimations.net/Animated-jumping-red-exclamation-point-picture.gif",
-			"misc": "http://www.netanimations.net/Animated-jumping-red-exclamation-point-picture.gif",
-			"clothing": "http://www.netanimations.net/Animated-jumping-red-exclamation-point-picture.gif",
-			"toys": "http://www.netanimations.net/Animated-jumping-red-exclamation-point-picture.gif",
-			"media": "http://www.netanimations.net/Animated-jumping-red-exclamation-point-picture.gif",
-			"survival": "http://www.netanimations.net/Animated-jumping-red-exclamation-point-picture.gif",
-		}
+			"food": {icon: '<span class="map-icon map-icon-restaurant"></span>', color: '#0E77E9' },
+			"furniture": {icon: '<span class="map-icon map-icon-furniture-store"></span>', color: '#7C238C'} ,
+			"misc": {icon: '<span class="map-icon map-icon-search"></span>', color: '#7C72A0'},
+			"clothing": {icon: '<span class="map-icon map-icon-clothing-store"></span>', color: '#DDFBD2'} ,
+			"toys": {icon: '<span class="map-icon map-icon-amusement-park"></span>', color: '#6B7FD7'} ,
+			"media": {icon: '<span class="map-icon map-icon-movie-theater"></span>', color: '#BCEDF6'} ,
+			"survival": {icon: '<span class="map-icon map-icon-doctor"></span>', color: '#FCCA46' } ,
+		};
 
-		return new google.maps.Marker({
+		return new mapIcons.Marker({
 			position: { lat, lng },
 			map,
 			icon: {
-				url: categoryMarkers[marker],
-				scaledSize: new google.maps.Size(20, 60),
-				origin: new google.maps.Point(0, 0),
+				path: mapIcons.shapes.MAP_PIN,
+				fillColor: categoryMarkers[marker].color,
+				fillOpacity: 1,
+				strokeColor: '',
+				strokeWeight: 0,
+				scale: 4/5
 			},
+			map_icon_label: categoryMarkers[marker].icon
 		});
 	}
 
@@ -47,7 +50,6 @@ class Map extends React.Component {
 			listing.latitude,
 			listing.longitude,
 			this.map,
-			listing.imageUrl,
 			listing.marker,
 		);
 		this.setState({
