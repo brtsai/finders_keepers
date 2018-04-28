@@ -137,11 +137,13 @@ class AddFreebieForm extends React.Component {
 						<label>Choose Marker
 							<select onChange={this.update("marker")}>
 								<option selected disabled>Choose a Category</option>
-								<option value="furnitue">Furniture</option>
+								<option value="furniture">Furniture</option>
 								<option value="food">Food</option>
 								<option value="misc">Miscellanous</option>
 								<option value="clothing">Clothing</option>
 								<option value="toys">Toys</option>
+								<option value="media">Media</option>
+								<option value="survival">Survival</option>
 							</select>
 						</label>
 
