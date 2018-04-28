@@ -8,6 +8,8 @@ class Map extends React.Component {
 		const mapOptions = {
 			center: { lat: latitude, lng: longitude }, // this is SF
 			zoom: 13,
+      
+
 		};
 		// wrap the mapDOMNode in a Google Map
 		this.map = new google.maps.Map(this.mapNode, mapOptions);

@@ -1,15 +1,18 @@
 img.feed-img {
-	height: 100px;
-	width: 100px;
+	height: 80px;
+    width: 80px;
+    border: 2px solid black;
+    border-radius: 100%;
+    padding: 5px;
 }
 
 .feed-index-item {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	min-height: 80px;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 .feed-index {
@@ -32,11 +35,13 @@ h1.feed-title {
 	display: flex;
 	align-items: center;
 	font-size: 25px;
+	font-family: HelveticaNeue-Light;
 }
 
 p.feed-date {
-	color: #c9c9c9;
-	font-size: 13px;
+	color: #3498db;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .feed-line {
