@@ -38,7 +38,7 @@ export const fetchListings = () => dispatch =>
 
 export const createListing = formListing => dispatch =>
 	ListingApiUtil.createListing(formListing).then(
-    listing => dispatch(receiveListing(listing)),
+    listing => dispatch(receiveListing(listing.data)),
     errors => {
       dispatch(receiveListingErrors(errors.response.data));
       return this.reject('listing error occured');
