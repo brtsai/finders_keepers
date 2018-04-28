@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class Map extends React.Component {
 	componentDidMount() {
 		const latitude = parseFloat(37.7867);
@@ -23,8 +24,7 @@ class Map extends React.Component {
 			position: { lat, lng },
 			map,
 			icon: {
-				url:
-					"http://www.netanimations.net/Animated-jumping-red-exclamation-point-picture.gif",
+				url: "http://www.netanimations.net/Animated-jumping-red-exclamation-point-picture.gif",
 				scaledSize: new google.maps.Size(20, 60),
 				origin: new google.maps.Point(0, 0),
 			},

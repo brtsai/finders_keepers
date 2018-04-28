@@ -22,10 +22,12 @@ class AddFreebieForm extends React.Component {
 			imageUrl: null,
 			title: null,
 			description: null,
+			marker: null
 		};
 
 		this.listingHandler = this.listingHandler.bind(this);
 		this.imageHandler = this.imageHandler.bind(this);
+		this.update = this.update.bind(this)
 	}
 
 	update(field) {
@@ -114,6 +116,8 @@ class AddFreebieForm extends React.Component {
 	}
 
 	render() {
+
+		console.log(this.state)
 		return (
 			<div className="errors-and-form-wrapper">
 				<ListingsErrorBanner />
@@ -128,6 +132,17 @@ class AddFreebieForm extends React.Component {
 						<label className="form-label description">
 							Description
 							<textarea rows="7" onChange={this.update("description")} />
+						</label>
+
+						<label>Choose Marker
+							<select onChange={this.update("marker")}>
+								<option selected disabled>Choose a Category</option>
+								<option value="furnitue">Furniture</option>
+								<option value="food">Food</option>
+								<option value="misc">Miscellanous</option>
+								<option value="clothing">Clothing</option>
+								<option value="toys">Toys</option>
+							</select>
 						</label>
 
 						<label className="form-label address">

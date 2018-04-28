@@ -12,8 +12,7 @@
 		"start": "node index.js",
 		"dev": "nodemon index.js & webpack --watch",
 		"webpack": "webpack --watch",
-		"pretty":
-			"prettier-scripts-write --use-tabs --trailing-comma es5 --targets '**/*.js' && prettier-scripts-write --use-tabs --trailing-comma es5 --targets '**/*.jsx'"
+		"pretty": "prettier-scripts-write --use-tabs --trailing-comma es5 --targets '**/*.js' && prettier-scripts-write --use-tabs --trailing-comma es5 --targets '**/*.jsx'"
 	},
 	"author": "",
 	"license": "ISC",
@@ -35,6 +34,7 @@
 		"express-namespace": "^0.1.1",
 		"fs": "0.0.1-security",
 		"lodash": "^4.17.10",
+		"map-icons": "^3.0.3",
 		"mongoose": "^5.0.15",
 		"nodemon": "^1.17.3",
 		"passport": "^0.4.0",

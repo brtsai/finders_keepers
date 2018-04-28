@@ -14,6 +14,7 @@ const listingSchema = new Schema(
 		},
 		description: String,
 		tags: [String],
+		marker: String,
 	},
 	{
 		timestamps: { createdAt: "created_at" },
