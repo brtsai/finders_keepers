@@ -12,6 +12,7 @@ class LiveFeed extends React.Component {
 		};
 		this.renderListingShowModal = this.renderListingShowModal.bind(this);
 		this.openListingShowModal = this.openListingShowModal.bind(this);
+		this.closeListingShowModal = this.closeListingShowModal.bind(this);
 		// this.handleMouseEnter = this.handleMouseEnter.bind(this);
 
 	}
@@ -24,11 +25,16 @@ class LiveFeed extends React.Component {
 		this.setState({showingDisplayModal: true, clickedListing: listing});
 	}
 
+	closeListingShowModal(e){
+		console.log("hello")
+		this.setState({showingDisplayModal: false});
+	}
+
 
 
 	renderListingShowModal() {
 		if (this.state.showingDisplayModal) {
-			return <ListingShowContainer clickedListing={this.state.clickedListing}/>;
+			return <ListingShowContainer close={this.closeListingShowModal}  clickedListing={this.state.clickedListing}/>;
 		}
 		else {
 			return <div className = "to-be-decided"></div>;
@@ -36,7 +42,7 @@ class LiveFeed extends React.Component {
 	}
 
 	render() {
-		// debugger;
+		console.log(this.state)
 		return (
 			<div className="listing-show-level">
 				{this.renderListingShowModal()}
@@ -48,7 +54,7 @@ class LiveFeed extends React.Component {
 									<div onClick={(e) => this.openListingShowModal(e, listing) } >
 										<ListingIndexItemContainer 
 											key={listing._id} 
-											listing={listing} 
+											listing={listing}
 										/>
 									</div>
 								);

@@ -5,6 +5,7 @@ img.listing-show-img {
     margin: 0 auto;
     justify-content: center;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 h1.listing-show-title {
@@ -14,7 +15,7 @@ h1.listing-show-title {
     display: flex;
     justify-content: center;
     margin-top: 13px;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     padding: 10px;
     text-align: center;
 }
@@ -34,4 +35,22 @@ p.listing-show-description {
     display: flex;
     justify-content: center;
     font-family: Arial;
+}
+
+.list-show-line {
+    border-bottom: 2px solid #ccc;
+    margin: 0 auto;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+button.list-show-close-button {
+    color: red;
+    font-weight: bold;
+    height: 50px;
+    width: 100px;
+    border-radius: 4px;
+    margin: 0 auto;
+    display:flex;
+    justify-content: center;
 }
