@@ -24,7 +24,13 @@ class LiveFeed extends React.Component {
 		this.setState({showingDisplayModal: true, clickedListing: listing});
 	}
 
+<<<<<<< Updated upstream
 
+=======
+	closeListingShowModal() {
+		this.setState({showingDisplayModal: false});
+	}
+>>>>>>> Stashed changes
 
 	renderListingShowModal() {
 		if (this.state.showingDisplayModal) {
@@ -36,7 +42,10 @@ class LiveFeed extends React.Component {
 	}
 
 	render() {
+<<<<<<< Updated upstream
 		// debugger;
+=======
+>>>>>>> Stashed changes
 		return (
 			<div className="listing-show-level">
 				{this.renderListingShowModal()}
@@ -45,10 +54,14 @@ class LiveFeed extends React.Component {
 						{this.props.listings
 							.map(listing => {
 								return (
-									<div onClick={(e) => this.openListingShowModal(e, listing) } >
+									<div onClick={(e) => this.openListingShowModal(e, listing) } key={listing._id}  >
 										<ListingIndexItemContainer 
+<<<<<<< Updated upstream
 											key={listing._id} 
 											listing={listing} 
+=======
+											listing={listing}
+>>>>>>> Stashed changes
 										/>
 									</div>
 								);
