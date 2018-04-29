@@ -57,7 +57,7 @@ nav.navbar-container {
 .user-profile-container p {
     display: flex;
     align-items: center;
-    font-family: Arial;
+    font-family: HelveticaNeue-Light;
     font-size: 25px;
     margin-left: 11px;
 }

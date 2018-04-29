@@ -1,19 +1,37 @@
 img.listing-show-img {
-    height: 150px;
-    width: 150px;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    border-radius: 5px;
 }
 
 h1.listing-show-title {
     font-size: 32px;
     text-transform: capitalize;
-    font-family: arial;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    margin-top: 13px;
+    margin-bottom: 25px;
+    padding: 10px;
+    text-align: center;
 }
 
 
 .listing-show {
 	background: white;
-    border: 2px solid black;
     position: absolute;
-    top: 121px;
-    right: 605px;
+    top: 117px;
+    right: 539px;
+    width: 400px;
+    box-shadow: 0px 2px 2px 0px #c7c7c7;
+    min-height:600px;
+}
+
+p.listing-show-description {
+    display: flex;
+    justify-content: center;
+    font-family: Arial;
 }
