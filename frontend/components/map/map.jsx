@@ -211,6 +211,7 @@ class Map extends React.Component {
 		this.map = new google.maps.Map(this.mapNode, mapOptions);
 		this.state = {
 			markers: {},
+      currentListing: null,
 		};
 	}
 
@@ -257,9 +258,14 @@ class Map extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		Object.values(nextProps.listings).forEach(listing => {
-			this.addListingToMap(listing);
-		});
+    if (this.state !== null) {
+      Object.values(nextProps.listings).forEach(listing => {
+        if (this.state.markers[listing._id] === null) {
+          this.addListingToMap(listing);
+        }
+      });
+    }
+    console.log(nextProps.currentListing);
 	}
 
 	render() {

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import Map from './map';
 
 const mapStateToProps = state => ({
-  listings: state.entities.listings
+  listings: state.entities.listings,
+  currentListing: state.ui.currentListing,
 });
 
 const mapDispatchToProps = dispatch => ({
