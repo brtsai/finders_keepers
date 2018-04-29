@@ -58,8 +58,17 @@ class LiveFeed extends React.Component {
 									</div>
 								);
 							})
+							.sort((listingA, listingB) => {
+								let dateA = new Date(
+									listingA.props.children.props.listing.updated_at
+								);
 
-							.reverse()}
+								let dateB = new Date(
+									listingB.props.children.props.listing.updated_at
+								);
+
+								return dateB - dateA;
+							})}
 					</div>
 				</Slide>
 			</div>
