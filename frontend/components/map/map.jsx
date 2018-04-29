@@ -220,13 +220,13 @@ class Map extends React.Component {
 	createNewMarker(lat, lng, map, marker, id) {
 
 		const categoryMarkers = {
-			"food": {icon: `<span id="${id}" class="map-icon map-icon-restaurant"></span>`, color: '#0E77E9' },
-			"furniture": {icon: `<span id="${id}" class="map-icon map-icon-furniture-store"></span>`, color: '#7C238C'} ,
-			"misc": {icon: `<span id="${id}" class="map-icon map-icon-search"></span>`, color: '#502274'},
-			"clothing": {icon: `<span id="${id}" class="map-icon map-icon-clothing-store"></span>`, color: '#DDFBD2'} ,
-			"toys": {icon: `<span id="${id}" class="map-icon map-icon-amusement-park"></span>`, color: '#E57A44'} ,
-			"media": {icon: `<span id="${id}" class="map-icon map-icon-movie-theater"></span>`, color: '#DE639A'} ,
-			"survival": {icon: `<span id="${id}" class="map-icon map-icon-doctor"></span>`, color: '#F45B69' } ,
+			"food": {icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-restaurant"></span>`, color: '#0E77E9' },
+			"furniture": {icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-furniture-store"></span>`, color: '#7C238C'} ,
+			"misc": {icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-search"></span>`, color: '#502274'},
+			"clothing": {icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-clothing-store"></span>`, color: '#DDFBD2'} ,
+			"toys": {icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-amusement-park"></span>`, color: '#E57A44'} ,
+			"media": {icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-movie-theater"></span>`, color: '#DE639A'} ,
+			"survival": {icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-doctor"></span>`, color: '#F45B69' } ,
 		};
 
 		return new mapIcons.Marker({
@@ -270,18 +270,26 @@ class Map extends React.Component {
     });
 
     if (this.state !== null && nextProps.currentListing !== this.state.currentListing) {
+      
       const currentListing = this.state.currentListing;
       if (currentListing !== undefined && currentListing !== null) {
         const iconToSmallify = this.state.markers[currentListing].icon;
         iconToSmallify.scale = 0.9;
         this.state.markers[currentListing].setIcon(iconToSmallify);
       }
+      
       const nextListing = nextProps.currentListing;
       if (nextListing !== null) {
         console.log(this.state.markers[nextListing]);
         const iconToEnlarge = this.state.markers[nextListing].icon;
         iconToEnlarge.scale = 1.35;
         this.state.markers[nextListing].setIcon(iconToEnlarge);
+        console.log('querying for map marker label');
+        const query = `#label-for-listing-${nextListing}`;
+        console.log(query);
+        const markerLabel = document.querySelector(query);
+        console.log(markerLabel);
+        console.log(markerLabel.classList);
       }
       this.setState({
         currentListing: nextListing
