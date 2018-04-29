@@ -25,18 +25,8 @@ class LiveFeed extends React.Component {
 		this.setState({showingDisplayModal: true, clickedListing: listing});
 	}
 
-<<<<<<< HEAD
-	closeListingShowModal(e){
-		console.log("hello")
-		this.setState({showingDisplayModal: false});
-	}
 
 
-
-	renderListingShowModal() {
-		if (this.state.showingDisplayModal) {
-			return <ListingShowContainer close={this.closeListingShowModal}  clickedListing={this.state.clickedListing}/>;
-=======
 	closeListingShowModal() {
 		this.setState({showDisplayModal: false});
 	}
@@ -47,7 +37,6 @@ class LiveFeed extends React.Component {
 					clickedListing={this.state.clickedListing}
 					closeListingShowModal={this.closeListingShowModal}
 				/>;
->>>>>>> a4cfbe45e6e3e0d209dac98eae0c3ff69b78c580
 		}
 		else {
 			return <div className = "to-be-decided"></div>;
