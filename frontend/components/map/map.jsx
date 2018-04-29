@@ -290,6 +290,8 @@ class Map extends React.Component {
         const markerLabel = document.querySelector(query);
         console.log(markerLabel);
         console.log(markerLabel.classList);
+        markerLabel.classList.add('larger-map-icon');
+        console.log(markerLabel.classList);
       }
       this.setState({
         currentListing: nextListing
