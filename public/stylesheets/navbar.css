@@ -23,6 +23,7 @@ nav.navbar-container {
 	width: 140px;
 	color: white;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
 .add-freebie-button {
@@ -50,4 +51,21 @@ nav.navbar-container {
 .auth-button:hover {
 	background: #3079ed;
 	cursor: pointer;
+}
+
+
+.user-profile-container p {
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+    font-size: 25px;
+    margin-left: 11px;
+}
+
+.user-profile-container {
+    display: flex;
+}
+
+.user-profile-container img {
+    border-radius: 100%;
 }
