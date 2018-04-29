@@ -19,6 +19,11 @@
 	white-space: nowrap;
 }
 
+.map-icon-label .larger-map-icon {
+	font-size: 30px;
+  line-height: 20px;
+}
+
 .map-icon {
 	font-family: 'map-icons';
 	speak: none;
