@@ -23,6 +23,7 @@ nav.navbar-container {
 	width: 140px;
 	color: white;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
 .add-freebie-button {
