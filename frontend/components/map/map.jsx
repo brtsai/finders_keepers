@@ -213,6 +213,8 @@ class Map extends React.Component {
 			markers: {},
       currentListing: null,
 		};
+    
+    this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
 	}
 
 	createNewMarker(lat, lng, map, marker) {
@@ -258,18 +260,20 @@ class Map extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-    if (this.state !== null) {
-      Object.values(nextProps.listings).forEach(listing => {
-        if (this.state.markers[listing._id] === null) {
-          this.addListingToMap(listing);
-        }
-      });
-    }
+    console.log('new props');
+    console.log(this);
+    console.log(nextProps);
+    Object.values(nextProps.listings).forEach(listing => {
+      if ((this.state === null || this.state.markers[listing._id] === null)) {
+        this.addListingToMap(listing);
+      }
+    });
     console.log(nextProps.currentListing);
+
 	}
 
 	render() {
-		
+		console.log(this.state);
 		return <div className="google-map" ref={map => (this.mapNode = map)} />;
 	}
 }
