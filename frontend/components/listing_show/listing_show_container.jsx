@@ -1,15 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import ListingShow from './listing_show';
+import ListingShow from "./listing_show";
 
-const mapStateToProps = (state) => ({
-});
+const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({});
 
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ListingShow);
+export default connect(mapStateToProps, mapDispatchToProps)(ListingShow);

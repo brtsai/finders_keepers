@@ -1,5 +1,5 @@
 import React from "react";
-import { merge } from 'lodash';
+import { merge } from "lodash";
 
 class Map extends React.Component {
 	componentDidMount() {
@@ -10,211 +10,211 @@ class Map extends React.Component {
 			center: { lat: latitude, lng: longitude }, // this is SF
 			zoom: 13,
 			styles: [
-    {
-        "featureType": "administrative",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "lightness": "-23"
-            },
-            {
-                "saturation": "100"
-            },
-            {
-                "weight": "8.21"
-            },
-            {
-                "color": "#f0730e"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "weight": "3.67"
-            },
-            {
-                "saturation": "64"
-            },
-            {
-                "lightness": "100"
-            },
-            {
-                "visibility": "on"
-            },
-            {
-                "gamma": "1.60"
-            },
-            {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "all",
-        "stylers": [
-            {
-                "lightness": "70"
-            },
-            {
-                "saturation": "-4"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.man_made",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#d3d3d3"
-            },
-            {
-                "lightness": "60"
-            },
-            {
-                "saturation": "0"
-            },
-            {
-                "gamma": "2.00"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.medical",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "saturation": "80"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#c8e354"
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "hue": "#ff9700"
-            },
-            {
-                "saturation": "43"
-            },
-            {
-                "lightness": "-10"
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "color": "#0025bc"
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "weight": "5"
-            },
-            {
-                "gamma": "1.85"
-            },
-            {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "hue": "#00b3ff"
-            },
-            {
-                "saturation": "69"
-            },
-            {
-                "lightness": "-38"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "lightness": "-97"
-            },
-            {
-                "saturation": "93"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "weight": "3.5"
-            },
-            {
-                "lightness": "100"
-            },
-            {
-                "saturation": "0"
-            },
-            {
-                "gamma": "1.02"
-            },
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#ffffff"
-            }
-        ]
-    }
-]
+				{
+					featureType: "administrative",
+					elementType: "labels.text.fill",
+					stylers: [
+						{
+							lightness: "-23",
+						},
+						{
+							saturation: "100",
+						},
+						{
+							weight: "8.21",
+						},
+						{
+							color: "#f0730e",
+						},
+					],
+				},
+				{
+					featureType: "administrative",
+					elementType: "labels.text.stroke",
+					stylers: [
+						{
+							weight: "3.67",
+						},
+						{
+							saturation: "64",
+						},
+						{
+							lightness: "100",
+						},
+						{
+							visibility: "on",
+						},
+						{
+							gamma: "1.60",
+						},
+						{
+							color: "#ffffff",
+						},
+					],
+				},
+				{
+					featureType: "landscape",
+					elementType: "all",
+					stylers: [
+						{
+							lightness: "70",
+						},
+						{
+							saturation: "-4",
+						},
+					],
+				},
+				{
+					featureType: "landscape",
+					elementType: "labels",
+					stylers: [
+						{
+							visibility: "off",
+						},
+					],
+				},
+				{
+					featureType: "landscape.man_made",
+					elementType: "all",
+					stylers: [
+						{
+							visibility: "on",
+						},
+						{
+							color: "#d3d3d3",
+						},
+						{
+							lightness: "60",
+						},
+						{
+							saturation: "0",
+						},
+						{
+							gamma: "2.00",
+						},
+					],
+				},
+				{
+					featureType: "poi.medical",
+					elementType: "geometry.fill",
+					stylers: [
+						{
+							saturation: "80",
+						},
+					],
+				},
+				{
+					featureType: "poi.park",
+					elementType: "geometry.fill",
+					stylers: [
+						{
+							color: "#c8e354",
+						},
+					],
+				},
+				{
+					featureType: "road.arterial",
+					elementType: "geometry.fill",
+					stylers: [
+						{
+							hue: "#ff9700",
+						},
+						{
+							saturation: "43",
+						},
+						{
+							lightness: "-10",
+						},
+					],
+				},
+				{
+					featureType: "transit",
+					elementType: "labels.text.fill",
+					stylers: [
+						{
+							color: "#0025bc",
+						},
+					],
+				},
+				{
+					featureType: "transit",
+					elementType: "labels.text.stroke",
+					stylers: [
+						{
+							weight: "5",
+						},
+						{
+							gamma: "1.85",
+						},
+						{
+							color: "#ffffff",
+						},
+					],
+				},
+				{
+					featureType: "water",
+					elementType: "geometry",
+					stylers: [
+						{
+							visibility: "on",
+						},
+						{
+							hue: "#00b3ff",
+						},
+						{
+							saturation: "69",
+						},
+						{
+							lightness: "-38",
+						},
+					],
+				},
+				{
+					featureType: "water",
+					elementType: "labels.text.fill",
+					stylers: [
+						{
+							lightness: "-97",
+						},
+						{
+							saturation: "93",
+						},
+					],
+				},
+				{
+					featureType: "water",
+					elementType: "labels.text.stroke",
+					stylers: [
+						{
+							weight: "3.5",
+						},
+						{
+							lightness: "100",
+						},
+						{
+							saturation: "0",
+						},
+						{
+							gamma: "1.02",
+						},
+						{
+							visibility: "on",
+						},
+						{
+							color: "#ffffff",
+						},
+					],
+				},
+			],
 		};
 		// wrap the mapDOMNode in a Google Map
 		this.map = new google.maps.Map(this.mapNode, mapOptions);
 		this.state = {
 			markers: {},
-      currentListing: null,
+			currentListing: null,
 		};
-    this.addListingToMap = this.addListingToMap.bind(this);
-    this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
+		this.addListingToMap = this.addListingToMap.bind(this);
+		this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
 	}
 
 	createNewMarker(lat, lng, map, marker, id) {
@@ -236,11 +236,11 @@ class Map extends React.Component {
 				path: mapIcons.shapes.MAP_PIN,
 				fillColor: categoryMarkers[marker].color,
 				fillOpacity: 1,
-				strokeColor: '',
+				strokeColor: "",
 				strokeWeight: 0,
-				scale: 9/10
+				scale: 9 / 10,
 			},
-			map_icon_label: categoryMarkers[marker].icon
+			map_icon_label: categoryMarkers[marker].icon,
 		});
 	}
 
@@ -255,19 +255,21 @@ class Map extends React.Component {
 		);
 
 		this.setState(prevState => {
-      const currentMarkers = (prevState === null ? {} : prevState.markers);
-      const combinedMarkers = merge({}, currentMarkers, { [listing._id]: marker });
-      
-      return { markers: combinedMarkers };
-    });
+			const currentMarkers = prevState === null ? {} : prevState.markers;
+			const combinedMarkers = merge({}, currentMarkers, {
+				[listing._id]: marker,
+			});
+
+			return { markers: combinedMarkers };
+		});
 	}
 
 	componentWillReceiveProps(nextProps) {
-    Object.values(nextProps.listings).forEach(listing => {
-      if ((this.state === null || this.state.markers[listing._id] === null)) {
-        this.addListingToMap(listing);
-      }
-    });
+		Object.values(nextProps.listings).forEach(listing => {
+			if (this.state === null || this.state.markers[listing._id] === null) {
+				this.addListingToMap(listing);
+			}
+		});
 
     if (this.state !== null && nextProps.currentListing !== this.state.currentListing) {
       

@@ -1,14 +1,12 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import Map from './map';
+import Map from "./map";
 
 const mapStateToProps = state => ({
-  listings: state.entities.listings,
-  currentListing: state.ui.currentListing,
+	listings: state.entities.listings,
+	currentListing: state.ui.currentListing,
 });
 
-const mapDispatchToProps = dispatch => ({
-
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);

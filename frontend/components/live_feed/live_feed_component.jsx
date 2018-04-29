@@ -1,20 +1,19 @@
 import React from "react";
 import Slide from "react-reveal/Slide";
 import ListingIndexItemContainer from "./listing_index_item_container";
-import ListingShowContainer from '../listing_show/listing_show_container';
+import ListingShowContainer from "../listing_show/listing_show_container";
 
 class LiveFeed extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { 
+		this.state = {
 			showingDisplayModal: false,
-			clickedListing: null
+			clickedListing: null,
 		};
 		this.renderListingShowModal = this.renderListingShowModal.bind(this);
 		this.openListingShowModal = this.openListingShowModal.bind(this);
 		this.closeListingShowModal = this.closeListingShowModal.bind(this);
 		// this.handleMouseEnter = this.handleMouseEnter.bind(this);
-
 	}
 
 	componentDidMount() {
@@ -22,29 +21,28 @@ class LiveFeed extends React.Component {
 	}
 
 	openListingShowModal(e, listing) {
-		this.setState({showingDisplayModal: true, clickedListing: listing});
+		this.setState({ showingDisplayModal: true, clickedListing: listing });
 	}
 
-
-
 	closeListingShowModal() {
-		this.setState({showingDisplayModal: false});
+		this.setState({ showingDisplayModal: false });
 	}
 
 	renderListingShowModal() {
 		if (this.state.showingDisplayModal) {
-			return <ListingShowContainer 
+			return (
+				<ListingShowContainer
 					clickedListing={this.state.clickedListing}
 					closeListingShowModal={this.closeListingShowModal}
-				/>;
-		}
-		else {
-			return <div className = "to-be-decided"></div>;
+				/>
+			);
+		} else {
+			return <div className="to-be-decided" />;
 		}
 	}
 
 	render() {
-		console.log(this.state)
+		console.log(this.state);
 		return (
 			<div className="listing-show-level">
 				{this.renderListingShowModal()}
@@ -53,15 +51,15 @@ class LiveFeed extends React.Component {
 						{this.props.listings
 							.map(listing => {
 								return (
-									<div onClick={(e) => this.openListingShowModal(e, listing) } >
-										<ListingIndexItemContainer 
-											key={listing._id} 
+									<div onClick={e => this.openListingShowModal(e, listing)}>
+										<ListingIndexItemContainer
+											key={listing._id}
 											listing={listing}
 										/>
 									</div>
 								);
 							})
-							
+
 							.reverse()}
 					</div>
 				</Slide>
