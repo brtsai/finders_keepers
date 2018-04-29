@@ -288,7 +288,6 @@ class Map extends React.Component {
 	}
 
 	render() {
-		console.log(this.state);
 		return <div className="google-map" ref={map => (this.mapNode = map)} />;
 	}
 }
