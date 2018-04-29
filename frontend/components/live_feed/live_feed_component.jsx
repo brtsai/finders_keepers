@@ -26,11 +26,7 @@ class LiveFeed extends React.Component {
 	}
 
 	closeListingShowModal() {
-<<<<<<< HEAD
 		this.setState({ showingDisplayModal: false });
-=======
-		this.setState({showingDisplayModal: false});
->>>>>>> newListingShow
 	}
 
 	renderListingShowModal() {
@@ -59,14 +55,8 @@ class LiveFeed extends React.Component {
 						{this.props.listings
 							.map(listing => {
 								return (
-<<<<<<< HEAD
-									<div onClick={e => this.openListingShowModal(e, listing)}>
-										<ListingIndexItemContainer
-											key={listing._id}
-=======
 									<div onClick={(e) => this.openListingShowModal(e, listing) } key={listing._id}  >
 										<ListingIndexItemContainer 
->>>>>>> newListingShow
 											listing={listing}
 										/>
 									</div>

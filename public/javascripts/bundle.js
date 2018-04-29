@@ -85421,13 +85421,179 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 /* 553 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (29:1)\n\n\u001b[0m \u001b[90m 27 | \u001b[39m\n \u001b[90m 28 | \u001b[39m\tcloseListingShowModal() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 29 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 30 | \u001b[39m\t\t\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msetState({ showingDisplayModal\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 31 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\n \u001b[90m 32 | \u001b[39m\t\t\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msetState({showingDisplayModal\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m})\u001b[33m;\u001b[39m\u001b[0m\n");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Slide = __webpack_require__(554);
+
+var _Slide2 = _interopRequireDefault(_Slide);
+
+var _listing_index_item_container = __webpack_require__(555);
+
+var _listing_index_item_container2 = _interopRequireDefault(_listing_index_item_container);
+
+var _listing_show_container = __webpack_require__(558);
+
+var _listing_show_container2 = _interopRequireDefault(_listing_show_container);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LiveFeed = function (_React$Component) {
+	_inherits(LiveFeed, _React$Component);
+
+	function LiveFeed(props) {
+		_classCallCheck(this, LiveFeed);
+
+		var _this = _possibleConstructorReturn(this, (LiveFeed.__proto__ || Object.getPrototypeOf(LiveFeed)).call(this, props));
+
+		_this.state = {
+			showingDisplayModal: false,
+			clickedListing: null
+		};
+		_this.renderListingShowModal = _this.renderListingShowModal.bind(_this);
+		_this.openListingShowModal = _this.openListingShowModal.bind(_this);
+		_this.closeListingShowModal = _this.closeListingShowModal.bind(_this);
+		_this.handleMouseLeave = _this.handleMouseLeave.bind(_this);
+
+		return _this;
+	}
+
+	_createClass(LiveFeed, [{
+		key: "componentDidMount",
+		value: function componentDidMount() {
+			this.props.fetchListings();
+		}
+	}, {
+		key: "openListingShowModal",
+		value: function openListingShowModal(e, listing) {
+			this.setState({ showingDisplayModal: true, clickedListing: listing });
+		}
+	}, {
+		key: "closeListingShowModal",
+		value: function closeListingShowModal() {
+			this.setState({ showingDisplayModal: false });
+		}
+	}, {
+		key: "renderListingShowModal",
+		value: function renderListingShowModal() {
+			if (this.state.showingDisplayModal) {
+				return _react2.default.createElement(_listing_show_container2.default, {
+					clickedListing: this.state.clickedListing,
+					closeListingShowModal: this.closeListingShowModal
+				});
+			} else {
+				return _react2.default.createElement("div", { className: "to-be-decided" });
+			}
+		}
+	}, {
+		key: "handleMouseLeave",
+		value: function handleMouseLeave() {
+			this.props.clearCurrentListing();
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			var _this2 = this;
+
+			return _react2.default.createElement(
+				"div",
+				{ className: "listing-show-level", onMouseLeave: this.handleMouseLeave },
+				this.renderListingShowModal(),
+				_react2.default.createElement(
+					_Slide2.default,
+					{ className: "testing", right: true, cascade: true },
+					_react2.default.createElement(
+						"div",
+						{ className: "feed-index" },
+						this.props.listings.map(function (listing) {
+							return _react2.default.createElement(
+								"div",
+								{ onClick: function onClick(e) {
+										return _this2.openListingShowModal(e, listing);
+									}, key: listing._id },
+								_react2.default.createElement(_listing_index_item_container2.default, {
+									listing: listing
+								})
+							);
+						}).reverse()
+					)
+				)
+			);
+		}
+	}]);
+
+	return LiveFeed;
+}(_react2.default.Component);
+
+exports.default = LiveFeed;
 
 /***/ }),
-/* 554 */,
-/* 555 */,
+/* 554 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+function _interopRequireDefault(o){return o&&o.__esModule?o:{default:o}}function _objectWithoutProperties(o,e){var r={};for(var t in o)e.indexOf(t)>=0||Object.prototype.hasOwnProperty.call(o,t)&&(r[t]=o[t]);return r}function make(o,e){var r=e.left,t=e.right,p=e.up,l=e.down,u=e.top,a=e.bottom,i=e.big,n=e.mirror,s=e.opposite,d=(r?1:0)|(t?2:0)|(u||l?4:0)|(a||p?8:0)|(n?16:0)|(s?32:0)|(o?64:0)|(i?128:0);if(lookup.hasOwnProperty(d))return lookup[d];var _=r||t||p||l||u||a,f=void 0,b=void 0;if(_){if(!n!=!(o&&s)){var y=[t,r,a,u,l,p];r=y[0],t=y[1],u=y[2],a=y[3],p=y[4],l=y[5]}var m=i?"2000px":"100%";f=r?"-"+m:t?m:"0",b=l||u?"-"+m:p||a?m:"0"}return lookup[d]=(0,_globals.animation)((o?"to":"from")+" {"+(_?" transform: translate3d("+f+", "+b+", 0);":"")+"}\n     "+(o?"from":"to")+" {transform: none;} "),lookup[d]}function Slide(){var o=arguments.length>0&&void 0!==arguments[0]?arguments[0]:_globals.defaults,e=o.children,r=(o.out,o.forever),t=o.timeout,p=o.duration,l=void 0===p?_globals.defaults.duration:p,u=o.delay,a=void 0===u?_globals.defaults.delay:u,i=o.count,n=void 0===i?_globals.defaults.count:i,s=_objectWithoutProperties(o,["children","out","forever","timeout","duration","delay","count"]),d={make:make,duration:void 0===t?l:t,delay:a,forever:r,count:n,style:{animationFillMode:"both"},reverse:s.left};return(0,_wrap2.default)(s,d,d,e)}Object.defineProperty(exports,"__esModule",{value:!0});var _propTypes=__webpack_require__(7),_wrap=__webpack_require__(224),_wrap2=_interopRequireDefault(_wrap),_globals=__webpack_require__(117),propTypes={out:_propTypes.bool,left:_propTypes.bool,right:_propTypes.bool,top:_propTypes.bool,bottom:_propTypes.bool,big:_propTypes.bool,mirror:_propTypes.bool,opposite:_propTypes.bool,duration:_propTypes.number,timeout:_propTypes.number,delay:_propTypes.number,count:_propTypes.number,forever:_propTypes.bool},lookup={};Slide.propTypes=propTypes,exports.default=Slide,module.exports=exports.default;
+
+/***/ }),
+/* 555 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(15);
+
+var _ui_actions = __webpack_require__(556);
+
+var _listing_index_item = __webpack_require__(557);
+
+var _listing_index_item2 = _interopRequireDefault(_listing_index_item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+	return {
+		currentListing: state.ui.currentListing
+	};
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	return {
+		setCurrentListing: function setCurrentListing(listingId) {
+			return dispatch((0, _ui_actions.setCurrentListing)(listingId));
+		}
+	};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_listing_index_item2.default);
+
+/***/ }),
 /* 556 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -85455,9 +85621,196 @@ var clearCurrentListing = exports.clearCurrentListing = function clearCurrentLis
 };
 
 /***/ }),
-/* 557 */,
-/* 558 */,
-/* 559 */,
+/* 557 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ListingIndexItem = function (_React$Component) {
+	_inherits(ListingIndexItem, _React$Component);
+
+	function ListingIndexItem(props) {
+		_classCallCheck(this, ListingIndexItem);
+
+		var _this = _possibleConstructorReturn(this, (ListingIndexItem.__proto__ || Object.getPrototypeOf(ListingIndexItem)).call(this, props));
+
+		_this.state = {};
+		_this.handleMouseEnter = _this.handleMouseEnter.bind(_this);
+		return _this;
+	}
+
+	_createClass(ListingIndexItem, [{
+		key: "handleMouseEnter",
+		value: function handleMouseEnter() {
+			this.props.setCurrentListing(this.props.listing._id);
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			var listing = this.props.listing;
+
+			return _react2.default.createElement(
+				"div",
+				{ className: "feed-index-wrapper",
+					onMouseEnter: this.handleMouseEnter },
+				_react2.default.createElement(
+					"div",
+					{ className: "feed-index-item" },
+					_react2.default.createElement(
+						"div",
+						{ className: "date-feed" },
+						_react2.default.createElement(
+							"p",
+							{ className: "feed-date" },
+							new Date(listing.created_at).toDateString()
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "feed-data" },
+						_react2.default.createElement("img", { className: "feed-img", src: listing.imageUrl, alt: "" }),
+						_react2.default.createElement(
+							"h1",
+							{ className: "feed-title" },
+							listing.title
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return ListingIndexItem;
+}(_react2.default.Component);
+
+exports.default = ListingIndexItem;
+
+/***/ }),
+/* 558 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(15);
+
+var _listing_show = __webpack_require__(559);
+
+var _listing_show2 = _interopRequireDefault(_listing_show);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {};
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_listing_show2.default);
+
+/***/ }),
+/* 559 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ListingShow = function (_React$Component) {
+	_inherits(ListingShow, _React$Component);
+
+	function ListingShow(props) {
+		_classCallCheck(this, ListingShow);
+
+		return _possibleConstructorReturn(this, (ListingShow.__proto__ || Object.getPrototypeOf(ListingShow)).call(this, props));
+	}
+
+	_createClass(ListingShow, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "listing-show" },
+				_react2.default.createElement(
+					"h1",
+					{ className: "listing-show-title" },
+					this.props.clickedListing.title
+				),
+				_react2.default.createElement("div", { className: "list-show-line" }),
+				_react2.default.createElement("img", {
+					className: "listing-show-img",
+					src: this.props.clickedListing.imageUrl
+				}),
+				_react2.default.createElement("div", { className: "list-show-line" }),
+				_react2.default.createElement(
+					"p",
+					{ className: "listing-show-description" },
+					this.props.clickedListing.description
+				),
+				_react2.default.createElement(
+					"button",
+					{
+						onClick: this.props.closeListingShowModal,
+						className: "list-show-close-button"
+					},
+					"X"
+				)
+			);
+		}
+	}]);
+
+	return ListingShow;
+}(_react2.default.Component);
+
+exports.default = ListingShow;
+
+/***/ }),
 /* 560 */
 /***/ (function(module, exports, __webpack_require__) {
 

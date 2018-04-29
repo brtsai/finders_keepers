@@ -33,7 +33,3 @@ class ListingIndexItem extends React.Component {
 }
 
 export default ListingIndexItem;
-<<<<<<< HEAD
-=======
-
->>>>>>> newListingShow
