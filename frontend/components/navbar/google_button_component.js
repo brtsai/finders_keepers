@@ -18,7 +18,7 @@ class GoogleButton extends React.Component {
 				);
 			default:
 				return (
-					<a href="/api/logout">
+					<a className="auth-button-link" href="/api/logout">
 						<button className="auth-button">Log Out</button>
 					</a>
 				);

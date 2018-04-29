@@ -84908,7 +84908,7 @@ var GoogleButton = function (_React$Component) {
 				default:
 					return _react2.default.createElement(
 						"a",
-						{ href: "/api/logout" },
+						{ className: "auth-button-link", href: "/api/logout" },
 						_react2.default.createElement(
 							"button",
 							{ className: "auth-button" },
@@ -85209,11 +85209,11 @@ var Map = function (_React$Component) {
             var categoryMarkers = {
                 "food": { icon: '<span class="map-icon map-icon-restaurant"></span>', color: '#0E77E9' },
                 "furniture": { icon: '<span class="map-icon map-icon-furniture-store"></span>', color: '#7C238C' },
-                "misc": { icon: '<span class="map-icon map-icon-search"></span>', color: '#7C72A0' },
+                "misc": { icon: '<span class="map-icon map-icon-search"></span>', color: '#502274' },
                 "clothing": { icon: '<span class="map-icon map-icon-clothing-store"></span>', color: '#DDFBD2' },
-                "toys": { icon: '<span class="map-icon map-icon-amusement-park"></span>', color: '#6B7FD7' },
-                "media": { icon: '<span class="map-icon map-icon-movie-theater"></span>', color: '#BCEDF6' },
-                "survival": { icon: '<span class="map-icon map-icon-doctor"></span>', color: '#FCCA46' }
+                "toys": { icon: '<span class="map-icon map-icon-amusement-park"></span>', color: '#E57A44' },
+                "media": { icon: '<span class="map-icon map-icon-movie-theater"></span>', color: '#DE639A' },
+                "survival": { icon: '<span class="map-icon map-icon-doctor"></span>', color: '#F45B69' }
             };
 
             return new mapIcons.Marker({
@@ -85225,7 +85225,7 @@ var Map = function (_React$Component) {
                     fillOpacity: 1,
                     strokeColor: '',
                     strokeWeight: 0,
-                    scale: 4 / 5
+                    scale: 9 / 10
                 },
                 map_icon_label: categoryMarkers[marker].icon
             });

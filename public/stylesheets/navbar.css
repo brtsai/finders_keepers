@@ -63,7 +63,7 @@ nav.navbar-container {
 .user-profile-container p {
     display: flex;
     align-items: center;
-    font-family: HelveticaNeue-Light;
+    font-family: Roboto;
     font-size: 25px;
     margin-left: 11px;
     text-transform: capitalize;
