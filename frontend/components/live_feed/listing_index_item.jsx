@@ -14,7 +14,8 @@ class ListingIndexItem extends React.Component {
 	render() {
 		let { listing } = this.props;
 		return (
-			<div className="feed-index-wrapper" onMouseEnter={this.handleMouseEnter}>
+			<div className="feed-index-wrapper" 
+				onMouseEnter={this.handleMouseEnter}>
 				<div className="feed-index-item">
 					<div className="date-feed">
 						<p className="feed-date">
@@ -32,3 +33,7 @@ class ListingIndexItem extends React.Component {
 }
 
 export default ListingIndexItem;
+<<<<<<< HEAD
+=======
+
+>>>>>>> newListingShow

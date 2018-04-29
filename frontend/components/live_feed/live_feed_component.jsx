@@ -13,7 +13,8 @@ class LiveFeed extends React.Component {
 		this.renderListingShowModal = this.renderListingShowModal.bind(this);
 		this.openListingShowModal = this.openListingShowModal.bind(this);
 		this.closeListingShowModal = this.closeListingShowModal.bind(this);
-		// this.handleMouseEnter = this.handleMouseEnter.bind(this);
+		this.handleMouseLeave = this.handleMouseLeave.bind(this);
+
 	}
 
 	componentDidMount() {
@@ -25,7 +26,11 @@ class LiveFeed extends React.Component {
 	}
 
 	closeListingShowModal() {
+<<<<<<< HEAD
 		this.setState({ showingDisplayModal: false });
+=======
+		this.setState({showingDisplayModal: false});
+>>>>>>> newListingShow
 	}
 
 	renderListingShowModal() {
@@ -41,18 +46,27 @@ class LiveFeed extends React.Component {
 		}
 	}
 
+	handleMouseLeave() {
+		this.props.clearCurrentListing();
+	}
+
 	render() {
 		return (
-			<div className="listing-show-level">
+			<div className="listing-show-level" onMouseLeave={this.handleMouseLeave}>
 				{this.renderListingShowModal()}
 				<Slide className="testing" right cascade>
 					<div className="feed-index">
 						{this.props.listings
 							.map(listing => {
 								return (
+<<<<<<< HEAD
 									<div onClick={e => this.openListingShowModal(e, listing)}>
 										<ListingIndexItemContainer
 											key={listing._id}
+=======
+									<div onClick={(e) => this.openListingShowModal(e, listing) } key={listing._id}  >
+										<ListingIndexItemContainer 
+>>>>>>> newListingShow
 											listing={listing}
 										/>
 									</div>
