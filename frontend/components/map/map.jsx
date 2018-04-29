@@ -220,31 +220,31 @@ class Map extends React.Component {
 	createNewMarker(lat, lng, map, marker, id) {
 		const categoryMarkers = {
 			food: {
-				icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-restaurant"></span>`,
+				icon: `<span class="map-icon map-icon-restaurant"></span>`,
 				color: "#0E77E9",
 			},
 			furniture: {
-				icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-furniture-store"></span>`,
+				icon: `<span class="map-icon map-icon-furniture-store"></span>`,
 				color: "#7C238C",
 			},
 			misc: {
-				icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-search"></span>`,
+				icon: `<span class="map-icon map-icon-search"></span>`,
 				color: "#502274",
 			},
 			clothing: {
-				icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-clothing-store"></span>`,
+				icon: `<span class="map-icon map-icon-clothing-store"></span>`,
 				color: "#DDFBD2",
 			},
 			toys: {
-				icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-amusement-park"></span>`,
+				icon: `<span class="map-icon map-icon-amusement-park"></span>`,
 				color: "#E57A44",
 			},
 			media: {
-				icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-movie-theater"></span>`,
+				icon: `<span class="map-icon map-icon-movie-theater"></span>`,
 				color: "#DE639A",
 			},
 			survival: {
-				icon: `<span id="label-for-listing-${id}" class="map-icon map-icon-doctor"></span>`,
+				icon: `<span class="map-icon map-icon-doctor"></span>`,
 				color: "#F45B69",
 			},
 		};
@@ -292,19 +292,17 @@ class Map extends React.Component {
 			}
 		});
 
-		if (
-			this.state !== null &&
-			nextProps.currentListing !== this.state.currentListing
-		) {
+		if (this.state !== null && nextProps.currentListing !== this.state.currentListing) {
 			const currentListing = this.state.currentListing;
 			if (currentListing !== undefined && currentListing !== null) {
 				const iconToSmallify = this.state.markers[currentListing].icon;
 				iconToSmallify.scale = 0.9;
 				this.state.markers[currentListing].setIcon(iconToSmallify);
 
-				const query = `#label-for-listing-${currentListing}`;
-				const markerLabel = document.querySelector(query);
-				markerLabel.classList.remove("larger-map-icon");
+        
+        const markerLabel = this.state.markers[currentListing].MarkerLabel;
+        markerLabel.div.children[0].classList.remove("larger-map-icon");
+        this.state.markers[currentListing].setLabel(markerLabel.outerHTML);
 			}
 
 			const nextListing = nextProps.currentListing;
@@ -312,19 +310,16 @@ class Map extends React.Component {
 				const iconToEnlarge = this.state.markers[nextListing].icon;
 				iconToEnlarge.scale = 1.35;
 				this.state.markers[nextListing].setIcon(iconToEnlarge);
-
-				const query = `#label-for-listing-${nextListing}`;
-				const markerLabel = document.querySelector(query);
-				markerLabel.classList.add("larger-map-icon");
+        
+        const markerLabel = this.state.markers[nextListing].MarkerLabel;
+        markerLabel.div.children[0].classList.add("larger-map-icon");
+        this.state.markers[nextListing].setLabel(markerLabel.outerHTML);
 			}
 			this.setState({
 				currentListing: nextListing,
 			});
 		}
-		if (
-			this.state !== null &&
-			nextProps.currentListing !== this.state.currentListing
-		) {
+		if ( this.state !== null && nextProps.currentListing !== this.state.currentListing) {
 			const currentListing = this.state.currentListing;
 
 			if (currentListing !== undefined && currentListing !== null) {
