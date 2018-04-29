@@ -254,7 +254,6 @@ class Map extends React.Component {
 		);
 
 		this.setState(prevState => {
-      console.log(this.state);
       const currentMarkers = (prevState === null ? {} : prevState.markers);
       const combinedMarkers = merge({}, currentMarkers, { [listing._id]: marker });
       
@@ -263,9 +262,6 @@ class Map extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-    console.log('new props');
-    console.log(this);
-    console.log(nextProps);
     Object.values(nextProps.listings).forEach(listing => {
       if ((this.state === null || this.state.markers[listing._id] === null)) {
         this.addListingToMap(listing);
@@ -273,11 +269,11 @@ class Map extends React.Component {
     });
 
     if (this.state !== null && nextProps.currentListing !== this.state.currentListing) {
-      console.log('new current listing selected');
-      console.log(nextProps.currentListing);
       const nextListing = nextProps.currentListing;
-      console.log(this.state.markers);
-      console.log(this.state.markers[nextListing]);
+      this.state.markers[nextListing].icon.scale = 1.8;
+      const icon = this.state.markers[nextListing].icon;
+      icon.scale = 1.8;
+      this.state.markers[nextListing].setIcon(icon);
       this.setState({
         currentListing: nextListing
       });
