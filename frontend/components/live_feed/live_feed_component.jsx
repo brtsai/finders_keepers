@@ -42,7 +42,6 @@ class LiveFeed extends React.Component {
 	}
 
 	render() {
-		console.log(this.state);
 		return (
 			<div className="listing-show-level">
 				{this.renderListingShowModal()}
