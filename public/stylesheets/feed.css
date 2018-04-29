@@ -8,9 +8,8 @@ img.feed-img {
 
 .feed-index-item {
 	justify-content: space-between;
-	margin-bottom: 10px;
 	min-height: 80px;
-	margin-top: 10px;
+	padding: 10px 10px;
 }
 
 .feed-index {
@@ -22,7 +21,7 @@ img.feed-img {
 	right: 89px;
 	top: 117px;
 	background: white;
-	padding: 20px;
+	padding: 20px 10px;
 	max-height: 80vh;
 	overflow: scroll;
 	box-shadow: 0px 2px 2px 0px #c7c7c7;
@@ -54,6 +53,10 @@ p.feed-date {
 	width: 300px;
 }
 
+.feed-index-wrapper:hover {
+	background-color: aliceblue;
+}
+	
 .date-feed {
     display: flex;
     justify-content: flex-end;

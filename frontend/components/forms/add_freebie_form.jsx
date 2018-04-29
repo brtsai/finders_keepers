@@ -27,7 +27,7 @@ class AddFreebieForm extends React.Component {
 
 		this.listingHandler = this.listingHandler.bind(this);
 		this.imageHandler = this.imageHandler.bind(this);
-		this.update = this.update.bind(this)
+		this.update = this.update.bind(this);
 	}
 
 	update(field) {

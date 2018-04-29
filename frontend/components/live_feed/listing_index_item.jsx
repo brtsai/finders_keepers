@@ -25,12 +25,9 @@ class ListingIndexItem extends React.Component {
 						<h1 className="feed-title">{listing.title}</h1>
 					</div>
 				</div>
-				<div className="feed-line" />
 			</div>
 		);
 	}
 }
 
 export default ListingIndexItem;
-
-//setCurrentListing, clearCurrentListing, listing
