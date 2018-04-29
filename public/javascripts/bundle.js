@@ -49887,7 +49887,6 @@ var AddFreebieForm = function (_React$Component) {
 		key: "render",
 		value: function render() {
 
-			console.log(this.state);
 			return _react2.default.createElement(
 				"div",
 				{ className: "errors-and-form-wrapper" },
@@ -84914,8 +84913,6 @@ var Map = function (_React$Component) {
 		value: function render() {
 			var _this3 = this;
 
-			console.log("hello");
-			console.log(this.props);
 			return _react2.default.createElement("div", { className: "google-map", ref: function ref(map) {
 					return _this3.mapNode = map;
 				} });
@@ -84985,7 +84982,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
 	return {
-		listings: Object.values(state.entities.listings)
+		listings: Object.values(state.entities.listings),
+		currentListing: state.ui.currentListing
 	};
 };
 
@@ -85024,6 +85022,10 @@ var _listing_index_item_container = __webpack_require__(567);
 
 var _listing_index_item_container2 = _interopRequireDefault(_listing_index_item_container);
 
+var _listing_show_container = __webpack_require__(568);
+
+var _listing_show_container2 = _interopRequireDefault(_listing_show_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -85038,7 +85040,17 @@ var LiveFeed = function (_React$Component) {
 	function LiveFeed(props) {
 		_classCallCheck(this, LiveFeed);
 
-		return _possibleConstructorReturn(this, (LiveFeed.__proto__ || Object.getPrototypeOf(LiveFeed)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (LiveFeed.__proto__ || Object.getPrototypeOf(LiveFeed)).call(this, props));
+
+		_this.state = {
+			showingDisplayModal: false,
+			clickedListing: null
+		};
+		_this.renderListingShowModal = _this.renderListingShowModal.bind(_this);
+		_this.openListingShowModal = _this.openListingShowModal.bind(_this);
+		// this.handleMouseEnter = this.handleMouseEnter.bind(this);
+
+		return _this;
 	}
 
 	_createClass(LiveFeed, [{
@@ -85047,11 +85059,29 @@ var LiveFeed = function (_React$Component) {
 			this.props.fetchListings();
 		}
 	}, {
+		key: "openListingShowModal",
+		value: function openListingShowModal(e, listing) {
+			this.setState({ showingDisplayModal: true, clickedListing: listing });
+		}
+	}, {
+		key: "renderListingShowModal",
+		value: function renderListingShowModal() {
+			if (this.state.showingDisplayModal) {
+				return _react2.default.createElement(_listing_show_container2.default, { clickedListing: this.state.clickedListing });
+			} else {
+				return _react2.default.createElement("div", { className: "to-be-decided" });
+			}
+		}
+	}, {
 		key: "render",
 		value: function render() {
+			var _this2 = this;
+
+			// debugger;
 			return _react2.default.createElement(
 				"div",
-				null,
+				{ className: "listing-show-level" },
+				this.renderListingShowModal(),
 				_react2.default.createElement(
 					_Slide2.default,
 					{ right: true, cascade: true },
@@ -85059,9 +85089,16 @@ var LiveFeed = function (_React$Component) {
 						"div",
 						{ className: "feed-index" },
 						this.props.listings.map(function (listing) {
-							return _react2.default.createElement(_listing_index_item_container2.default, {
-								key: listing._id,
-								listing: listing });
+							return _react2.default.createElement(
+								"div",
+								{ onClick: function onClick(e) {
+										return _this2.openListingShowModal(e, listing);
+									} },
+								_react2.default.createElement(_listing_index_item_container2.default, {
+									key: listing._id,
+									listing: listing
+								})
+							);
 						}).reverse()
 					)
 				)
@@ -85091,10 +85128,6 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _listing_show_container = __webpack_require__(568);
-
-var _listing_show_container2 = _interopRequireDefault(_listing_show_container);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -85111,40 +85144,15 @@ var ListingIndexItem = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (ListingIndexItem.__proto__ || Object.getPrototypeOf(ListingIndexItem)).call(this, props));
 
-		_this.state = {
-			showingDisplayModal: false
-		};
-		// debugger;
+		_this.state = {};
 		_this.handleMouseEnter = _this.handleMouseEnter.bind(_this);
-		_this.handleModalOnClick = _this.openListingShowModal.bind(_this);
 		return _this;
 	}
 
 	_createClass(ListingIndexItem, [{
 		key: "handleMouseEnter",
 		value: function handleMouseEnter() {
-			var _id = this.props.listing._id;
-			this.props.setCurrentListing(_id);
-		}
-	}, {
-		key: "openListingShowModal",
-		value: function openListingShowModal(e) {
-			// debugger;
-			this.setState({
-				showingDisplayModal: !this.state.showingDisplayModal
-			});
-		}
-
-		// closeListingShowModal
-
-	}, {
-		key: "renderListingShowModal",
-		value: function renderListingShowModal() {
-			if (this.state.showingDisplayModal === false) {
-				return _react2.default.createElement("div", { className: "to-be-decided" });
-			}
-
-			return _react2.default.createElement(_listing_show_container2.default, null);
+			this.props.setCurrentListing(this.props.listing._id);
 		}
 	}, {
 		key: "render",
@@ -85153,31 +85161,23 @@ var ListingIndexItem = function (_React$Component) {
 
 			return _react2.default.createElement(
 				"div",
-				{ className: "" },
+				{ className: "feed-index-wrapper", onMouseEnter: this.handleMouseEnter },
 				_react2.default.createElement(
-					"a",
-					{ onClick: this.openListingShowModal },
+					"div",
+					{ className: "feed-index-item" },
+					_react2.default.createElement("img", { className: "feed-img", src: listing.imageUrl, alt: "" }),
 					_react2.default.createElement(
-						"div",
-						{ className: "feed-index-wrapper", onMouseEnter: this.handleMouseEnter },
-						_react2.default.createElement(
-							"div",
-							{ className: "feed-index-item" },
-							_react2.default.createElement("img", { className: "feed-img", src: listing.imageUrl, alt: "" }),
-							_react2.default.createElement(
-								"h1",
-								{ className: "feed-title" },
-								listing.title
-							),
-							_react2.default.createElement(
-								"p",
-								{ className: "feed-date" },
-								new Date(listing.created_at).toDateString()
-							)
-						),
-						_react2.default.createElement("div", { className: "feed-line" })
+						"h1",
+						{ className: "feed-title" },
+						listing.title
+					),
+					_react2.default.createElement(
+						"p",
+						{ className: "feed-date" },
+						new Date(listing.created_at).toDateString()
 					)
-				)
+				),
+				_react2.default.createElement("div", { className: "feed-line" })
 			);
 		}
 	}]);
@@ -85757,7 +85757,9 @@ var _listing_index_item2 = _interopRequireDefault(_listing_index_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
-	return {};
+	return {
+		currentListing: state.ui.currentListing
+	};
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -85797,9 +85799,7 @@ var _listing_show2 = _interopRequireDefault(_listing_show);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
-  return {
-    listing: state.entities.listings[state.ui.currentListing]
-  };
+  return {};
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -85843,15 +85843,28 @@ var ListingShow = function (_React$Component) {
   }
 
   _createClass(ListingShow, [{
-    key: 'render',
+    key: "render",
     value: function render() {
+      // debugger;
+      console.log(this.props);
       return _react2.default.createElement(
-        'div',
-        null,
+        "div",
+        { className: "listing-show" },
         _react2.default.createElement(
-          'h1',
+          "h1",
           null,
-          'this.props.listing._id'
+          "hello"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          this.props.clickedListing._id
+        ),
+        _react2.default.createElement("img", { src: this.props.clickedListing.imageUrl }),
+        _react2.default.createElement(
+          "p",
+          null,
+          this.props.clickedListing.userId
         )
       );
     }

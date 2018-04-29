@@ -50,7 +50,7 @@ class Map extends React.Component {
 			listing.latitude,
 			listing.longitude,
 			this.map,
-			listing.marker,
+			listing.marker
 		);
 		this.setState({
 			markers: {
@@ -66,8 +66,7 @@ class Map extends React.Component {
 	}
 
 	render() {
-		console.log("hello")
-		console.log(this.props)
+		
 		return <div className="google-map" ref={map => (this.mapNode = map)} />;
 	}
 }

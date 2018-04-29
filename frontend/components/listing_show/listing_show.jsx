@@ -6,9 +6,14 @@ class ListingShow extends React.Component {
   }
 
   render () {
+    // debugger;
+    console.log(this.props);
     return (
-      <div>
-        <h1>this.props.listing._id</h1>
+      <div className="listing-show">
+        <h1>hello</h1>
+        <p>{this.props.clickedListing._id}</p>
+        <img src={this.props.clickedListing.imageUrl}/>
+        <p>{this.props.clickedListing.userId}</p>
       </div>
     );    
   }
