@@ -84819,7 +84819,7 @@ exports.default = UserIcon;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -84839,88 +84839,219 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Map = function (_React$Component) {
-	_inherits(Map, _React$Component);
+    _inherits(Map, _React$Component);
 
-	function Map() {
-		_classCallCheck(this, Map);
+    function Map() {
+        _classCallCheck(this, Map);
 
-		return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).apply(this, arguments));
-	}
+        return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).apply(this, arguments));
+    }
 
-	_createClass(Map, [{
-		key: "componentDidMount",
-		value: function componentDidMount() {
-			var latitude = parseFloat(37.7867);
-			var longitude = parseFloat(-122.4);
-			// set the map to show SF
-			var mapOptions = {
-				center: { lat: latitude, lng: longitude }, // this is SF
-				zoom: 13
-			};
-			// wrap the mapDOMNode in a Google Map
-			this.map = new google.maps.Map(this.mapNode, mapOptions);
-			this.state = {
-				markers: {}
-			};
-		}
-	}, {
-		key: "createNewMarker",
-		value: function createNewMarker(lat, lng, map, marker) {
+    _createClass(Map, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var latitude = parseFloat(37.7867);
+            var longitude = parseFloat(-122.4);
+            // set the map to show SF
+            var mapOptions = {
+                center: { lat: latitude, lng: longitude }, // this is SF
+                zoom: 13,
+                styles: [{
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "lightness": "-23"
+                    }, {
+                        "saturation": "100"
+                    }, {
+                        "weight": "8.21"
+                    }, {
+                        "color": "#f0730e"
+                    }]
+                }, {
+                    "featureType": "administrative",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "weight": "3.67"
+                    }, {
+                        "saturation": "64"
+                    }, {
+                        "lightness": "100"
+                    }, {
+                        "visibility": "on"
+                    }, {
+                        "gamma": "1.60"
+                    }, {
+                        "color": "#ffffff"
+                    }]
+                }, {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [{
+                        "lightness": "70"
+                    }, {
+                        "saturation": "-4"
+                    }]
+                }, {
+                    "featureType": "landscape",
+                    "elementType": "labels",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "landscape.man_made",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "on"
+                    }, {
+                        "color": "#d3d3d3"
+                    }, {
+                        "lightness": "60"
+                    }, {
+                        "saturation": "0"
+                    }, {
+                        "gamma": "2.00"
+                    }]
+                }, {
+                    "featureType": "poi.medical",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "saturation": "80"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#c8e354"
+                    }]
+                }, {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "hue": "#ff9700"
+                    }, {
+                        "saturation": "43"
+                    }, {
+                        "lightness": "-10"
+                    }]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#0025bc"
+                    }]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "weight": "5"
+                    }, {
+                        "gamma": "1.85"
+                    }, {
+                        "color": "#ffffff"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "visibility": "on"
+                    }, {
+                        "hue": "#00b3ff"
+                    }, {
+                        "saturation": "69"
+                    }, {
+                        "lightness": "-38"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "lightness": "-97"
+                    }, {
+                        "saturation": "93"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "weight": "3.5"
+                    }, {
+                        "lightness": "100"
+                    }, {
+                        "saturation": "0"
+                    }, {
+                        "gamma": "1.02"
+                    }, {
+                        "visibility": "on"
+                    }, {
+                        "color": "#ffffff"
+                    }]
+                }]
+            };
+            // wrap the mapDOMNode in a Google Map
+            this.map = new google.maps.Map(this.mapNode, mapOptions);
+            this.state = {
+                markers: {}
+            };
+        }
+    }, {
+        key: "createNewMarker",
+        value: function createNewMarker(lat, lng, map, marker) {
 
-			var categoryMarkers = {
-				"food": { icon: '<span class="map-icon map-icon-restaurant"></span>', color: '#0E77E9' },
-				"furniture": { icon: '<span class="map-icon map-icon-furniture-store"></span>', color: '#7C238C' },
-				"misc": { icon: '<span class="map-icon map-icon-search"></span>', color: '#7C72A0' },
-				"clothing": { icon: '<span class="map-icon map-icon-clothing-store"></span>', color: '#DDFBD2' },
-				"toys": { icon: '<span class="map-icon map-icon-amusement-park"></span>', color: '#6B7FD7' },
-				"media": { icon: '<span class="map-icon map-icon-movie-theater"></span>', color: '#BCEDF6' },
-				"survival": { icon: '<span class="map-icon map-icon-doctor"></span>', color: '#FCCA46' }
-			};
+            var categoryMarkers = {
+                "food": { icon: '<span class="map-icon map-icon-restaurant"></span>', color: '#0E77E9' },
+                "furniture": { icon: '<span class="map-icon map-icon-furniture-store"></span>', color: '#7C238C' },
+                "misc": { icon: '<span class="map-icon map-icon-search"></span>', color: '#7C72A0' },
+                "clothing": { icon: '<span class="map-icon map-icon-clothing-store"></span>', color: '#DDFBD2' },
+                "toys": { icon: '<span class="map-icon map-icon-amusement-park"></span>', color: '#6B7FD7' },
+                "media": { icon: '<span class="map-icon map-icon-movie-theater"></span>', color: '#BCEDF6' },
+                "survival": { icon: '<span class="map-icon map-icon-doctor"></span>', color: '#FCCA46' }
+            };
 
-			return new mapIcons.Marker({
-				position: { lat: lat, lng: lng },
-				map: map,
-				icon: {
-					path: mapIcons.shapes.MAP_PIN,
-					fillColor: categoryMarkers[marker].color,
-					fillOpacity: 1,
-					strokeColor: '',
-					strokeWeight: 0,
-					scale: 4 / 5
-				},
-				map_icon_label: categoryMarkers[marker].icon
-			});
-		}
-	}, {
-		key: "addListingToMap",
-		value: function addListingToMap(listing) {
-			if (listing === null) return;
-			var marker = this.createNewMarker(listing.latitude, listing.longitude, this.map, listing.marker);
-			this.setState({
-				markers: _defineProperty({}, listing._id, marker)
-			});
-		}
-	}, {
-		key: "componentWillReceiveProps",
-		value: function componentWillReceiveProps(nextProps) {
-			var _this2 = this;
+            return new mapIcons.Marker({
+                position: { lat: lat, lng: lng },
+                map: map,
+                icon: {
+                    path: mapIcons.shapes.MAP_PIN,
+                    fillColor: categoryMarkers[marker].color,
+                    fillOpacity: 1,
+                    strokeColor: '',
+                    strokeWeight: 0,
+                    scale: 4 / 5
+                },
+                map_icon_label: categoryMarkers[marker].icon
+            });
+        }
+    }, {
+        key: "addListingToMap",
+        value: function addListingToMap(listing) {
+            if (listing === null) return;
+            var marker = this.createNewMarker(listing.latitude, listing.longitude, this.map, listing.marker);
+            this.setState({
+                markers: _defineProperty({}, listing._id, marker)
+            });
+        }
+    }, {
+        key: "componentWillReceiveProps",
+        value: function componentWillReceiveProps(nextProps) {
+            var _this2 = this;
 
-			Object.values(nextProps.listings).forEach(function (listing) {
-				_this2.addListingToMap(listing);
-			});
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			var _this3 = this;
+            Object.values(nextProps.listings).forEach(function (listing) {
+                _this2.addListingToMap(listing);
+            });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var _this3 = this;
 
-			return _react2.default.createElement("div", { className: "google-map", ref: function ref(map) {
-					return _this3.mapNode = map;
-				} });
-		}
-	}]);
+            return _react2.default.createElement("div", { className: "google-map", ref: function ref(map) {
+                    return _this3.mapNode = map;
+                } });
+        }
+    }]);
 
-	return Map;
+    return Map;
 }(_react2.default.Component);
 
 exports.default = Map;
@@ -85175,19 +85306,26 @@ var ListingIndexItem = function (_React$Component) {
 				_react2.default.createElement(
 					"div",
 					{ className: "feed-index-item" },
-					_react2.default.createElement("img", { className: "feed-img", src: listing.imageUrl, alt: "" }),
 					_react2.default.createElement(
-						"h1",
-						{ className: "feed-title" },
-						listing.title
+						"div",
+						{ className: "date-feed" },
+						_react2.default.createElement(
+							"p",
+							{ className: "feed-date" },
+							new Date(listing.created_at).toDateString()
+						)
 					),
 					_react2.default.createElement(
-						"p",
-						{ className: "feed-date" },
-						new Date(listing.created_at).toDateString()
+						"div",
+						{ className: "feed-data" },
+						_react2.default.createElement("img", { className: "feed-img", src: listing.imageUrl, alt: "" }),
+						_react2.default.createElement(
+							"h1",
+							{ className: "feed-title" },
+							listing.title
+						)
 					)
-				),
-				_react2.default.createElement("div", { className: "feed-line" })
+				)
 			);
 		}
 	}]);
@@ -85196,8 +85334,6 @@ var ListingIndexItem = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = ListingIndexItem;
-
-//setCurrentListing, clearCurrentListing, listing
 
 /***/ }),
 /* 547 */
@@ -85860,19 +85996,14 @@ var ListingShow = function (_React$Component) {
         { className: "listing-show" },
         _react2.default.createElement(
           "h1",
-          null,
-          "hello"
+          { className: "listing-show-title" },
+          this.props.clickedListing.title
         ),
+        _react2.default.createElement("img", { className: "listing-show-img", src: this.props.clickedListing.imageUrl }),
         _react2.default.createElement(
           "p",
-          null,
-          this.props.clickedListing._id
-        ),
-        _react2.default.createElement("img", { src: this.props.clickedListing.imageUrl }),
-        _react2.default.createElement(
-          "p",
-          null,
-          this.props.clickedListing.userId
+          { className: "listing-show-description" },
+          this.props.clickedListing.description
         )
       );
     }

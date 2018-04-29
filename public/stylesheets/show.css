@@ -1,0 +1,19 @@
+img.listing-show-img {
+    height: 150px;
+    width: 150px;
+}
+
+h1.listing-show-title {
+    font-size: 32px;
+    text-transform: capitalize;
+    font-family: arial;
+}
+
+
+.listing-show {
+	background: white;
+    border: 2px solid black;
+    position: absolute;
+    top: 121px;
+    right: 605px;
+}

@@ -1,11 +1,11 @@
 nav.navbar-container {
 	position: absolute;
 	z-index: 5;
-	top: 60px;
+	top: 48px;
 	background: white;
 	margin: 0 auto;
 	width: 90vw;
-	height: 50px;
+	height: 60px;
 	left: 5vw;
 	background: white;
 	display: flex;

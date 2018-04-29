@@ -7,8 +7,6 @@ img.feed-img {
 }
 
 .feed-index-item {
-	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 	min-height: 80px;
 	padding: 10px 10px;
@@ -35,12 +33,18 @@ h1.feed-title {
 	align-items: center;
 	font-size: 20px;
 	font-family: HelveticaNeue-Light;
+	margin-left: 20px;
+	text-transform: capitalize;
 }
 
 p.feed-date {
 	color: #3498db;
     font-size: 13px;
     font-weight: bold;
+}
+
+.feed-data {
+	display:flex;
 }
 
 .feed-line {
@@ -51,4 +55,9 @@ p.feed-date {
 
 .feed-index-wrapper:hover {
 	background-color: aliceblue;
+}
+	
+.date-feed {
+    display: flex;
+    justify-content: flex-end;
 }
