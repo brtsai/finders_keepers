@@ -265,7 +265,6 @@ class Map extends React.Component {
 	}
 
 	addListingToMap(listing) {
-		console.log("addListingToMap: ", listing);
 
 		if (listing === null) return;
 		const marker = this.createNewMarker(
@@ -288,9 +287,7 @@ class Map extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		Object.values(nextProps.listings).forEach(listing => {
-			console.log("componentWillReceiveProps: ", listing);
-
-			if (this.state === null || this.state.markers[listing._id] === null) {
+			if (this.state === null || this.state.markers[listing._id] === undefined) {
 				this.addListingToMap(listing);
 			}
 		});
@@ -329,7 +326,6 @@ class Map extends React.Component {
 			nextProps.currentListing !== this.state.currentListing
 		) {
 			const currentListing = this.state.currentListing;
-			console.log("currentListing: ", currentListing);
 
 			if (currentListing !== undefined && currentListing !== null) {
 				const iconToSmallify = this.state.markers[currentListing].icon;
