@@ -85049,6 +85049,7 @@ var LiveFeed = function (_React$Component) {
 		};
 		_this.renderListingShowModal = _this.renderListingShowModal.bind(_this);
 		_this.openListingShowModal = _this.openListingShowModal.bind(_this);
+		_this.closeListingShowModal = _this.closeListingShowModal.bind(_this);
 		// this.handleMouseEnter = this.handleMouseEnter.bind(this);
 
 		return _this;
@@ -85065,10 +85066,18 @@ var LiveFeed = function (_React$Component) {
 			this.setState({ showingDisplayModal: true, clickedListing: listing });
 		}
 	}, {
+		key: "closeListingShowModal",
+		value: function closeListingShowModal() {
+			this.setState({ showDisplayModal: false });
+		}
+	}, {
 		key: "renderListingShowModal",
 		value: function renderListingShowModal() {
 			if (this.state.showingDisplayModal) {
-				return _react2.default.createElement(_listing_show_container2.default, { clickedListing: this.state.clickedListing });
+				return _react2.default.createElement(_listing_show_container2.default, {
+					clickedListing: this.state.clickedListing,
+					closeListingShowModal: this.closeListingShowModal
+				});
 			} else {
 				return _react2.default.createElement("div", { className: "to-be-decided" });
 			}
@@ -85085,7 +85094,7 @@ var LiveFeed = function (_React$Component) {
 				this.renderListingShowModal(),
 				_react2.default.createElement(
 					_Slide2.default,
-					{ right: true, cascade: true },
+					{ className: "testing", right: true, cascade: true },
 					_react2.default.createElement(
 						"div",
 						{ className: "feed-index" },
@@ -85846,8 +85855,6 @@ var ListingShow = function (_React$Component) {
   _createClass(ListingShow, [{
     key: "render",
     value: function render() {
-      // debugger;
-      console.log(this.props);
       return _react2.default.createElement(
         "div",
         { className: "listing-show" },

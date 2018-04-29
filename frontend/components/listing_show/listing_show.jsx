@@ -6,8 +6,6 @@ class ListingShow extends React.Component {
   }
 
   render () {
-    // debugger;
-    console.log(this.props);
     return (
       <div className="listing-show">
         <h1>hello</h1>
