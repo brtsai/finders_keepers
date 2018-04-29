@@ -9,6 +9,203 @@ class Map extends React.Component {
 		const mapOptions = {
 			center: { lat: latitude, lng: longitude }, // this is SF
 			zoom: 13,
+			styles: [
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "lightness": "-23"
+            },
+            {
+                "saturation": "100"
+            },
+            {
+                "weight": "8.21"
+            },
+            {
+                "color": "#f0730e"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "weight": "3.67"
+            },
+            {
+                "saturation": "64"
+            },
+            {
+                "lightness": "100"
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "gamma": "1.60"
+            },
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "lightness": "70"
+            },
+            {
+                "saturation": "-4"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#d3d3d3"
+            },
+            {
+                "lightness": "60"
+            },
+            {
+                "saturation": "0"
+            },
+            {
+                "gamma": "2.00"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "saturation": "80"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#c8e354"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "hue": "#ff9700"
+            },
+            {
+                "saturation": "43"
+            },
+            {
+                "lightness": "-10"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#0025bc"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "weight": "5"
+            },
+            {
+                "gamma": "1.85"
+            },
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#00b3ff"
+            },
+            {
+                "saturation": "69"
+            },
+            {
+                "lightness": "-38"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "lightness": "-97"
+            },
+            {
+                "saturation": "93"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "weight": "3.5"
+            },
+            {
+                "lightness": "100"
+            },
+            {
+                "saturation": "0"
+            },
+            {
+                "gamma": "1.02"
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ffffff"
+            }
+        ]
+    }
+]
 		};
 		// wrap the mapDOMNode in a Google Map
 		this.map = new google.maps.Map(this.mapNode, mapOptions);
