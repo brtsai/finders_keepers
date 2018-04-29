@@ -26,7 +26,7 @@ class LiveFeed extends React.Component {
 	}
 
 	closeListingShowModal() {
-		this.setState({showDisplayModal: false});
+		this.setState({showingDisplayModal: false});
 	}
 
 	renderListingShowModal() {

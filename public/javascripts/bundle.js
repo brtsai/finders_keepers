@@ -85199,7 +85199,7 @@ var LiveFeed = function (_React$Component) {
 	}, {
 		key: "closeListingShowModal",
 		value: function closeListingShowModal() {
-			this.setState({ showDisplayModal: false });
+			this.setState({ showingDisplayModal: false });
 		}
 	}, {
 		key: "renderListingShowModal",
