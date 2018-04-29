@@ -28,9 +28,11 @@ nav.navbar-container {
 
 .add-freebie-button {
 	background: #eb4d4b;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 4px 0px 0px #CE3323;
+    border: 1px solid white;
 }
 .add-freebie-button:hover {
 	background: #d63916;
@@ -47,6 +49,8 @@ nav.navbar-container {
 
 .auth-button {
 	background: #4d90fe;
+    border: 1px solid white;
+    box-shadow: 3px 4px 0px 1px #3C93D5;
 }
 .auth-button:hover {
 	background: #3079ed;
@@ -60,6 +64,7 @@ nav.navbar-container {
     font-family: HelveticaNeue-Light;
     font-size: 25px;
     margin-left: 11px;
+    text-transform: capitalize;
 }
 
 .user-profile-container {

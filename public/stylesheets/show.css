@@ -18,6 +18,8 @@ h1.listing-show-title {
     margin-bottom: 5px;
     padding: 10px;
     text-align: center;
+    background: #4d90fe;
+    color: white;
 }
 
 
@@ -27,8 +29,9 @@ h1.listing-show-title {
     top: 117px;
     right: 539px;
     width: 400px;
-    box-shadow: 0px 2px 2px 0px #c7c7c7;
+    box-shadow: 0px 3px 3px 0px #c7c7c7;
     min-height:600px;
+    border-radius: 10px;
 }
 
 p.listing-show-description {
@@ -38,7 +41,7 @@ p.listing-show-description {
 }
 
 .list-show-line {
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #4d90fe;
     margin: 0 auto;
     width: 200px;
     margin-bottom: 10px;
@@ -53,4 +56,7 @@ button.list-show-close-button {
     margin: 0 auto;
     display:flex;
     justify-content: center;
+    background: #4d90fe;
+    border: 0px solid white;
+    font-size: 17px;
 }
