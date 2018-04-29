@@ -1,0 +1,17 @@
+.user-profile-modal-container {
+    position: absolute;
+    background: white;
+    top: 68px;
+    left: 2px;
+    width: 1567px;
+    height: 900px;
+}
+
+.user-profile-header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+}

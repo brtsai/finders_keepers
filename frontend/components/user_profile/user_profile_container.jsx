@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 	});
 
 	return{
-		userListings: userListings
+		userListings: userListings,
+		auth: state.auth
 	};
 
 };

@@ -7,10 +7,16 @@ class UserProfile extends React.Component {
 	}
 
 	render(){
-		console.log(this.props.userListings);
+		const profileImage = this.props.auth.profileImage;
+		const profileUrl = profileImage.slice(0, profileImage.length - 2) + "300";
+		console.log(profileUrl);
+		
 		return (
-			<div>
-				<h1>Hello this is the user profile</h1>
+			<div className="user-profile-modal-container">
+				<div className="user-profile-header">
+					<img src ={profileUrl} />
+					<h1>{this.props.auth.displayName}</h1>
+				</div>
 			</div>
 		)
 	}
