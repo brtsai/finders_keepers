@@ -117,7 +117,6 @@ class AddFreebieForm extends React.Component {
 
 	render() {
 
-		console.log(this.state)
 		return (
 			<div className="errors-and-form-wrapper">
 				<ListingsErrorBanner />
