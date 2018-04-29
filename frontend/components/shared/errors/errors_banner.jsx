@@ -25,7 +25,11 @@ class ErrorsBanner extends React.Component {
 	}
 
 	render() {
-		return <React.Fragment>{this.willRender() ? this.renderErrorsList() : ""}</React.Fragment>;
+		return (
+			<React.Fragment>
+				{this.willRender() ? this.renderErrorsList() : ""}
+			</React.Fragment>
+		);
 	}
 }
 

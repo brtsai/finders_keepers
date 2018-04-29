@@ -6,7 +6,7 @@ import LiveFeedComponent from "./live_feed_component";
 const mapStateToProps = state => {
 	return {
 		listings: Object.values(state.entities.listings),
-		currentListing: state.ui.currentListing
+		currentListing: state.ui.currentListing,
 	};
 };
 

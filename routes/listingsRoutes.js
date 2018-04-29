@@ -41,14 +41,14 @@ module.exports = app => {
 	app.post("/listings", (req, res) => {
 		const newListing = new Listing(buildListingJSON(req.body));
 		newListing.save(err => {
-      if (err) {
-        // failure
-        res.status(400).send([err.message]);
-      } else { 
-        // success
-		    res.send(newListing);
-      }
-    });
+			if (err) {
+				// failure
+				res.status(400).send([err.message]);
+			} else {
+				// success
+				res.send(newListing);
+			}
+		});
 	});
 
 	app.delete("listings/:id", (req, res) => {
