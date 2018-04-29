@@ -25,6 +25,8 @@ class LiveFeed extends React.Component {
 		this.setState({showingDisplayModal: true, clickedListing: listing});
 	}
 
+
+
 	closeListingShowModal() {
 		this.setState({showingDisplayModal: false});
 	}
@@ -42,7 +44,7 @@ class LiveFeed extends React.Component {
 	}
 
 	render() {
-		// debugger;
+		console.log(this.state)
 		return (
 			<div className="listing-show-level">
 				{this.renderListingShowModal()}
@@ -54,7 +56,7 @@ class LiveFeed extends React.Component {
 									<div onClick={(e) => this.openListingShowModal(e, listing) } >
 										<ListingIndexItemContainer 
 											key={listing._id} 
-											listing={listing} 
+											listing={listing}
 										/>
 									</div>
 								);

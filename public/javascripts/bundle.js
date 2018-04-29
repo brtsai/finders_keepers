@@ -85218,7 +85218,7 @@ var LiveFeed = function (_React$Component) {
 		value: function render() {
 			var _this2 = this;
 
-			// debugger;
+			console.log(this.state);
 			return _react2.default.createElement(
 				"div",
 				{ className: "listing-show-level" },
@@ -85999,11 +85999,18 @@ var ListingShow = function (_React$Component) {
           { className: "listing-show-title" },
           this.props.clickedListing.title
         ),
+        _react2.default.createElement("div", { className: "list-show-line" }),
         _react2.default.createElement("img", { className: "listing-show-img", src: this.props.clickedListing.imageUrl }),
+        _react2.default.createElement("div", { className: "list-show-line" }),
         _react2.default.createElement(
           "p",
           { className: "listing-show-description" },
           this.props.clickedListing.description
+        ),
+        _react2.default.createElement(
+          "button",
+          { onClick: this.props.closeListingShowModal, className: "list-show-close-button" },
+          "X"
         )
       );
     }

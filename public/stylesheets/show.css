@@ -1,19 +1,62 @@
 img.listing-show-img {
-    height: 150px;
-    width: 150px;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 h1.listing-show-title {
     font-size: 32px;
     text-transform: capitalize;
-    font-family: arial;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    margin-top: 13px;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    background: #4d90fe;
+    color: white;
 }
 
 
 .listing-show {
 	background: white;
-    border: 2px solid black;
     position: absolute;
-    top: 121px;
-    right: 605px;
+    top: 117px;
+    right: 539px;
+    width: 400px;
+    box-shadow: 0px 3px 3px 0px #c7c7c7;
+    min-height:600px;
+    border-radius: 10px;
+}
+
+p.listing-show-description {
+    display: flex;
+    justify-content: center;
+    font-family: Arial;
+}
+
+.list-show-line {
+    border-bottom: 2px solid #4d90fe;
+    margin: 0 auto;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+button.list-show-close-button {
+    color: red;
+    font-weight: bold;
+    height: 50px;
+    width: 100px;
+    border-radius: 4px;
+    margin: 0 auto;
+    display:flex;
+    justify-content: center;
+    background: #4d90fe;
+    border: 0px solid white;
+    font-size: 17px;
 }
