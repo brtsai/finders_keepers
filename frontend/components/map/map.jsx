@@ -276,6 +276,10 @@ class Map extends React.Component {
         const iconToSmallify = this.state.markers[currentListing].icon;
         iconToSmallify.scale = 0.9;
         this.state.markers[currentListing].setIcon(iconToSmallify);
+        
+        const query = `#label-for-listing-${currentListing}`;
+        const markerLabel = document.querySelector(query);
+        markerLabel.classList.remove('larger-map-icon');
       }
       
       const nextListing = nextProps.currentListing;
@@ -284,14 +288,10 @@ class Map extends React.Component {
         const iconToEnlarge = this.state.markers[nextListing].icon;
         iconToEnlarge.scale = 1.35;
         this.state.markers[nextListing].setIcon(iconToEnlarge);
-        console.log('querying for map marker label');
+        
         const query = `#label-for-listing-${nextListing}`;
-        console.log(query);
         const markerLabel = document.querySelector(query);
-        console.log(markerLabel);
-        console.log(markerLabel.classList);
         markerLabel.classList.add('larger-map-icon');
-        console.log(markerLabel.classList);
       }
       this.setState({
         currentListing: nextListing
