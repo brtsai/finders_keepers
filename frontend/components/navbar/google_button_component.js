@@ -12,7 +12,7 @@ class GoogleButton extends React.Component {
 				return;
 			case false:
 				return (
-					<a href="/auth/google">
+					<a className="auth-button-link" href="/auth/google">
 						<button className="auth-button">login with google</button>
 					</a>
 				);

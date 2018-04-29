@@ -50,27 +50,31 @@ button.errors-banner-close {
 
 .form-container label {
 	text-align: center;
-	color: #eb4d4b;
+	color: #4d90fe;
 	font-size: 15px;
 	text-align: left;
+
 }
 
 form.form-container input {
 	width: 100%;
 	padding: 10px;
-	border: 2px solid #eb4d4b;
+	border: 2px solid #4d90fe;
 	border-radius: 4px;
 	margin: 7px 0 5px 0;
 }
 
 h1.form-header {
 	font-size: 30px;
-	color: #eb4d4b;
+    color: #eb4d4b;
+    background: #4d90fe;
+    color: white;
+    padding: 5px;
 }
 
 .form-label textarea {
 	resize: none;
-	border: 2px solid #eb4d4b;
+	border: 2px solid #4d90fe;
 	width: 100%;
 	padding: 10px;
 	border-radius: 4px;
@@ -78,14 +82,14 @@ h1.form-header {
 }
 
 button.form-submit-button {
-	background: #eb4d4b;
+	background: #4d90fe;
 	cursor: pointer;
 	border-radius: 4px;
 	text-align: center;
 }
 
 button.form-submit-button:hover {
-	background: #d63916;
+	background: #3079ed;
 	cursor: pointer;
 }
 

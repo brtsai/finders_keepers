@@ -26,16 +26,15 @@ nav.navbar-container {
 	cursor: pointer;
 }
 
+
+
 .add-freebie-button {
-	background: #eb4d4b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 3px 4px 0px 0px #CE3323;
+    background: #4d90fe;
     border: 1px solid white;
+    box-shadow: 3px 4px 0px 1px #3C93D5;
 }
 .add-freebie-button:hover {
-	background: #d63916;
+	background: #3079ed;
 	cursor: pointer;
 }
 
@@ -48,12 +47,15 @@ nav.navbar-container {
 }
 
 .auth-button {
-	background: #4d90fe;
+	background: #eb4d4b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 4px 0px 0px #CE3323;
     border: 1px solid white;
-    box-shadow: 3px 4px 0px 1px #3C93D5;
 }
 .auth-button:hover {
-	background: #3079ed;
+	background: #d63916;
 	cursor: pointer;
 }
 
@@ -74,3 +76,13 @@ nav.navbar-container {
 .user-profile-container img {
     border-radius: 100%;
 }
+
+a.auth-button-link {
+    text-decoration: none;
+}
+
+p.homepage-logo {
+	font-family: 'Black Han Sans', sans-serif;
+}
+
+
