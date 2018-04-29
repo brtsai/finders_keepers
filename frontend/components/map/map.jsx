@@ -269,11 +269,21 @@ class Map extends React.Component {
     });
 
     if (this.state !== null && nextProps.currentListing !== this.state.currentListing) {
+      console.log(this.state);
+      const currentListing = this.state.currentListing;
+      console.log(currentListing);
+      if (currentListing !== undefined && currentListing !== null) {
+        console.log('smallifying current listing icon');
+
+        const iconToSmallify = this.state.markers[currentListing].icon;
+        iconToSmallify.scale = 0.9;
+        this.state.markers[currentListing].setIcon(iconToSmallify);
+      }
       const nextListing = nextProps.currentListing;
-      this.state.markers[nextListing].icon.scale = 1.8;
-      const icon = this.state.markers[nextListing].icon;
-      icon.scale = 1.8;
-      this.state.markers[nextListing].setIcon(icon);
+      console.log(nextListing);
+      const iconToEnlarge = this.state.markers[nextListing].icon;
+      iconToEnlarge.scale = 1.35;
+      this.state.markers[nextListing].setIcon(iconToEnlarge);
       this.setState({
         currentListing: nextListing
       });
