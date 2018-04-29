@@ -22,7 +22,7 @@ class AddFreebieForm extends React.Component {
 			imageUrl: null,
 			title: null,
 			description: null,
-			marker: null,
+			marker: "misc",
 		};
 
 		this.listingHandler = this.listingHandler.bind(this);
