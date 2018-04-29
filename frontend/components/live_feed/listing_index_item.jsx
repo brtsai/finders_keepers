@@ -19,7 +19,7 @@ class ListingIndexItem extends React.Component {
 				<div className="feed-index-item">
 					<div className="date-feed">
 						<p className="feed-date">
-							{new Date(listing.created_at).toDateString()}
+							{new Date(listing.created_at).toLocaleString()}
 						</p>
 					</div>
 					<div className="feed-data">
