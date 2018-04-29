@@ -84972,12 +84972,13 @@ var UserIcon = function (_React$Component) {
 		key: "render",
 		value: function render() {
 			return _react2.default.createElement(
-				"button",
-				null,
+				"div",
+				{ className: "user-profile-container" },
+				_react2.default.createElement("img", { src: this.props.auth.profileImage }),
 				_react2.default.createElement(
 					"p",
 					null,
-					this.props.auth._id
+					this.props.auth.displayName
 				)
 			);
 		}

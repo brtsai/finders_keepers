@@ -52,3 +52,20 @@ nav.navbar-container {
 	background: #3079ed;
 	cursor: pointer;
 }
+
+
+.user-profile-container p {
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+    font-size: 25px;
+    margin-left: 11px;
+}
+
+.user-profile-container {
+    display: flex;
+}
+
+.user-profile-container img {
+    border-radius: 100%;
+}

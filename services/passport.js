@@ -29,7 +29,7 @@ passport.use(
 				if (existingUser) {
 					done(null, existingUser);
 				} else {
-					new User({ googleId: profile.id, displayName: profile.displayName, profileImage: profile.image})
+					new User({ googleId: profile.id, displayName: profile.displayName, profileImage: profile.photos[0].value })
 						.save()
 						.then(user => done(null, user));
 				}
