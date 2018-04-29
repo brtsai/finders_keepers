@@ -284,7 +284,6 @@ class Map extends React.Component {
       
       const nextListing = nextProps.currentListing;
       if (nextListing !== null) {
-        console.log(this.state.markers[nextListing]);
         const iconToEnlarge = this.state.markers[nextListing].icon;
         iconToEnlarge.scale = 1.35;
         this.state.markers[nextListing].setIcon(iconToEnlarge);
