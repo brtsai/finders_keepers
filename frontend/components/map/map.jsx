@@ -217,16 +217,16 @@ class Map extends React.Component {
     this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
 	}
 
-	createNewMarker(lat, lng, map, marker) {
+	createNewMarker(lat, lng, map, marker, id) {
 
 		const categoryMarkers = {
-			"food": {icon: '<span class="map-icon map-icon-restaurant"></span>', color: '#0E77E9' },
-			"furniture": {icon: '<span class="map-icon map-icon-furniture-store"></span>', color: '#7C238C'} ,
-			"misc": {icon: '<span class="map-icon map-icon-search"></span>', color: '#502274'},
-			"clothing": {icon: '<span class="map-icon map-icon-clothing-store"></span>', color: '#DDFBD2'} ,
-			"toys": {icon: '<span class="map-icon map-icon-amusement-park"></span>', color: '#E57A44'} ,
-			"media": {icon: '<span class="map-icon map-icon-movie-theater"></span>', color: '#DE639A'} ,
-			"survival": {icon: '<span class="map-icon map-icon-doctor"></span>', color: '#F45B69' } ,
+			"food": {icon: `<span id="${id}" class="map-icon map-icon-restaurant"></span>`, color: '#0E77E9' },
+			"furniture": {icon: `<span id="${id}" class="map-icon map-icon-furniture-store"></span>`, color: '#7C238C'} ,
+			"misc": {icon: `<span id="${id}" class="map-icon map-icon-search"></span>`, color: '#502274'},
+			"clothing": {icon: `<span id="${id}" class="map-icon map-icon-clothing-store"></span>`, color: '#DDFBD2'} ,
+			"toys": {icon: `<span id="${id}" class="map-icon map-icon-amusement-park"></span>`, color: '#E57A44'} ,
+			"media": {icon: `<span id="${id}" class="map-icon map-icon-movie-theater"></span>`, color: '#DE639A'} ,
+			"survival": {icon: `<span id="${id}" class="map-icon map-icon-doctor"></span>`, color: '#F45B69' } ,
 		};
 
 		return new mapIcons.Marker({
@@ -250,7 +250,8 @@ class Map extends React.Component {
 			listing.latitude,
 			listing.longitude,
 			this.map,
-			listing.marker
+			listing.marker,
+      listing._id
 		);
 
 		this.setState(prevState => {
@@ -277,6 +278,7 @@ class Map extends React.Component {
       }
       const nextListing = nextProps.currentListing;
       if (nextListing !== null) {
+        console.log(this.state.markers[nextListing]);
         const iconToEnlarge = this.state.markers[nextListing].icon;
         iconToEnlarge.scale = 1.35;
         this.state.markers[nextListing].setIcon(iconToEnlarge);
