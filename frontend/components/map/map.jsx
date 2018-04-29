@@ -1,5 +1,5 @@
 import React from "react";
-
+import { merge } from 'lodash';
 
 class Map extends React.Component {
 	componentDidMount() {
@@ -213,7 +213,7 @@ class Map extends React.Component {
 			markers: {},
       currentListing: null,
 		};
-    
+    this.addListingToMap = this.addListingToMap.bind(this);
     this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
 	}
 
@@ -252,11 +252,14 @@ class Map extends React.Component {
 			this.map,
 			listing.marker
 		);
-		this.setState({
-			markers: {
-				[listing._id]: marker,
-			},
-		});
+
+		this.setState(prevState => {
+      console.log(this.state);
+      const currentMarkers = (prevState === null ? {} : prevState.markers);
+      const combinedMarkers = merge({}, currentMarkers, { [listing._id]: marker });
+      
+      return { markers: combinedMarkers };
+    });
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -268,8 +271,17 @@ class Map extends React.Component {
         this.addListingToMap(listing);
       }
     });
-    console.log(nextProps.currentListing);
 
+    if (this.state !== null && nextProps.currentListing !== this.state.currentListing) {
+      console.log('new current listing selected');
+      console.log(nextProps.currentListing);
+      const nextListing = nextProps.currentListing;
+      console.log(this.state.markers);
+      console.log(this.state.markers[nextListing]);
+      this.setState({
+        currentListing: nextListing
+      });
+    }
 	}
 
 	render() {
