@@ -51,7 +51,8 @@ module.exports = app => {
 		});
 	});
 
-	app.delete("listings/:id", (req, res) => {
+	app.delete("/listings/:id", (req, res) => {
+
 		const listing = Listing.findOneAndRemove({ _id: req.params.id }, function(
 			err,
 			doc
@@ -60,7 +61,7 @@ module.exports = app => {
 		});
 	});
 
-	app.patch("listings/:id", (req, res) => {
+	app.patch("/listings/:id", (req, res) => {
 		const listing = Listing.findOneAndUpdate(
 			{ _id: req.params.id },
 			req.body,
