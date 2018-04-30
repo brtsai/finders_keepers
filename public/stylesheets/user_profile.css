@@ -32,7 +32,12 @@
 
 ul.user-profile-list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+ul.user-profile-list>* {
+    flex: 0 0 20%;
 }
 
 li.user-listing-item {
@@ -97,4 +102,25 @@ button.user-listing-delete {
     text-decoration: none;
     color: black;
     font-size: 24px;
+}
+
+.user-button-close-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 11px;
+    margin-top: 6px;
+}
+
+.user-button-close-container button {
+    color: black;
+    font-size: 15px;
+}
+
+.user-button-close-container button:hover {
+    color: red;
+}
+
+.user-profile-listings-wrapper {
+    height: calc(100% - 360px);
+    overflow: scroll;
 }

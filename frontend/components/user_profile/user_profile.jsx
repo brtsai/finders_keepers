@@ -42,6 +42,10 @@ class UserProfile extends React.Component {
 		
 		return (
 			<div className="user-profile-modal-container">
+				<div className="user-button-close-container">
+					<button onClick={this.props.close}>Close</button>
+				</div>
+
 				<div className="user-profile-header">
 					<img src ={profileUrl} />
 					<h1>{this.props.auth.displayName}</h1>
@@ -62,7 +66,7 @@ class UserProfile extends React.Component {
 					</ul>
 				</div>
 
-        <button onClick={this.props.close}>Close</button>
+        
 			</div>
 		)
 	}

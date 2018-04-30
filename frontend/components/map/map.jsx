@@ -229,11 +229,11 @@ class Map extends React.Component {
 			},
 			misc: {
 				icon: `<span class="map-icon map-icon-search"></span>`,
-				color: "#502274",
+				color: "#000000",
 			},
 			clothing: {
 				icon: `<span class="map-icon map-icon-clothing-store"></span>`,
-				color: "#DDFBD2",
+				color: "#53917E",
 			},
 			toys: {
 				icon: `<span class="map-icon map-icon-amusement-park"></span>`,
