@@ -13,7 +13,6 @@ class ListingIndexItem extends React.Component {
 
 	render() {
 		let { listing } = this.props;
-		console.log(listing);
 		return (
 			<div className="feed-index-wrapper" 
 				onMouseEnter={this.handleMouseEnter}>

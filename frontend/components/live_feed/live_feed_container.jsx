@@ -9,7 +9,6 @@ import {
 import LiveFeedComponent from "./live_feed_component";
 
 const mapStateToProps = state => {
-	console.log("about to map state");
 	return {
 		listings: Object.values(state.entities.listings),
 		currentListing: state.ui.currentListing,

@@ -37,13 +37,11 @@ class Navbar extends React.Component {
 
 	renderUserProfileModal(){
 		if(this.state.showUserProfileModal === true){
-			console.log("this is rendering")
 			return (
 				<UserProfileContainer close = { this.closeUserModal } />
-			)
+			);
 		}else {
-			console.log("this is not rendering")
-			return null
+			return null;
 		}
 	}
 
@@ -66,7 +64,6 @@ class Navbar extends React.Component {
 	}
 
 	render() {
-		console.log(this.state)
 		return (
 			<nav className="navbar-container">
 				{this.renderUserProfileModal()}

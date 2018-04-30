@@ -17,26 +17,25 @@ class UserProfile extends React.Component {
 		if(this.state.currentlistingTab === "currentListing"){
 			const renderListings = this.props.userListings.map((listing) => {
 				 return <UserListingItem key={listing._id} deleteListing={this.props.deleteListing} listing={listing} />
-			})
-			return renderListings
+			});
+			return renderListings;
 		}else {
-			return <h1>Hello</h1>
+			return <h1>Hello</h1>;
 		}
 	}
 
 	currentListingLink(e){
 		e.preventDefault();
-		this.setState({ currentlistingTab: "currentListing"})
+		this.setState({ currentlistingTab: "currentListing"});
 
 	}
 
 	pastListingLink(e){
 		e.preventDefault();
-		this.setState({currentlistingTab: "pastListing"})
+		this.setState({currentlistingTab: "pastListing"});
 	}
 
 	render(){
-		console.log(this.props)
 		const profileImage = this.props.auth.profileImage;
 		const profileUrl = profileImage.slice(0, profileImage.length - 2) + "200";
 		
@@ -65,7 +64,7 @@ class UserProfile extends React.Component {
 
         
 			</div>
-		)
+		);
 	}
 }
 

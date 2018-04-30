@@ -47,7 +47,6 @@ class LiveFeed extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.listings);
 		return (
 			<div className="listing-show-level" onMouseLeave={this.handleMouseLeave}>
 				{this.renderListingShowModal()}

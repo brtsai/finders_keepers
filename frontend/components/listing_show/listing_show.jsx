@@ -6,7 +6,6 @@ class ListingShow extends React.Component {
 	}
 
 	render() {
-    console.log(this.props.clickedListing);
 		return (
 			<div className="listing-show">
 				<h1 className="listing-show-title">
