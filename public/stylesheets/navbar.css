@@ -67,20 +67,26 @@ nav.navbar-container {
     font-size: 25px;
     margin-left: 11px;
     text-transform: capitalize;
-    color:white;
+    color: white;
+
 }
 
 .user-profile-container {
     display: flex;
-    background: #C8E560;
     border-radius: 3px;
     padding: 1px 13px;
     cursor: pointer;
-    border: 2px solid black;
+    border: 1px solid white;
+    background: #3acc80;
+    box-shadow: 3px 4px 0px 0px #749207;
+    padding: 3px 10px;
 }
 
 .user-profile-container img {
     border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
 }
 
 a.auth-button-link {

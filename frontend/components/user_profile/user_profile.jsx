@@ -53,10 +53,7 @@ class UserProfile extends React.Component {
 
 				<div className="user-profile-links-container">
 					<div className="current-listing-link">
-						<a onClick={this.currentListingLink} href="">Current Listings</a>
-					</div>
-					<div className="past-listing-links">
-						<a onClick={this.pastListingLink} href="">Past Listings</a>
+						<button className="current-list-button" onClick={this.currentListingLink}>Current Listings</button>
 					</div>
 				</div>
 

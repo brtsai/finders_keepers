@@ -29,6 +29,7 @@
 .user-profile-list-wrapper img {
     width: 100%;
     height: 258px;
+    object-fit: cover;
 }
 
 ul.user-profile-list {
@@ -110,7 +111,7 @@ button.user-listing-delete {
 
 .user-profile-links-container a {
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 24px;
 }
 
@@ -123,6 +124,8 @@ button.user-listing-delete {
 .user-button-close-container button {
     color: black;
     font-size: 15px;
+    border: 1px solid white;
+    box-shadow: 2px 3px 0px 1px black;
 }
 
 .user-button-close-container button:hover {
@@ -136,11 +139,30 @@ button.user-listing-delete {
 }
 
 .current-listing-link {
-    padding: 7px;
+    margin: 9px 0px;
+}
+
+button.current-list-button {
+    background: #4d90fe;
+    border: 1px solid white;
+    box-shadow: 3px 4px 0px 1px #3C93D5;
+    font-size: 15px;
+}
+
+.current-listing-link a {
+    color: white;
 }
 
 .past-listing-links {
-    padding: 7px;
+    padding: 8px;
+    margin: 9px 0px;
+}
+
+button.past-list-button {
+    background: #F0642B;
+    border: 1px solid white;
+    box-shadow: 3px 4px 0px 1px #d44910;
+    font-size: 15px;
 }
 
 
