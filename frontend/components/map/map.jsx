@@ -265,7 +265,6 @@ class Map extends React.Component {
 	}
 
 	addListingToMap(listing) {
-
 		if (listing === null) return;
 		const marker = this.createNewMarker(
 			listing.latitude,
@@ -286,6 +285,17 @@ class Map extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+    if (this.state !== null && this.state.markers !== undefined) {
+      console.log('beginning comparison');
+      console.log(Object.keys(this.state.markers));
+      Object.keys(this.state.markers).forEach(listingId => {
+        if (nextProps.listings[listingId] === undefined) {
+          console.log('removing listing marker from map');
+          this.state.markers[listingId].setMap(null);
+        }
+      });
+    }
+
 		Object.values(nextProps.listings).forEach(listing => {
 			if (this.state === null || this.state.markers[listing._id] === undefined) {
 				this.addListingToMap(listing);
