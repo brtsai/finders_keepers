@@ -85404,7 +85404,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(state) {
 	return {
 		listings: Object.values(state.entities.listings),
-		currentListing: state.ui.currentListing
+		currentListing: state.ui.currentListing,
+		clickedListingId: state.ui.clickedListingId
 	};
 };
 
@@ -85470,15 +85471,15 @@ var LiveFeed = function (_React$Component) {
 	function LiveFeed(props) {
 		_classCallCheck(this, LiveFeed);
 
+		// this.state = {
+		// 	showingDisplayModal: false,
+		// 	clickedListing: null,
+		// };
 		var _this = _possibleConstructorReturn(this, (LiveFeed.__proto__ || Object.getPrototypeOf(LiveFeed)).call(this, props));
 
-		_this.state = {
-			showingDisplayModal: false,
-			clickedListing: null
-		};
 		_this.renderListingShowModal = _this.renderListingShowModal.bind(_this);
-		_this.openListingShowModal = _this.openListingShowModal.bind(_this);
-		_this.closeListingShowModal = _this.closeListingShowModal.bind(_this);
+		// this.openListingShowModal = this.openListingShowModal.bind(this);
+		// this.closeListingShowModal = this.closeListingShowModal.bind(this);
 		_this.handleMouseLeave = _this.handleMouseLeave.bind(_this);
 
 		return _this;
@@ -85490,22 +85491,17 @@ var LiveFeed = function (_React$Component) {
 			this.props.fetchListings();
 		}
 	}, {
-		key: "openListingShowModal",
-		value: function openListingShowModal(e, listing) {
-			this.setState({ showingDisplayModal: true, clickedListing: listing });
-		}
-	}, {
-		key: "closeListingShowModal",
-		value: function closeListingShowModal() {
-			this.setState({ showingDisplayModal: false });
+		key: "handleOpenListing",
+		value: function handleOpenListing(listing) {
+			this.props.closeListing();
+			this.props.openListing(listing._id);
 		}
 	}, {
 		key: "renderListingShowModal",
 		value: function renderListingShowModal() {
-			if (this.state.showingDisplayModal) {
+			if (this.props.clickedListingId) {
 				return _react2.default.createElement(_listing_show_container2.default, {
-					clickedListing: this.state.clickedListing,
-					closeListingShowModal: this.closeListingShowModal
+					closeListingShowModal: this.props.closeListing
 				});
 			} else {
 				return _react2.default.createElement("div", { className: "to-be-decided" });
@@ -85534,8 +85530,8 @@ var LiveFeed = function (_React$Component) {
 						this.props.listings.map(function (listing) {
 							return _react2.default.createElement(
 								"div",
-								{ onClick: function onClick(e) {
-										return _this2.openListingShowModal(e, listing);
+								{ onClick: function onClick() {
+										return _this2.handleOpenListing(listing);
 									}, key: listing._id },
 								_react2.default.createElement(_listing_index_item_container2.default, {
 									listing: listing
@@ -85749,7 +85745,9 @@ var _listing_show2 = _interopRequireDefault(_listing_show);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
-  return {};
+  return {
+    clickedListing: state.entities.listings[state.ui.clickedListingId]
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -85795,6 +85793,7 @@ var ListingShow = function (_React$Component) {
 	_createClass(ListingShow, [{
 		key: "render",
 		value: function render() {
+			console.log(this.props.clickedListing);
 			return _react2.default.createElement(
 				"div",
 				{ className: "listing-show" },
@@ -86111,7 +86110,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var defaultState = {
 	currentListing: null,
-	isDisplayingListing: false
+	clickedListingId: null
 };
 
 var UIReducer = function UIReducer() {
@@ -86131,11 +86130,11 @@ var UIReducer = function UIReducer() {
 			return newState;
 		case _types.OPEN_LISTING:
 			newState = (0, _merge2.default)({}, state);
-			newState.isDisplayingListing = true;
+			newState.clickedListingId = action.listingId;
 			return newState;
 		case _types.CLOSE_LISTING:
 			newState = (0, _merge2.default)({}, state);
-			newState.isDisplayingListing = false;
+			newState.clickedListingId = null;
 			return newState;
 		default:
 			return state;

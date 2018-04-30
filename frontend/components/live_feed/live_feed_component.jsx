@@ -6,13 +6,13 @@ import ListingShowContainer from "../listing_show/listing_show_container";
 class LiveFeed extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			showingDisplayModal: false,
-			clickedListing: null,
-		};
+		// this.state = {
+		// 	showingDisplayModal: false,
+		// 	clickedListing: null,
+		// };
 		this.renderListingShowModal = this.renderListingShowModal.bind(this);
-		this.openListingShowModal = this.openListingShowModal.bind(this);
-		this.closeListingShowModal = this.closeListingShowModal.bind(this);
+		// this.openListingShowModal = this.openListingShowModal.bind(this);
+		// this.closeListingShowModal = this.closeListingShowModal.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
 
 	}
@@ -21,20 +21,17 @@ class LiveFeed extends React.Component {
 		this.props.fetchListings();
 	}
 
-	openListingShowModal(e, listing) {
-		this.setState({ showingDisplayModal: true, clickedListing: listing });
+	handleOpenListing(listing) {
+		this.props.closeListing();
+		this.props.openListing(listing._id);
 	}
 
-	closeListingShowModal() {
-		this.setState({ showingDisplayModal: false });
-	}
 
 	renderListingShowModal() {
-		if (this.state.showingDisplayModal) {
+		if (this.props.clickedListingId) {
 			return (
 				<ListingShowContainer
-					clickedListing={this.state.clickedListing}
-					closeListingShowModal={this.closeListingShowModal}
+					closeListingShowModal={this.props.closeListing}
 				/>
 			);
 		} else {
@@ -55,7 +52,7 @@ class LiveFeed extends React.Component {
 						{this.props.listings
 							.map(listing => {
 								return (
-									<div onClick={(e) => this.openListingShowModal(e, listing) } key={listing._id}  >
+									<div onClick={() => this.handleOpenListing(listing)} key={listing._id}  >
 										<ListingIndexItemContainer 
 											listing={listing}
 										/>

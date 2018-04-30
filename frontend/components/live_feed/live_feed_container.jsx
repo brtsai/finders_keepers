@@ -12,6 +12,7 @@ const mapStateToProps = state => {
 	return {
 		listings: Object.values(state.entities.listings),
 		currentListing: state.ui.currentListing,
+		clickedListingId: state.ui.clickedListingId
 	};
 };
 

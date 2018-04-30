@@ -8,7 +8,7 @@ import {
 
 const defaultState = {
 	currentListing: null,
-	isDisplayingListing: false
+	clickedListingId: null
 };
 
 const UIReducer = (state = defaultState, action) => {
@@ -25,11 +25,11 @@ const UIReducer = (state = defaultState, action) => {
 			return newState;
 		case OPEN_LISTING:
 			newState = merge({}, state);
-			newState.isDisplayingListing = true;
+			newState.clickedListingId = action.listingId;
 			return newState;
 		case CLOSE_LISTING:
 			newState = merge({}, state);
-			newState.isDisplayingListing = false;
+			newState.clickedListingId = null;
 			return newState;
 		default:
 			return state;
