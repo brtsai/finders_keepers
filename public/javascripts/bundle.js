@@ -12334,7 +12334,7 @@ var createListing = exports.createListing = function createListing(formListing) 
 var deleteListing = exports.deleteListing = function deleteListing(listingId) {
 	return function (dispatch) {
 		return ListingApiUtil.deleteListing(listingId).then(function (listing) {
-			return dispatch(removeListing(listing));
+			return dispatch(removeListing(listing.data));
 		});
 	};
 };
