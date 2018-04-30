@@ -1,7 +1,17 @@
 import merge from "lodash/merge";
-import { SET_CURRENT_LISTING, CLEAR_CURRENT_LISTING } from "../actions/types";
+import { 
+	SET_CURRENT_LISTING, 
+	CLEAR_CURRENT_LISTING,
+	OPEN_LISTING,
+	CLOSE_LISTING
+} from "../actions/types";
 
-const UIReducer = (state = { currentListing: null }, action) => {
+const defaultState = {
+	currentListing: null,
+	isDisplayingListing: false
+};
+
+const UIReducer = (state = defaultState, action) => {
 	Object.freeze(state);
 	let newState;
 	switch (action.type) {
@@ -12,6 +22,14 @@ const UIReducer = (state = { currentListing: null }, action) => {
 		case CLEAR_CURRENT_LISTING:
 			newState = merge({}, state);
 			newState.currentListing = null;
+			return newState;
+		case OPEN_LISTING:
+			newState = merge({}, state);
+			newState.isDisplayingListing = true;
+			return newState;
+		case CLOSE_LISTING:
+			newState = merge({}, state);
+			newState.isDisplayingListing = false;
 			return newState;
 		default:
 			return state;
