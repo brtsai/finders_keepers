@@ -8588,6 +8588,8 @@ var RECEIVE_LISTING_ERRORS = exports.RECEIVE_LISTING_ERRORS = "RECEIVE_LISTING_E
 // UI Types
 var SET_CURRENT_LISTING = exports.SET_CURRENT_LISTING = "SET_CURRENT_LISTING";
 var CLEAR_CURRENT_LISTING = exports.CLEAR_CURRENT_LISTING = "CLEAR_CURRENT_LISTING";
+var OPEN_LISTING = exports.OPEN_LISTING = "OPEN_LISTING";
+var CLOSE_LISTING = exports.CLOSE_LISTING = "CLOSE_LISTING";
 
 /***/ }),
 /* 29 */
@@ -85413,6 +85415,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 		},
 		clearCurrentListing: function clearCurrentListing() {
 			return dispatch((0, _ui_actions.clearCurrentListing)());
+		},
+		openListing: function openListing(listingId) {
+			return dispatch((0, _ui_actions.openListing)(listingId));
+		},
+		closeListing: function closeListing() {
+			return dispatch((0, _ui_actions.closeListing)());
 		}
 	};
 };
@@ -85603,7 +85611,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.clearCurrentListing = exports.setCurrentListing = undefined;
+exports.closeListing = exports.openListing = exports.clearCurrentListing = exports.setCurrentListing = undefined;
 
 var _types = __webpack_require__(28);
 
@@ -85617,6 +85625,19 @@ var setCurrentListing = exports.setCurrentListing = function setCurrentListing(l
 var clearCurrentListing = exports.clearCurrentListing = function clearCurrentListing() {
 	return {
 		type: _types.CLEAR_CURRENT_LISTING
+	};
+};
+
+var openListing = exports.openListing = function openListing(listingId) {
+	return {
+		type: _types.OPEN_LISTING,
+		listingId: listingId
+	};
+};
+
+var closeListing = exports.closeListing = function closeListing() {
+	return {
+		type: _types.OPEN_LISTING
 	};
 };
 
@@ -86088,8 +86109,13 @@ var _types = __webpack_require__(28);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var defaultState = {
+	currentListing: null,
+	isDisplayingListing: false
+};
+
 var UIReducer = function UIReducer() {
-	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { currentListing: null };
+	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
 	var action = arguments[1];
 
 	Object.freeze(state);
@@ -86102,6 +86128,14 @@ var UIReducer = function UIReducer() {
 		case _types.CLEAR_CURRENT_LISTING:
 			newState = (0, _merge2.default)({}, state);
 			newState.currentListing = null;
+			return newState;
+		case _types.OPEN_LISTING:
+			newState = (0, _merge2.default)({}, state);
+			newState.isDisplayingListing = true;
+			return newState;
+		case _types.CLOSE_LISTING:
+			newState = (0, _merge2.default)({}, state);
+			newState.isDisplayingListing = false;
 			return newState;
 		default:
 			return state;
