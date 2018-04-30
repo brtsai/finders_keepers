@@ -5,8 +5,10 @@ const UserListingIndex = ({listing, deleteListing}) => {
 		<li className="user-listing-item">
 			<div className="user-profile-list-wrapper">
 				<img src={listing.imageUrl}></img>
-				<p>{listing.title}</p>
-				<p>{listing.description}</p>
+				<div className="user-listing-info">
+					<p>{listing.title}</p>
+					<p>{listing.description}</p>
+				</div>
 				<button onClick={() => deleteListing(listing._id)}>Delete Listing</button>
 			</div>
 		</li>
