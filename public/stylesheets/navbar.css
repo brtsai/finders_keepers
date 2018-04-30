@@ -64,7 +64,7 @@ nav.navbar-container {
     display: flex;
     align-items: center;
     font-family: Roboto;
-    font-size: 25px;
+    font-size: 20px;
     margin-left: 11px;
     text-transform: capitalize;
     color: white;
@@ -74,12 +74,11 @@ nav.navbar-container {
 .user-profile-container {
     display: flex;
     border-radius: 3px;
-    padding: 1px 13px;
     cursor: pointer;
     border: 1px solid white;
     background: #3acc80;
-    box-shadow: 3px 4px 0px 0px #749207;
-    padding: 3px 10px;
+    box-shadow: 3px 4px 0px 0px #29bf71;
+    padding: 1px 10px;
 }
 
 .user-profile-container img {
