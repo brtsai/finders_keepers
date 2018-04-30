@@ -286,11 +286,8 @@ class Map extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
     if (this.state !== null && this.state.markers !== undefined) {
-      console.log('beginning comparison');
-      console.log(Object.keys(this.state.markers));
       Object.keys(this.state.markers).forEach(listingId => {
         if (nextProps.listings[listingId] === undefined) {
-          console.log('removing listing marker from map');
           this.state.markers[listingId].setMap(null);
         }
       });
