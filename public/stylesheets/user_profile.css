@@ -1,11 +1,11 @@
 .user-profile-modal-container {
     position: absolute;
     background: white;
-    top: 5px;
+    top: 0px;
     width: 90vw;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 76px);
+    height: calc(100vh - 72px);
     box-shadow: 0px 2px 2px 0px #c7c7c7;
 }
 
@@ -13,8 +13,9 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 0 auto;
-    margin-top: 12px;
+    background-image: url("./user_profile_background.jpg");
+    background-size:auto;
+    align-items: center;
 }
 
 .user-profile-links-container {
@@ -63,6 +64,10 @@ li.user-listing-item {
 
 .user-profile-header img {
     border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    align-items: center;
 }
 
 .user-buttons-container {
@@ -105,10 +110,9 @@ button.user-listing-delete {
 }
 
 .user-button-close-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 11px;
-    margin-top: 6px;
+    position: absolute;
+    right: 5px;
+    top: 12px;
 }
 
 .user-button-close-container button {
@@ -124,3 +128,5 @@ button.user-listing-delete {
     height: calc(100% - 360px);
     overflow: scroll;
 }
+
+
