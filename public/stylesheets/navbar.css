@@ -67,10 +67,16 @@ nav.navbar-container {
     font-size: 25px;
     margin-left: 11px;
     text-transform: capitalize;
+    color:white;
 }
 
 .user-profile-container {
     display: flex;
+    background: #C8E560;
+    border-radius: 3px;
+    padding: 1px 13px;
+    cursor: pointer;
+    border: 2px solid black;
 }
 
 .user-profile-container img {

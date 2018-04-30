@@ -3,9 +3,9 @@ img.feed-img {
 	width: 100px;
 	border-radius: 100%;
 	padding: 5px;
-	box-shadow: 3px 3px 7px black;
-  -webkit-box-shadow: 3px 3px 7px black;
-  -moz-box-shadow: 3px 3px 7px black;
+	box-shadow: 3px 3px 7px #3498db;
+  -webkit-box-shadow: 3px 3px 7px #3498db;
+  -moz-box-shadow: 3px 3px 7px #3498db;
 }
 
 .feed-index-item {
