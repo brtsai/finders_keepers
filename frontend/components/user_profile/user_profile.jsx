@@ -61,6 +61,8 @@ class UserProfile extends React.Component {
 						{this.renderUserListings()}
 					</ul>
 				</div>
+
+        <button onClick={this.props.close}>Close</button>
 			</div>
 		)
 	}
