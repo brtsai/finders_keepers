@@ -132,6 +132,7 @@ button.user-listing-delete {
 .user-profile-listings-wrapper {
     height: calc(100% - 331px);
     overflow: scroll;
+    background: #F8F8FA;
 }
 
 .current-listing-link {
