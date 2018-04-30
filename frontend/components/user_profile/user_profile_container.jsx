@@ -1,7 +1,7 @@
 import React from "react" ;
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
-import { deleteListing } from '../../actions/listing_action';
+import { deleteListing } from '../../actions/listing_actions';
 
 
 const mapStateToProps = state => {
@@ -19,7 +19,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	deleteListing = (listingId) => dispatch(deleteListing(listingId))
+	deleteListing: (listingId) => dispatch(deleteListing(listingId))
 });
 
 

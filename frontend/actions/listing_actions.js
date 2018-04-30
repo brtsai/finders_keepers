@@ -45,7 +45,7 @@ export const createListing = formListing => dispatch =>
     }
 	);
 
-export const deleteListing = listingId => dispatch =>
+export const deleteListing = listingId => dispatch => 
 	ListingApiUtil.deleteListing(listingId).then(listing =>
 		dispatch(removeListing(listing))
 	);

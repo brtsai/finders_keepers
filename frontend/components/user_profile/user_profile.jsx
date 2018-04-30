@@ -16,7 +16,7 @@ class UserProfile extends React.Component {
 	renderUserListings(){
 		if(this.state.currentlistingTab === "currentListing"){
 			const renderListings = this.props.userListings.map((listing) => {
-				 return <UserListingItem deleteListing={this.props.deleteListing} listing={listing} />
+				 return <UserListingItem key={listing._id} deleteListing={this.props.deleteListing} listing={listing} />
 			})
 			return renderListings
 		}else {

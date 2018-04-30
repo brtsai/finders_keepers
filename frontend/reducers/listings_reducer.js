@@ -20,7 +20,7 @@ const listingsReducer = (state = {}, action) => {
 			return merge({}, state, { [action.listing.id]: action.listing });
 		case REMOVE_LISTING:
 			newState = merge({}, state);
-			delete newState[action.listing.id];
+			delete newState[action.listing._id];
 			return newState;
 		default:
 			return state;
