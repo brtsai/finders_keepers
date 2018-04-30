@@ -38,7 +38,7 @@ class UserProfile extends React.Component {
 	render(){
 		console.log(this.props)
 		const profileImage = this.props.auth.profileImage;
-		const profileUrl = profileImage.slice(0, profileImage.length - 2) + "300";
+		const profileUrl = profileImage.slice(0, profileImage.length - 2) + "200";
 		
 		return (
 			<div className="user-profile-modal-container">
