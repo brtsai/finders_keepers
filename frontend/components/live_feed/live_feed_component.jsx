@@ -14,7 +14,6 @@ class LiveFeed extends React.Component {
 		this.openListingShowModal = this.openListingShowModal.bind(this);
 		this.closeListingShowModal = this.closeListingShowModal.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
-
 	}
 
 	componentDidMount() {
@@ -53,25 +52,21 @@ class LiveFeed extends React.Component {
 				<Slide className="testing" right cascade>
 					<div className="feed-index">
 						{this.props.listings
-							.map(listing => {
-								return (
-									<div onClick={(e) => this.openListingShowModal(e, listing) } key={listing._id}  >
-										<ListingIndexItemContainer 
-											listing={listing}
-										/>
-									</div>
-								);
-							})
 							.sort((listingA, listingB) => {
-								let dateA = new Date(
-									listingA.props.children.props.listing.updated_at
-								);
-
-								let dateB = new Date(
-									listingB.props.children.props.listing.updated_at
-								);
+								let dateA = new Date(listingA.updatedAt);
+								let dateB = new Date(listingB.updatedAt);
 
 								return dateB - dateA;
+							})
+							.map(listing => {
+								return (
+									<div
+										onClick={e => this.openListingShowModal(e, listing)}
+										key={listing._id}
+									>
+										<ListingIndexItemContainer listing={listing} />
+									</div>
+								);
 							})}
 					</div>
 				</Slide>
