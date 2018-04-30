@@ -6,6 +6,7 @@ img.listing-show-img {
     justify-content: center;
     border-radius: 5px;
     margin-bottom: 10px;
+    object-fit: cover;
 }
 
 h1.listing-show-title {
