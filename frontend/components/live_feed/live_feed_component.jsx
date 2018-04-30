@@ -32,13 +32,10 @@ class LiveFeed extends React.Component {
 		this.props.openListing(listing._id);
 	}
 
-
 	renderListingShowModal() {
 		if (this.props.clickedListingId) {
 			return (
-				<ListingShowContainer
-					closeListingShowModal={this.props.closeListing}
-				/>
+				<ListingShowContainer closeListingShowModal={this.props.closeListing} />
 			);
 		} else {
 			return <div className="to-be-decided" />;
@@ -64,11 +61,11 @@ class LiveFeed extends React.Component {
 							})
 							.map(listing => {
 								return (
-									<div onClick={() => this.handleOpenListing(listing)} key={listing._id}  >
-										<ListingIndexItemContainer 
-											listing={listing}
-										/>
-									</div>
+									<Slide key={listing._id} right>
+										<div onClick={() => this.handleOpenListing(listing)}>
+											<ListingIndexItemContainer listing={listing} />
+										</div>
+									</Slide>
 								);
 							})}
 					</TransitionGroup>
