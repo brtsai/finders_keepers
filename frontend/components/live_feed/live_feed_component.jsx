@@ -2,6 +2,7 @@ import React from "react";
 import Slide from "react-reveal/Slide";
 import ListingIndexItemContainer from "./listing_index_item_container";
 import ListingShowContainer from "../listing_show/listing_show_container";
+import TransitionGroup from "react-transition-group/TransitionGroup";
 
 class LiveFeed extends React.Component {
 	constructor(props) {
@@ -14,6 +15,12 @@ class LiveFeed extends React.Component {
 		this.openListingShowModal = this.openListingShowModal.bind(this);
 		this.closeListingShowModal = this.closeListingShowModal.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
+
+		this.groupProps = {
+			appear: true,
+			enter: true,
+			exit: true,
+		};
 	}
 
 	componentDidMount() {
@@ -49,8 +56,8 @@ class LiveFeed extends React.Component {
 		return (
 			<div className="listing-show-level" onMouseLeave={this.handleMouseLeave}>
 				{this.renderListingShowModal()}
-				<Slide className="testing" right cascade>
-					<div className="feed-index">
+				<div className="feed-index">
+					<TransitionGroup {...this.groupProps}>
 						{this.props.listings
 							.sort((listingA, listingB) => {
 								let dateA = new Date(listingA.updatedAt);
@@ -60,16 +67,15 @@ class LiveFeed extends React.Component {
 							})
 							.map(listing => {
 								return (
-									<div
-										onClick={e => this.openListingShowModal(e, listing)}
-										key={listing._id}
-									>
-										<ListingIndexItemContainer listing={listing} />
-									</div>
+									<Slide key={listing._id} right>
+										<div onClick={e => this.openListingShowModal(e, listing)}>
+											<ListingIndexItemContainer listing={listing} />
+										</div>
+									</Slide>
 								);
 							})}
-					</div>
-				</Slide>
+					</TransitionGroup>
+				</div>
 			</div>
 		);
 	}

@@ -1,9 +1,9 @@
 img.feed-img {
 	height: 80px;
-    width: 80px;
-    border: 2px solid #3498db;
-    border-radius: 100%;
-    padding: 5px;
+	width: 80px;
+	border: 2px solid #3498db;
+	border-radius: 100%;
+	padding: 5px;
 }
 
 .feed-index-item {
@@ -23,7 +23,8 @@ img.feed-img {
 	background: white;
 	padding: 20px 10px;
 	max-height: 80vh;
-	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	box-shadow: 0px 2px 2px 0px #c7c7c7;
 	font-family: Arial;
 }
@@ -32,19 +33,19 @@ h1.feed-title {
 	display: flex;
 	align-items: center;
 	font-size: 25px;
-    font-family: 'Roboto';
+	font-family: "Roboto";
 	margin-left: 20px;
 	text-transform: capitalize;
 }
 
 p.feed-date {
 	color: #3498db;
-    font-size: 13px;
-    font-weight: bold;
+	font-size: 13px;
+	font-weight: bold;
 }
 
 .feed-data {
-	display:flex;
+	display: flex;
 }
 
 .feed-line {
@@ -56,24 +57,25 @@ p.feed-date {
 .feed-index-wrapper:hover {
 	background-color: #4d90fe;
 }
-	
+
 .date-feed {
-    display: flex;
-    justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .feed-index-wrapper {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .feed-index-wrapper:hover {
-    color: white;
+	color: white;
 }
 
-.feed-index-item:hover p, img {
-    color: white;
+.feed-index-item:hover p,
+img {
+	color: white;
 }
 
 .feed-index-item:hover img {
-   	border: 2px solid white;
+	border: 2px solid white;
 }
