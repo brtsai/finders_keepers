@@ -274,6 +274,8 @@ class Map extends React.Component {
 			listing._id
 		);
 
+    marker.addListener('click', () => this.props.open(listing._id));
+
 		this.setState(prevState => {
 			const currentMarkers = prevState === null ? {} : prevState.markers;
 			const combinedMarkers = merge({}, currentMarkers, {
