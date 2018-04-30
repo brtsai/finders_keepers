@@ -68,6 +68,8 @@ li.user-listing-item {
     justify-content: center;
     width: 200px;
     align-items: center;
+    margin-top: 22px;
+    border: 3px solid white;
 }
 
 .user-buttons-container {
@@ -78,9 +80,12 @@ li.user-listing-item {
 .user-profile-header h1 {
     text-align: center;
     margin-top: 14px;
-    font-size: 25px;
+    font-size: 32px;
     text-transform: capitalize;
     font-family: Roboto;
+    padding-bottom: 20px;
+    color: white;
+    font-weight: 300;
 }
 
 
@@ -125,8 +130,16 @@ button.user-listing-delete {
 }
 
 .user-profile-listings-wrapper {
-    height: calc(100% - 360px);
+    height: calc(100% - 331px);
     overflow: scroll;
+}
+
+.current-listing-link {
+    padding: 7px;
+}
+
+.past-listing-links {
+    padding: 7px;
 }
 
 
