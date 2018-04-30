@@ -20,6 +20,9 @@ class ListingShow extends React.Component {
 				<p className="listing-show-description">
 					{this.props.clickedListing.description}
 				</p>
+				<div className="listing-show-address">
+					<p>{this.props.clickedListing.address}</p>
+				</div>
 				<button
 					onClick={this.props.closeListingShowModal}
 					className="list-show-close-button"

@@ -38,7 +38,9 @@ h1.listing-show-title {
 p.listing-show-description {
     display: flex;
     justify-content: center;
-    font-family: Arial;
+    font-family: Roboto;
+    padding: 0px 50px;
+    text-align: left;
 }
 
 .list-show-line {
@@ -62,4 +64,11 @@ button.list-show-close-button {
     font-size: 17px;
     cursor: pointer;
     margin-top: 20px;
+}
+
+.listing-show-address {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-family: Roboto;
 }
