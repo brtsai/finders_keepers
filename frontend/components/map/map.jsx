@@ -274,7 +274,9 @@ class Map extends React.Component {
 			listing._id
 		);
 
-    marker.addListener('click', () => this.props.open(listing._id));
+		marker.addListener("click", () => this.props.open(listing._id));
+		marker.addListener("mouseover", () => this.props.set(listing._id));
+		marker.addListener("mouseout", () => this.props.clear());
 
 		this.setState(prevState => {
 			const currentMarkers = prevState === null ? {} : prevState.markers;
@@ -287,31 +289,36 @@ class Map extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-    if (this.state !== null && this.state.markers !== undefined) {
-      Object.keys(this.state.markers).forEach(listingId => {
-        if (nextProps.listings[listingId] === undefined) {
-          this.state.markers[listingId].setMap(null);
-        }
-      });
-    }
+		if (this.state !== null && this.state.markers !== undefined) {
+			Object.keys(this.state.markers).forEach(listingId => {
+				if (nextProps.listings[listingId] === undefined) {
+					this.state.markers[listingId].setMap(null);
+				}
+			});
+		}
 
 		Object.values(nextProps.listings).forEach(listing => {
-			if (this.state === null || this.state.markers[listing._id] === undefined) {
+			if (
+				this.state === null ||
+				this.state.markers[listing._id] === undefined
+			) {
 				this.addListingToMap(listing);
 			}
 		});
 
-		if (this.state !== null && nextProps.currentListing !== this.state.currentListing) {
+		if (
+			this.state !== null &&
+			nextProps.currentListing !== this.state.currentListing
+		) {
 			const currentListing = this.state.currentListing;
 			if (currentListing !== undefined && currentListing !== null) {
 				const iconToSmallify = this.state.markers[currentListing].icon;
 				iconToSmallify.scale = 0.9;
 				this.state.markers[currentListing].setIcon(iconToSmallify);
 
-        
-        const markerLabel = this.state.markers[currentListing].MarkerLabel;
-        markerLabel.div.children[0].classList.remove("larger-map-icon");
-        this.state.markers[currentListing].setLabel(markerLabel.outerHTML);
+				const markerLabel = this.state.markers[currentListing].MarkerLabel;
+				markerLabel.div.children[0].classList.remove("larger-map-icon");
+				this.state.markers[currentListing].setLabel(markerLabel.outerHTML);
 			}
 
 			const nextListing = nextProps.currentListing;
@@ -319,16 +326,19 @@ class Map extends React.Component {
 				const iconToEnlarge = this.state.markers[nextListing].icon;
 				iconToEnlarge.scale = 1.35;
 				this.state.markers[nextListing].setIcon(iconToEnlarge);
-        
-        const markerLabel = this.state.markers[nextListing].MarkerLabel;
-        markerLabel.div.children[0].classList.add("larger-map-icon");
-        this.state.markers[nextListing].setLabel(markerLabel.outerHTML);
+
+				const markerLabel = this.state.markers[nextListing].MarkerLabel;
+				markerLabel.div.children[0].classList.add("larger-map-icon");
+				this.state.markers[nextListing].setLabel(markerLabel.outerHTML);
 			}
 			this.setState({
 				currentListing: nextListing,
 			});
 		}
-		if ( this.state !== null && nextProps.currentListing !== this.state.currentListing) {
+		if (
+			this.state !== null &&
+			nextProps.currentListing !== this.state.currentListing
+		) {
 			const currentListing = this.state.currentListing;
 
 			if (currentListing !== undefined && currentListing !== null) {

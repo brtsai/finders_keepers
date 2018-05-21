@@ -1,9 +1,8 @@
 import React from "react";
 import UserListingItem from "./user_listing_item";
 
-
 class UserProfile extends React.Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.state = {
 			currentlistingTab: "currentListing",
@@ -12,33 +11,37 @@ class UserProfile extends React.Component {
 		this.pastListingLink = this.pastListingLink.bind(this);
 	}
 
-
-	renderUserListings(){
-		if(this.state.currentlistingTab === "currentListing"){
-			const renderListings = this.props.userListings.map((listing) => {
-				 return <UserListingItem key={listing._id} deleteListing={this.props.deleteListing} listing={listing} />
+	renderUserListings() {
+		if (this.state.currentlistingTab === "currentListing") {
+			const renderListings = this.props.userListings.map(listing => {
+				return (
+					<UserListingItem
+						key={listing._id}
+						deleteListing={this.props.deleteListing}
+						listing={listing}
+					/>
+				);
 			});
 			return renderListings;
-		}else {
+		} else {
 			return <h1>Hello</h1>;
 		}
 	}
 
-	currentListingLink(e){
+	currentListingLink(e) {
 		e.preventDefault();
-		this.setState({ currentlistingTab: "currentListing"});
-
+		this.setState({ currentlistingTab: "currentListing" });
 	}
 
-	pastListingLink(e){
+	pastListingLink(e) {
 		e.preventDefault();
-		this.setState({currentlistingTab: "pastListing"});
+		this.setState({ currentlistingTab: "pastListing" });
 	}
 
-	render(){
+	render() {
 		const profileImage = this.props.auth.profileImage;
 		const profileUrl = profileImage.slice(0, profileImage.length - 2) + "200";
-		
+
 		return (
 			<div className="user-profile-modal-container">
 				<div className="user-button-close-container">
@@ -46,27 +49,27 @@ class UserProfile extends React.Component {
 				</div>
 
 				<div className="user-profile-header">
-					<img src ={profileUrl} />
+					<img src={profileUrl} />
 					<h1>{this.props.auth.displayName}</h1>
 				</div>
 
 				<div className="user-profile-links-container">
 					<div className="current-listing-link">
-						<button className="current-list-button" onClick={this.currentListingLink}>Current Listings</button>
+						<button
+							className="current-list-button"
+							onClick={this.currentListingLink}
+						>
+							Current Listings
+						</button>
 					</div>
 				</div>
 
 				<div className="user-profile-listings-wrapper">
-					<ul className="user-profile-list">
-						{this.renderUserListings()}
-					</ul>
+					<ul className="user-profile-list">{this.renderUserListings()}</ul>
 				</div>
-
-        
 			</div>
 		);
 	}
 }
-
 
 export default UserProfile;

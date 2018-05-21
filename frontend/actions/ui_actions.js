@@ -1,8 +1,8 @@
-import { 
-	CLEAR_CURRENT_LISTING, 
+import {
+	CLEAR_CURRENT_LISTING,
 	SET_CURRENT_LISTING,
 	OPEN_LISTING,
-	CLOSE_LISTING
+	CLOSE_LISTING,
 } from "./types";
 
 export const setCurrentListing = listingId => ({
@@ -14,9 +14,9 @@ export const clearCurrentListing = () => ({
 	type: CLEAR_CURRENT_LISTING,
 });
 
-export const openListing = (listingId) => ({
+export const openListing = listingId => ({
 	type: OPEN_LISTING,
-	listingId
+	listingId,
 });
 
 export const closeListing = () => ({

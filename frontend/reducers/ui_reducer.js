@@ -1,14 +1,14 @@
 import merge from "lodash/merge";
-import { 
-	SET_CURRENT_LISTING, 
+import {
+	SET_CURRENT_LISTING,
 	CLEAR_CURRENT_LISTING,
 	OPEN_LISTING,
-	CLOSE_LISTING
+	CLOSE_LISTING,
 } from "../actions/types";
 
 const defaultState = {
 	currentListing: null,
-	clickedListingId: null
+	clickedListingId: null,
 };
 
 const UIReducer = (state = defaultState, action) => {
