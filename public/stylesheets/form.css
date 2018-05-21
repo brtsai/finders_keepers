@@ -16,7 +16,6 @@
 	border: 1px solid #ccc;
 	width: 340px;
 	text-align: center;
-	padding-top: 20px;
 	font-family: Arial;
 	box-shadow: 0px 2px 2px 0px #c7c7c7;
 }
@@ -67,9 +66,9 @@ form.form-container input {
 h1.form-header {
 	font-size: 30px;
     color: #eb4d4b;
-    background: #4d90fe;
+    background: linear-gradient(45deg, #2cb5e8, #47cf73);
     color: white;
-    padding: 5px;
+    padding: 16px;
 }
 
 .form-label textarea {
