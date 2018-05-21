@@ -51,6 +51,10 @@ class LiveFeed extends React.Component {
 			<div className="listing-show-level" onMouseLeave={this.handleMouseLeave}>
 				{this.renderListingShowModal()}
 				<div className="feed-index">
+					<div className="feed-title"> 
+						<h1> Live Feed </h1>
+					</div>
+
 					<TransitionGroup {...this.groupProps}>
 						{this.props.listings
 							.sort((listingA, listingB) => {
@@ -61,11 +65,13 @@ class LiveFeed extends React.Component {
 							})
 							.map(listing => {
 								return (
-									<Slide key={listing._id} collapse right>
-										<div onClick={() => this.handleOpenListing(listing)}>
-											<ListingIndexItemContainer listing={listing} />
-										</div>
-									</Slide>
+									<div className="listing-item-wrapper">
+										<Slide key={listing._id} collapse right>
+											<div onClick={() => this.handleOpenListing(listing)}>
+												<ListingIndexItemContainer listing={listing} />
+											</div>
+										</Slide>
+									</div>
 								);
 							})}
 					</TransitionGroup>

@@ -11,6 +11,15 @@ class Map extends React.Component {
 			zoom: 13,
 			styles: [
 				{
+					featureType: "poi",
+					elementType: "labels",
+					stylers: [
+						{
+							visibility: "off",
+						},
+					],
+				},
+				{
 					featureType: "administrative",
 					elementType: "labels.text.fill",
 					stylers: [

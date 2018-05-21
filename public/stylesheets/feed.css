@@ -1,11 +1,7 @@
 img.feed-img {
 	height: 100px;
 	width: 100px;
-	border-radius: 100%;
 	padding: 5px;
-	box-shadow: 3px 3px 7px #3498db;
-	-webkit-box-shadow: 3px 3px 7px #3498db;
-	-moz-box-shadow: 3px 3px 7px #3498db;
 	object-fit: cover;
 }
 
@@ -72,6 +68,14 @@ p.feed-date {
 
 .feed-index-wrapper:hover {
 	color: white;
+}
+
+.listing-item-wrapper:nth-child(even){
+
+}
+
+.listing-item-wrapper:nth-child(odd){
+	
 }
 
 .feed-index-item:hover p,
