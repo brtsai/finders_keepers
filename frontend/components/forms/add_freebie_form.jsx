@@ -126,6 +126,7 @@ class AddFreebieForm extends React.Component {
 							Title
 							<input onChange={this.update("title")} type="text" />
 						</label>
+						
 
 						<label className="form-label description">
 							Description
