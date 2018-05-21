@@ -51,7 +51,11 @@ class LiveFeed extends React.Component {
 			<div className="listing-show-level" onMouseLeave={this.handleMouseLeave}>
 				{this.renderListingShowModal()}
 				<div className="feed-index">
-					{/* <TransitionGroup className="test" {...this.groupProps}> */}
+					<div className="feed-header-title"> 
+						<h1> Live Feed </h1>
+					</div>
+
+					{/* <TransitionGroup {...this.groupProps}> */}
 						{this.props.listings
 							.sort((listingA, listingB) => {
 								let dateA = new Date(listingA.updatedAt);
@@ -61,11 +65,13 @@ class LiveFeed extends React.Component {
 							})
 							.map(listing => {
 								return (
-									// <Slide className="test1" key={listing._id} collapse right>
-										<div className="test2" onClick={() => this.handleOpenListing(listing)}>
-											<ListingIndexItemContainer listing={listing} />
-										</div>
-									// {/* </Slide> */}
+									<div className="listing-item-wrapper">
+										{/* <Slide  key={listing._id} collapse right> */}
+											<div className="Test" onClick={() => this.handleOpenListing(listing)}>
+												<ListingIndexItemContainer listing={listing} />
+											</div>
+										{/* </Slide> */}
+									</div>
 								);
 							})}
 					{/* </TransitionGroup> */}

@@ -1,12 +1,9 @@
 img.feed-img {
 	height: 100px;
 	width: 100px;
-	border-radius: 100%;
 	padding: 5px;
-	box-shadow: 3px 3px 7px #3498db;
-	-webkit-box-shadow: 3px 3px 7px #3498db;
-	-moz-box-shadow: 3px 3px 7px #3498db;
 	object-fit: cover;
+	border-radius: 8%;
 }
 
 .feed-index-item {
@@ -21,14 +18,12 @@ img.feed-img {
 
 .feed-index {
 	width: 400px;
-	border: 1px solid #ccc;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	right: 89px;
 	top: 117px;
 	background: white;
-	padding: 20px 10px;
 	max-height: 80vh;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -36,10 +31,18 @@ img.feed-img {
 	font-family: Arial;
 }
 
+.feed-header-title {
+    background: #4d90fe;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    padding: 19px;
+}
+
 h1.feed-title {
 	display: flex;
 	align-items: center;
-	font-size: 25px;
+	font-size: 20px;
 	font-family: "Roboto";
 	margin-left: 20px;
 	text-transform: capitalize;
@@ -78,6 +81,15 @@ p.feed-date {
 	color: white;
 }
 
+.listing-item-wrapper:nth-child(even){
+
+}
+
+.listing-item-wrapper:nth-child(odd){
+
+
+}
+
 .feed-index-item:hover p,
 img {
 	color: white;
@@ -86,3 +98,5 @@ img {
 .feed-index-item:hover img {
 	border: 2px solid white;
 }
+
+

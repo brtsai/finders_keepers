@@ -9,7 +9,17 @@ class Map extends React.Component {
 		const mapOptions = {
 			center: { lat: latitude, lng: longitude }, // this is SF
 			zoom: 13,
+			mapTypeControl: false,
 			styles: [
+				{
+					featureType: "poi",
+					elementType: "labels",
+					stylers: [
+						{
+							visibility: "off",
+						},
+					],
+				},
 				{
 					featureType: "administrative",
 					elementType: "labels.text.fill",
