@@ -53,7 +53,6 @@ button.errors-banner-close {
 	color: #4d90fe;
 	font-size: 15px;
 	text-align: left;
-
 }
 
 form.form-container input {
@@ -66,10 +65,10 @@ form.form-container input {
 
 h1.form-header {
 	font-size: 30px;
-    color: #eb4d4b;
-    background: #4d90fe;
-    color: white;
-    padding: 5px;
+	color: #eb4d4b;
+	background: #4d90fe;
+	color: white;
+	padding: 5px;
 }
 
 .form-label textarea {
@@ -106,6 +105,20 @@ button.form-submit-button:hover {
 	padding-left: 44px;
 }
 
+.form-autofill-button {
+	background: #eb4d4b;
+	cursor: pointer;
+	border-radius: 4px;
+	text-align: center;
+	margin: 5px;
+	border: 1px solid white;
+}
+
+.form-autofill-button:hover {
+	background: #d63916;
+	cursor: pointer;
+}
+
 .navbar-container button.form-close-button {
 	color: #b8b8b8;
 	background: none;
@@ -113,6 +126,7 @@ button.form-submit-button:hover {
 	border-radius: 4px;
 	text-align: center;
 }
+
 .navbar-container button.form-close-button:hover {
 	color: #eb4d4b;
 }
@@ -142,9 +156,8 @@ button.form-submit-button:hover {
 	display: flex;
 	flex-direction: row;
 	position: absolute;
-	bottom: 85px;
+	bottom: 135px;
 	left: 109px;
-	align-items: center;
 }
 
 i.fas.fa-plus {

@@ -126,7 +126,6 @@ class AddFreebieForm extends React.Component {
 							Title
 							<input onChange={this.update("title")} type="text" />
 						</label>
-						
 
 						<label className="form-label description">
 							Description
@@ -162,6 +161,12 @@ class AddFreebieForm extends React.Component {
 							Upload Image
 							{this.renderImagePreview()}
 						</label>
+
+						<input
+							type="submit"
+							className="form-autofill-button"
+							value="Autofill Demo Listing"
+						/>
 
 						<div className="form-submit-close-buttons">
 							<button className="form-submit-button">Submit</button>
