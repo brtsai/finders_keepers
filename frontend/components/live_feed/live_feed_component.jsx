@@ -16,11 +16,11 @@ class LiveFeed extends React.Component {
 		// this.closeListingShowModal = this.closeListingShowModal.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
 
-		this.groupProps = {
-			appear: true,
-			enter: true,
-			exit: true,
-		};
+		// this.groupProps = {
+		// 	appear: true,
+		// 	enter: true,
+		// 	exit: true,
+		// };
 	}
 
 	componentDidMount() {
@@ -51,7 +51,7 @@ class LiveFeed extends React.Component {
 			<div className="listing-show-level" onMouseLeave={this.handleMouseLeave}>
 				{this.renderListingShowModal()}
 				<div className="feed-index">
-					<TransitionGroup {...this.groupProps}>
+					{/* <TransitionGroup className="test" {...this.groupProps}> */}
 						{this.props.listings
 							.sort((listingA, listingB) => {
 								let dateA = new Date(listingA.updatedAt);
@@ -61,14 +61,14 @@ class LiveFeed extends React.Component {
 							})
 							.map(listing => {
 								return (
-									<Slide key={listing._id} collapse right>
-										<div onClick={() => this.handleOpenListing(listing)}>
+									// <Slide className="test1" key={listing._id} collapse right>
+										<div className="test2" onClick={() => this.handleOpenListing(listing)}>
 											<ListingIndexItemContainer listing={listing} />
 										</div>
-									</Slide>
+									// {/* </Slide> */}
 								);
 							})}
-					</TransitionGroup>
+					{/* </TransitionGroup> */}
 				</div>
 			</div>
 		);
