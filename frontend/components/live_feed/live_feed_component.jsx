@@ -48,35 +48,38 @@ class LiveFeed extends React.Component {
 
 	render() {
 		return (
-			<div className="listing-show-level" onMouseLeave={this.handleMouseLeave}>
-				{this.renderListingShowModal()}
-				<div className="feed-index">
-					<div className="feed-header-title"> 
-						<h1> Live Feed </h1>
-					</div>
 
-					{/* <TransitionGroup {...this.groupProps}> */}
-						{this.props.listings
-							.sort((listingA, listingB) => {
-								let dateA = new Date(listingA.updatedAt);
-								let dateB = new Date(listingB.updatedAt);
+				<div className="listing-show-level" onMouseLeave={this.handleMouseLeave}>
+					{this.renderListingShowModal()}
+						<div className="feed-index">
+					<div className="feed-background">
+							<div className="feed-header-title"> 
+								<h1> Live Feed </h1>
+							</div>
 
-								return dateB - dateA;
-							})
-							.map(listing => {
-								return (
-									<div className="listing-item-wrapper">
-										{/* <Slide  key={listing._id} collapse right> */}
-											<div className="Test" onClick={() => this.handleOpenListing(listing)}>
-												<ListingIndexItemContainer listing={listing} />
+							{/* <TransitionGroup {...this.groupProps}> */}
+								{this.props.listings
+									.sort((listingA, listingB) => {
+										let dateA = new Date(listingA.updatedAt);
+										let dateB = new Date(listingB.updatedAt);
+
+										return dateB - dateA;
+									})
+									.map(listing => {
+										return (
+											<div className="listing-item-wrapper">
+												{/* <Slide  key={listing._id} collapse right> */}
+													<div className="Test" onClick={() => this.handleOpenListing(listing)}>
+														<ListingIndexItemContainer listing={listing} />
+													</div>
+												{/* </Slide> */}
 											</div>
-										{/* </Slide> */}
-									</div>
-								);
-							})}
-					{/* </TransitionGroup> */}
+										);
+									})}
+							{/* </TransitionGroup> */}
+					</div>
+						</div>
 				</div>
-			</div>
 		);
 	}
 }

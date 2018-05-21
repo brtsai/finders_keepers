@@ -16,14 +16,16 @@ img.feed-img {
 	height: 100%;
 }
 
+.listing-item-wrapper {
+    background: white;
+    margin-bottom: 10px;
+}
+
 .feed-index {
 	width: 400px;
-	display: flex;
-	flex-direction: column;
 	position: absolute;
 	right: 89px;
 	top: 117px;
-	background: white;
 	max-height: 80vh;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -46,10 +48,11 @@ h1.feed-title {
 	font-family: "Roboto";
 	margin-left: 20px;
 	text-transform: capitalize;
+
 }
 
 p.feed-date {
-	color: #3498db;
+	color: black;
 	font-size: 13px;
 	font-weight: bold;
 }
@@ -81,15 +84,6 @@ p.feed-date {
 	color: white;
 }
 
-.listing-item-wrapper:nth-child(even){
-
-}
-
-.listing-item-wrapper:nth-child(odd){
-
-
-}
-
 .feed-index-item:hover p,
 img {
 	color: white;
@@ -98,5 +92,6 @@ img {
 .feed-index-item:hover img {
 	border: 2px solid white;
 }
+
 
 
