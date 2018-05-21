@@ -43,7 +43,7 @@
 	width: 100%;
 }
 
-button.errors-banner-close {
+.errors-banner-close {
 	color: red;
 	margin-top: 10px;
 }
@@ -80,14 +80,14 @@ h1.form-header {
 	margin: 7px 0 5px 0;
 }
 
-button.form-submit-button {
+.form-submit-button {
 	background: #4d90fe;
 	cursor: pointer;
 	border-radius: 4px;
 	text-align: center;
 }
 
-button.form-submit-button:hover {
+.form-submit-button:hover {
 	background: #3079ed;
 	cursor: pointer;
 }
@@ -111,7 +111,7 @@ button.form-submit-button:hover {
 	border-radius: 4px;
 	text-align: center;
 	margin: 5px;
-	border: 1px solid white;
+	border-color: white;
 }
 
 .form-autofill-button:hover {
@@ -119,7 +119,7 @@ button.form-submit-button:hover {
 	cursor: pointer;
 }
 
-.navbar-container button.form-close-button {
+.navbar-container .form-close-button {
 	color: #b8b8b8;
 	background: none;
 	border: 1px solid light gray;
@@ -127,7 +127,7 @@ button.form-submit-button:hover {
 	text-align: center;
 }
 
-.navbar-container button.form-close-button:hover {
+.navbar-container .form-close-button:hover {
 	color: #eb4d4b;
 }
 

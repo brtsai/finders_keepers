@@ -28,6 +28,7 @@ class AddFreebieForm extends React.Component {
 		this.listingHandler = this.listingHandler.bind(this);
 		this.imageHandler = this.imageHandler.bind(this);
 		this.update = this.update.bind(this);
+		this.handleAutofill = this.handleAutofill.bind(this);
 	}
 
 	update(field) {
@@ -115,6 +116,21 @@ class AddFreebieForm extends React.Component {
 		}
 	}
 
+	handleAutofill() {
+		this.setState({
+			userId: this.props.userId,
+			address: "280 Battery St, San Francisco, CA 94111",
+			latitude: null,
+			longitude: null,
+			imageUrl:
+				"http://res.cloudinary.com/djbrisg12/image/upload/v1525065015/swmhnnlovstpsartigfp.jpg",
+			title: "Demo Hack Listing",
+			description:
+				"While learning CPR Chuck Norris actually brought the practice dummy to life.",
+			marker: "misc",
+		});
+	}
+
 	render() {
 		return (
 			<div className="errors-and-form-wrapper">
@@ -124,17 +140,28 @@ class AddFreebieForm extends React.Component {
 					<form className="form-container" onSubmit={this.listingHandler}>
 						<label className="form-label title">
 							Title
-							<input onChange={this.update("title")} type="text" />
+							<input
+								onChange={this.update("title")}
+								type="text"
+								value={this.state.title}
+							/>
 						</label>
 
 						<label className="form-label description">
 							Description
-							<textarea rows="7" onChange={this.update("description")} />
+							<textarea
+								rows="7"
+								onChange={this.update("description")}
+								value={this.state.description}
+							/>
 						</label>
 
 						<label>
 							Choose Marker
-							<select onChange={this.update("marker")}>
+							<select
+								onChange={this.update("marker")}
+								value={this.state.marker}
+							>
 								<option selected disabled>
 									Choose a Category
 								</option>
@@ -154,6 +181,7 @@ class AddFreebieForm extends React.Component {
 								onChange={this.update("address")}
 								className="address-input"
 								type="text"
+								value={this.state.address}
 							/>
 						</label>
 
@@ -163,9 +191,10 @@ class AddFreebieForm extends React.Component {
 						</label>
 
 						<input
-							type="submit"
+							type="button"
 							className="form-autofill-button"
 							value="Autofill Demo Listing"
+							onClick={this.handleAutofill}
 						/>
 
 						<div className="form-submit-close-buttons">
