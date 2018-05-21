@@ -51,7 +51,7 @@ class LiveFeed extends React.Component {
 			<div className="listing-show-level" onMouseLeave={this.handleMouseLeave}>
 				{this.renderListingShowModal()}
 				<div className="feed-index">
-					<div className="feed-title"> 
+					<div className="feed-header-title"> 
 						<h1> Live Feed </h1>
 					</div>
 
@@ -66,8 +66,8 @@ class LiveFeed extends React.Component {
 							.map(listing => {
 								return (
 									<div className="listing-item-wrapper">
-										<Slide key={listing._id} collapse right>
-											<div onClick={() => this.handleOpenListing(listing)}>
+										<Slide  key={listing._id} collapse right>
+											<div className="Test" onClick={() => this.handleOpenListing(listing)}>
 												<ListingIndexItemContainer listing={listing} />
 											</div>
 										</Slide>
