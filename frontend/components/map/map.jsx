@@ -275,6 +275,8 @@ class Map extends React.Component {
 		);
 
 		marker.addListener("click", () => this.props.open(listing._id));
+		marker.addListener("mouseover", () => this.props.set(listing._id));
+		marker.addListener("mouseout", () => this.props.clear());
 
 		this.setState(prevState => {
 			const currentMarkers = prevState === null ? {} : prevState.markers;
