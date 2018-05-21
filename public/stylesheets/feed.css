@@ -28,7 +28,7 @@ img.feed-img {
 }
 
 .feed-header-title {
-    background: #4d90fe;
+    background: linear-gradient(45deg, #2cb5e8, #47cf73);
     color: white;
     font-size: 25px;
     text-align: center;
