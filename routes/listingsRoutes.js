@@ -52,7 +52,6 @@ module.exports = app => {
 	});
 
 	app.delete("/listings/:id", (req, res) => {
-
 		const listing = Listing.findOneAndRemove({ _id: req.params.id }, function(
 			err,
 			doc
