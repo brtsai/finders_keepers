@@ -1,12 +1,9 @@
 img.feed-img {
 	height: 100px;
 	width: 100px;
-	border-radius: 100%;
 	padding: 5px;
-	box-shadow: 3px 3px 7px #3498db;
-	-webkit-box-shadow: 3px 3px 7px #3498db;
-	-moz-box-shadow: 3px 3px 7px #3498db;
 	object-fit: cover;
+	border-radius: 8%;
 }
 
 .feed-index-item {
@@ -15,16 +12,20 @@ img.feed-img {
 	padding: 10px 10px;
 }
 
+.test {
+	height: 100%;
+}
+
+.listing-item-wrapper {
+    background: white;
+    margin-bottom: 10px;
+}
+
 .feed-index {
 	width: 400px;
-	border: 1px solid #ccc;
-	display: flex;
-	flex-direction: column;
 	position: absolute;
 	right: 89px;
 	top: 117px;
-	background: white;
-	padding: 20px 10px;
 	max-height: 80vh;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -32,17 +33,26 @@ img.feed-img {
 	font-family: Arial;
 }
 
+.feed-header-title {
+    background: linear-gradient(45deg, #2cb5e8, #47cf73);
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    padding: 19px;
+}
+
 h1.feed-title {
 	display: flex;
 	align-items: center;
-	font-size: 25px;
+	font-size: 20px;
 	font-family: "Roboto";
 	margin-left: 20px;
 	text-transform: capitalize;
+
 }
 
 p.feed-date {
-	color: #3498db;
+	color: black;
 	font-size: 13px;
 	font-weight: bold;
 }
@@ -82,3 +92,6 @@ img {
 .feed-index-item:hover img {
 	border: 2px solid white;
 }
+
+
+

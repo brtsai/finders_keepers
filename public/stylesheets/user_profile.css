@@ -13,8 +13,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-image: url("./user_profile_background.jpg");
-    background-size:auto;
+    background: linear-gradient(45deg, #2cb5e8, #47cf73);
     align-items: center;
 }
 
@@ -97,6 +96,7 @@ button.user-listing-delete {
     justify-content: center;
     border: 1px solid white;
     margin-bottom: 10px;
+    box-shadow: 3px 4px 0px 0px #CE3323;
 }
 
 .user-listing-info p {
