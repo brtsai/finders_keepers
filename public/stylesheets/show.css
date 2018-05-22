@@ -71,6 +71,12 @@ button.list-show-close-button {
     font-size: 17px;
     cursor: pointer;
     margin-top: 20px;
+    background: #4d90fe;
+
+}
+
+button.list-show-close-button:hover {
+    background: #3079ed;
 }
 
 .listing-show-address {
