@@ -110,78 +110,12 @@ a.auth-button-link {
 	text-decoration: none;
 }
 
-p.homepage-logo {
-	font-family: 'Black Han Sans', sans-serif;
+
+.logo{
+	font-family: 'Monoton', cursive;
+	font-size: 31px;
+	color: red;
 }
 
-/* logo */
 
-/* body {
-	background-color: #1d1d1d;
-	position: relative;
-	overflow: hidden;
-} */
 
-.logo {
-	position: absolute;
-	/* transform: translate3d(-25%, -25%, 0);
-	top: 50%;
-	left: 50%; */
-	transform: scale(.15);
-	text-align: center;
-}
-
-.miami-vice,
-.metal {
-	width: auto;
-	font-size: 15em;
-	font-size: 25vw;
-	margin: 0 auto -0.1em;
-	line-height: 1em;
-}
-
-.miami-vice {
-	color: #86DEFF;
-	font-family: "Yellowtail", cursive;
-	font-weight: 300;
-	text-shadow: 0 0 .5em rgba(#86DEFF, .5);
-	position: relative;
-	transform: rotate3d(1, -1, 0, 35deg);
-	z-index: 2;
-	&:after {
-		content: attr(data-text);
-		color: #FA74FB;
-		position: absolute;
-		top: 0;
-		left: 50%;
-		text-shadow: 0 0 .5em rgba(#FA74FB, .5);
-		transform: translateX(calc(-50% - 0.05em));
-		z-index: -1;
-	}
-}
-
-.metal {
-	background-image: linear-gradient(#7795B0 0, #7795B0 3px, #6581B0 4px, #6380AE 30%, #DDC4C3 50%, #B9957F 50%, #B9957F 53%, #D18B2D 53%, #DDC4C3 80%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	color: white;
-	width: 100%;
-	font-family: 'Archivo Black', sans-serif;
-	font-size: 15vw;
-	line-height: 1em;
-	transform: rotate3d(1, -1, 0, 30deg);
-	&:before,
-	&:after {
-		content: attr(data-text);
-		background: none;
-		color: white;
-		width: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		text-shadow: 0 0 1em rgba(white, .3);
-	}
-	&:after {
-		z-index: -1;
-	}
-}

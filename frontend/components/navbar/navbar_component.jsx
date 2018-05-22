@@ -66,26 +66,23 @@ class Navbar extends React.Component {
 				{this.renderUserProfileModal()}
 
 				<div className="logo">
-					<h1 className="miami-vice" data-text="Finders">
-						Finders
-					</h1>
-					<h2 className="metal" data-text="Keepers">
-						Keepers
-					</h2>
+					Finders Keepers
 				</div>
 
-				<button
-					className="add-freebie-button"
-					onClick={this.openAddFreebieForm}
-				>
-					<span className="add-freebie-plus">+</span>
-					<span className="add-freebie-text">Add a Freebie</span>
-				</button>
+	
+					<button
+						className="add-freebie-button"
+						onClick={this.openAddFreebieForm}
+					>
+						<span className="add-freebie-plus">+</span>
+						<span className="add-freebie-text">Add a Freebie</span>
+					</button>
 
-				{this.renderModal()}
+					{this.renderModal()}
 
-				{this.renderUserIcon(this.props.auth)}
-				<GoogleButton auth={this.props.auth} />
+					{this.renderUserIcon(this.props.auth)}
+					<GoogleButton auth={this.props.auth} />
+
 			</nav>
 		);
 	}
