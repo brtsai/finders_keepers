@@ -64,6 +64,16 @@ class Navbar extends React.Component {
 		return (
 			<nav className="navbar-container">
 				{this.renderUserProfileModal()}
+
+				<div className="logo">
+					<h1 className="miami-vice" data-text="Finders">
+						Finders
+					</h1>
+					<h2 className="metal" data-text="Keepers">
+						Keepers
+					</h2>
+				</div>
+
 				<button
 					className="add-freebie-button"
 					onClick={this.openAddFreebieForm}
