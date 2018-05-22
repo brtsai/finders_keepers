@@ -13,14 +13,12 @@ img.feed-img {
 .listing-item-wrapper {
 	margin-bottom: 10px;
 	background: #F7F7F7;
-    opacity: 0.9;
+	opacity: 0.9;
 }
 
 .listing-item-wrapper:hover {
-	
-    opacity: 1;
+	opacity: 1;
 }
-
 
 .feed-index {
 	width: 400px;
