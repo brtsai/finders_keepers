@@ -6,19 +6,13 @@ img.feed-img {
 	border-radius: 8%;
 }
 
-.feed-index-item {
-	justify-content: space-between;
-	min-height: 80px;
-	padding: 10px 10px;
-}
-
 .test {
 	height: 100%;
 }
 
 .listing-item-wrapper {
-    background: white;
-    margin-bottom: 10px;
+	background: white;
+	margin-bottom: 10px;
 }
 
 .feed-index {
@@ -34,11 +28,11 @@ img.feed-img {
 }
 
 .feed-header-title {
-    background: linear-gradient(45deg, #2cb5e8, #47cf73);
-    color: white;
-    font-size: 25px;
-    text-align: center;
-    padding: 19px;
+	background: linear-gradient(45deg, #2cb5e8, #47cf73);
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	padding: 19px;
 }
 
 h1.feed-title {
@@ -48,7 +42,6 @@ h1.feed-title {
 	font-family: "HelveticaNeue-UltraLight";
 	margin-left: 20px;
 	text-transform: capitalize;
-
 }
 
 p.feed-date {
@@ -67,10 +60,6 @@ p.feed-date {
 	width: 300px;
 }
 
-.feed-index-wrapper:hover {
-	background-color: #4d90fe;
-}
-
 .date-feed {
 	display: flex;
 	justify-content: flex-end;
@@ -81,7 +70,14 @@ p.feed-date {
 }
 
 .feed-index-wrapper:hover {
+	background-color: #4d90fe;
 	color: white;
+}
+
+.feed-index-item {
+	justify-content: space-between;
+	min-height: 80px;
+	padding: 10px 10px;
 }
 
 .feed-index-item:hover p,
@@ -89,9 +85,6 @@ img {
 	color: white;
 }
 
-.feed-index-item:hover img {
+.feed-index-item img {
 	border: 2px solid white;
 }
-
-
-
