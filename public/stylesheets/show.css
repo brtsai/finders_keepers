@@ -33,6 +33,7 @@ h1.listing-show-title {
     border-radius: 10px;
 }
 
+h1,
 p {
     overflow-wrap: break-word;
     word-wrap: break-word;
