@@ -184,7 +184,7 @@ class AddFreebieForm extends React.Component {
 								className="address-input"
 								type="text"
 								value={this.state.address}
-								maxLength="50"
+								maxLength="80"
 							/>
 						</label>
 
