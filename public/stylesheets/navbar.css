@@ -83,14 +83,14 @@ nav.navbar-container {
 }
 
 .user-profile-container {
-    display: flex;
-    border-radius: 3px;
-    cursor: pointer;
-    border: 1px solid white;
-    background: linear-gradient(45deg, #2cb5e8, #47cf73);
-    box-shadow: 3px 4px 0px 0px #47cf73;
-    padding: 1px 10px;
-    outline: none;
+	display: flex;
+	border-radius: 3px;
+	cursor: pointer;
+	border: 1px solid white;
+	background: linear-gradient(45deg, #2cb5e8, #47cf73);
+	box-shadow: 3px 4px 0px 0px #47cf73;
+	padding: 1px 10px;
+	outline: none;
 }
 
 .user-profile-container:active {
