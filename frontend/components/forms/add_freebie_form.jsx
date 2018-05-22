@@ -144,6 +144,7 @@ class AddFreebieForm extends React.Component {
 								onChange={this.update("title")}
 								type="text"
 								value={this.state.title}
+								maxLength="40"
 							/>
 						</label>
 
@@ -153,6 +154,7 @@ class AddFreebieForm extends React.Component {
 								rows="7"
 								onChange={this.update("description")}
 								value={this.state.description}
+								maxLength="255"
 							/>
 						</label>
 
@@ -182,6 +184,7 @@ class AddFreebieForm extends React.Component {
 								className="address-input"
 								type="text"
 								value={this.state.address}
+								maxLength="50"
 							/>
 						</label>
 
