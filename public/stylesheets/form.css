@@ -40,6 +40,9 @@
 
 .errors-banner-list {
 	width: 100%;
+    color: red;
+    text-align: center;
+    font-family: Roboto;
 }
 
 .errors-banner-close {
@@ -106,16 +109,19 @@ h1.form-header {
 }
 
 .form-autofill-button {
-	background: #eb4d4b;
+	background: #4d90fe;
 	cursor: pointer;
 	border-radius: 4px;
 	text-align: center;
 	margin: 5px;
 	border-color: white;
+	color: white;
+	font-family: Roboto;
+	font-size: 13px;
 }
 
 .form-autofill-button:hover {
-	background: #d63916;
+	background: #3079ed;
 	cursor: pointer;
 }
 
@@ -166,4 +172,10 @@ i.fas.fa-plus {
 
 img.img-preview {
 	width: 100%;
+}
+
+button.errors-banner-close {
+    color: white;
+    background: #4d90fe;
+    border: none;
 }
