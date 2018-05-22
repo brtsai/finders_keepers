@@ -83,16 +83,6 @@ nav.navbar-container {
 }
 
 .user-profile-container {
-<<<<<<< HEAD
-	display: flex;
-	border-radius: 3px;
-	cursor: pointer;
-	border: 1px solid white;
-	background: #3acc80;
-	box-shadow: 3px 4px 0px 0px #29bf71;
-	padding: 1px 10px;
-	outline: none;
-=======
     display: flex;
     border-radius: 3px;
     cursor: pointer;
@@ -101,7 +91,6 @@ nav.navbar-container {
     box-shadow: 3px 4px 0px 0px #47cf73;
     padding: 1px 10px;
     outline: none;
->>>>>>> master
 }
 
 .user-profile-container:active {
